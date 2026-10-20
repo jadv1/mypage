@@ -22,8 +22,7 @@
             "outputPath": {
               "base": "docs/",
               "browser": ""
-            },            
-            "baseHref": "/mypage",
+            },
             "assets": [
               {
                 "glob": "**/*",
