@@ -23,7 +23,7 @@
               "base": "docs/",
               "browser": ""
             },            
-            "baseHref": "/mypage/",
+            "baseHref": "/mypage/docs",
             "assets": [
               {
                 "glob": "**/*",
