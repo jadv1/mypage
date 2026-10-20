@@ -5,8 +5,7 @@
   "compilerOptions": {
     "types": []
   },
-  "include": [
-    "docs/*.ts",
+  "include": [    
     "src/**/*.ts"
   ],
   "exclude": [
