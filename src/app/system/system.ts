@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './system.html',
 })
 export class System {
-  title = "system admin."
+  title = "system admin"
   getTitle(){
     return this.title;
   }  
