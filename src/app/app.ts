@@ -4,7 +4,7 @@ import { DataBases } from './data-bases/data-bases';
 import { TabGroupBasic } from './tab-group-basic/tab-group-basic';
 
 @Component({
-  imports: [DataBases, TabGroupBasic],
+  imports: [TabGroupBasic],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
