@@ -84,7 +84,8 @@ body {
 app-table-contents {
   @include mat.table-overrides((    
     header-headline-color: rgb(194, 101, 14),
-    header-headline-size: 14pt
+    header-headline-size: 14pt,    
+    row-item-outline-width: 0.1em
   ));
 }
 pre{
