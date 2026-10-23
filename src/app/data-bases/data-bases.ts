@@ -7,7 +7,20 @@ import { Component } from '@angular/core';
   templateUrl: './data-bases.html',
 })
 export class DataBases {
-  title = "Database Fundamentals"
+  title = "Database"
+  subjFBD = "DB Fundamentals"
+  subjDBD = "Design DB"
+  subjMADB = "Management & Admin. DB" 
+
+  getjDBF(){
+    return this.subjFBD;
+  }
+  getjDBD(){
+    return this.subjDBD;
+  }    
+  getjMADB(){
+    return this.subjMADB;
+  }
   getTitle(){
     return this.title;
   }

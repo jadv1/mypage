@@ -5,18 +5,25 @@ import { DataBases } from '../data-bases/data-bases';
 import { Programming } from '../programming/programming';
 import { SwPt } from '../sw-pt/sw-pt';
 import { System } from '../system/system';
+import { MatGridList, MatGridTile } from '@angular/material/grid-list';
+import { GridListDynamic } from '../grid-list-dynamic/grid-list-dynamic';
 
 @Component({  
   selector: 'app-tab-group-basic',
   styleUrl: './tab-group-basic.css',
   templateUrl: './tab-group-basic.html',
-  imports: [MatTabsModule,MatIconModule]
+  imports: [MatTabsModule, MatIconModule, MatGridList, MatGridTile]
 })
 export class TabGroupBasic {
   ngOnInit(): void {   
   }
+  tiles = new GridListDynamic();
+  db = new DataBases();
+  subjectDB = this.db.getTitle().toUpperCase();
+  subjectFDB = this.db.getjDBF().toUpperCase();
+  subjectDBD = this.db.getjDBD().toUpperCase();
+  subjectAMDB = this.db.getjMADB().toUpperCase();
   
-  subjectFDB = (new DataBases()).getTitle().toUpperCase();
   subjectP = (new Programming()).getTitle().toUpperCase();
   subjectSW = (new SwPt()).getTitle().toUpperCase();
   subjectSy = (new System()).getTitle().toUpperCase();

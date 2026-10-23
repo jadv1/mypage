@@ -7,14 +7,25 @@
 
 html {
   height: 100%;
+  color-scheme: light dark;
+  @include mat.system-classes();
   @include mat.theme(
     (
       color: (
         primary: mat.$cyan-palette,
         tertiary: mat.$orange-palette,
+        theme-type: light,
       ),
       typography: Roboto,
       density: 0,
+    )
+  );
+  @include mat.strong-focus-indicators(
+    (
+      border-color: red,
+      border-width: 4px,
+      border-radius: 2px,
+      border-style: dotted,
     )
   );
 }
@@ -26,6 +37,12 @@ mat-tab-group {
     active-focus-indicator-color: #369215,
     active-indicator-color: #369215,
     pagination-icon-color: red
+  ));
+}
+
+.bright-container {
+  @include mat.theme((
+    color: mat.$cyan-palette,
   ));
 }
 
@@ -45,4 +62,21 @@ body {
   // Reset the user agent margin.
   margin: 0;
   height: 100%;
+}
+
+.my-component {
+  background: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+  border: 1px solid var(--mat-sys-outline-variant);
+  font: var(--mat-sys-body-large);
+}
+
+.mat-bg-primary {
+  background-color: var(--mat-sys-primary);
+}
+
+:root {
+  @include mat.icon-overrides((
+    color: orange,
+  ));
 }
