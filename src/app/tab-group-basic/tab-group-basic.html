@@ -1,6 +1,26 @@
-<mat-tab-group>
-    <mat-tab label={{subjectFDB}}></mat-tab>    
-    <mat-tab label={{subjectP}}></mat-tab>    
-    <mat-tab label={{subjectSW}}></mat-tab>    
-    <mat-tab label={{subjectSy}}></mat-tab>    
+<mat-tab-group animationDuration="5000ms">
+    <mat-tab [class.tabs-overrides]>
+        <ng-template mat-tab-label>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+            {{subjectFDB}} 
+        </ng-template>
+        <ng-template matTabContent>
+            Content 1
+        </ng-template>
+    </mat-tab>    
+    <mat-tab [class.tabs-overrides] label={{subjectP}}>
+        <ng-template matTabContent>
+            Content 2
+        </ng-template>        
+    </mat-tab>    
+    <mat-tab [class.tabs-overrides] label={{subjectSW}}>
+        <ng-template matTabContent>
+            Content 3
+        </ng-template>
+    </mat-tab>
+    <mat-tab [class.tabs-overrides] label={{subjectSy}}>
+        <ng-template matTabContent>
+            Content 4
+    </ng-template>        
+    </mat-tab>    
 </mat-tab-group>

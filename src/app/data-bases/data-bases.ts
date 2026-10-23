@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './data-bases.html',
 })
 export class DataBases {
-  title = "dbf"
+  title = "Database Fundamentals"
   getTitle(){
     return this.title;
   }

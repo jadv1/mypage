@@ -19,6 +19,15 @@ html {
   );
 }
 
+mat-tab-group {
+  @include mat.tabs-overrides((    
+    active-indicator-height: 50px,
+    active-focus-label-text-color: rgb(27, 27, 149),
+    inactive-label-text-color:rgb(184, 181, 181),
+    active-focus-indicator-color: rgb(227, 255, 223),
+  ));
+}
+
 body {
   // Default the application to a light color theme. This can be changed to
   // `dark` to enable the dark color theme, or to `light dark` to defer to the

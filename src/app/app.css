@@ -11,6 +11,7 @@ header{
     padding: 2rem 1rem;
 }
 
-div a{
-    display: none;
+div {
+    display: block;
 }
+
