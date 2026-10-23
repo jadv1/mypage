@@ -8,10 +8,10 @@ export interface PeriodicElement {
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {topic: 'Database Relationship'},
-  {topic: 'Agregation'},
+  {topic: 'Agreggation'},
   {topic: 'Subqueries'},
   {topic: 'Columns arithmetics'},
-  {topic: 'Join'},
+  {topic: 'Joins'},
   {topic: 'Sets'},  
 ];
 
