@@ -7,16 +7,20 @@ import { SwPt } from '../sw-pt/sw-pt';
 import { System } from '../system/system';
 import { MatGridList, MatGridTile } from '@angular/material/grid-list';
 import { GridListDynamic } from '../grid-list-dynamic/grid-list-dynamic';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import { TableContents } from '../table-contents/table-contents';
 
 @Component({  
   selector: 'app-tab-group-basic',
   styleUrl: './tab-group-basic.css',
   templateUrl: './tab-group-basic.html',
-  imports: [MatTabsModule, MatIconModule, MatGridList, MatGridTile]
+  imports: [MatTabsModule, MatIconModule, MatGridList, MatGridTile, MatCardModule, MatTableModule, TableContents]
 })
 export class TabGroupBasic {
   ngOnInit(): void {   
   }
+
   tiles = new GridListDynamic();
   db = new DataBases();
   subjectDB = this.db.getTitle().toUpperCase();

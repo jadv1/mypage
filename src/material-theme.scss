@@ -77,6 +77,28 @@ body {
 
 :root {
   @include mat.icon-overrides((
-    color: orange,
+    color: rgb(3, 135, 23),
   ));
+}
+
+app-table-contents {
+  @include mat.table-overrides((    
+    header-headline-color: rgb(194, 101, 14),
+    header-headline-size: 14pt
+  ));
+}
+pre{
+  margin: 0;
+}
+
+.sql{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.sqlui{
+  color: #9334e6
+}
+
+.capitalize {
+    text-transform: uppercase;
 }

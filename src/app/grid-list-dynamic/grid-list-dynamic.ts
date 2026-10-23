@@ -17,11 +17,11 @@ export interface Tile {
 
 export class GridListDynamic {
     tiles: Tile[] = [
-    {text: 'One', cols: 4, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 2, color: 'lightpink'},
-    {text: 'Four', cols: 1, rows: 2, color: '#DDBDF1'},
-    {text: 'Five', cols: 1, rows: 2, color: '#DDBDF1'},
+    {text: 'One', cols: 2, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 2, rows: 1, color: 'lightgreen'},
+    {text: 'Three', cols: 4, rows: 1, color: 'lightpink'},
+    {text: 'Four', cols: 1, rows: 2, color: '#c1bdf1'},
+    {text: 'Five', cols: 3, rows: 2, color: '#DDBDF1'},
   ];
 
   getTiles(){

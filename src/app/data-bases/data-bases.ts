@@ -6,11 +6,13 @@ import { Component } from '@angular/core';
   styleUrl: './data-bases.css',
   templateUrl: './data-bases.html',
 })
+
 export class DataBases {
   title = "Database"
   subjFBD = "DB Fundamentals"
   subjDBD = "Design DB"
   subjMADB = "Management & Admin. DB" 
+
 
   getjDBF(){
     return this.subjFBD;
@@ -25,3 +27,5 @@ export class DataBases {
     return this.title;
   }
 }
+
+
