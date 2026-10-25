@@ -36,10 +36,34 @@ mat-tab-group {
     inactive-label-text-color:rgb(184, 181, 181),
     active-focus-indicator-color: #369215,
     active-indicator-color: #369215,
-    pagination-icon-color: red
+    pagination-icon-color: red,   
   ));
 }
 
+// mat-tab {  
+//   @include mat.tabs-overrides((
+//     position: sticky,    
+//     top: 0, /* Sets the sticky toolbar to be on top */
+//     z-index: 1000, /* Ensure that your app's content doesn't overlap the toolbar */
+    
+//   ));
+// }
+
+.app-toolbar {
+    position: fixed;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    width: 100%;
+    height: 100%;    
+}
+
+.app-toolbar-sub {
+    position: fixed;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 3.5em;
+    width: 100%;
+    height: 100%;    
+}
 .bright-container {
   @include mat.theme((
     color: mat.$cyan-palette,
@@ -81,6 +105,11 @@ body {
   ));
 }
 
+.leftmargin{
+  justify-content: left;
+  display: flex;
+}
+
 app-table-contents {
   @include mat.table-overrides((    
     header-headline-color: rgb(194, 101, 14),
@@ -102,4 +131,61 @@ pre{
 
 .capitalize {
     text-transform: uppercase;
+}
+
+
+
+// .card {
+//   max-width: 100em;
+//   max-height: 60em;
+//   width:  1600px;
+//   height: 900px;  
+// }
+@media screen and (max-width:700px),  screen and (max-width:1920px){
+  .card {
+    max-width: 100em;
+    max-height: 60em;
+    width:  1600px;
+    height: 900px;  
+  }
+}
+
+@media screen and (max-width:1440px){
+  .card {
+    max-width: 100em;
+    max-height: 60em;
+    width:  900px;
+    height: 600px;  
+  }
+}
+
+@media screen and (max-width:960px){
+  .card {
+    max-width: 100em;
+    max-height: 60em;
+    width:  700px;
+    height: 800px;  
+  }
+}
+
+.card-image{
+  height: 100px;
+}
+
+.card-header-image {
+  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.example-tab-icon {
+  margin-right: 8px;
+}
+
+img{
+	/* vertical-align: text-top; */
+    display: flow-root;
+	width:auto;
+	height:35px;
+	margin-left:20px;
+	margin-right:10px;	
 }

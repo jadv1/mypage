@@ -1,0 +1,201 @@
+
+    <mat-card class="card" appearance="raised">
+        <mat-card-header>
+            <!-- <div mat-card-avatar class="card-header-image"></div> -->
+            <mat-card-title>
+                <mat-card-content>
+                    Aggregation
+                </mat-card-content>
+            </mat-card-title>
+            <mat-card-subtitle>
+                <mat-card-content>
+                    Group by                    
+                </mat-card-content>
+            </mat-card-subtitle>
+        </mat-card-header>
+        
+        <!-- <img class="card-image" mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+
+        <mat-card-content>
+            <div>
+                <p class="tab1">Using aggregate functions allows us to perform calculated operations on all rows that meet a certain condition (or on all rows in the table)</p>
+            </div>                
+        </mat-card-content>        
+        <mat-card-content>
+            <div style="display: none; border: solid gray;border-width: .1em .1em .1em .8em; padding: .2em .6em; background: #f0f4f6">
+                <p class="sql">
+                    <code>
+                        <span class="sqlui capitalize">selet</span> 
+                        count(*) Amount_teachers <span class="sqlui">,</span> Subjects<br/>
+                        <span class="sqlui capitalize">from</span> 
+                        teachers t <br/>
+                        <span class="sqlui capitalize">group by</span>
+                        id_t
+                    </code>                                            
+                </p>
+            </div>
+                
+            <div>
+                <mat-card-header>
+                <!-- <mat-card-title>Number of credits being taught.</mat-card-title> -->
+                <mat-card-subtitle>Number of credits being taught.</mat-card-subtitle>
+                </mat-card-header>
+                <div style="background: #263238; overflow:auto;width:40em;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                    <p style="margin: 0; line-height: 125%;">
+                        <code>
+                            <span style="color: #BB80B3">SELECT </span>                        
+                            <span style="color: #BB80B3">SUM</span>
+                            <span style="color: #89DDFF">(</span>
+                            <span style="color: #EFF">a</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">asig_cred</span>
+                            <span style="color: #89DDFF">)</span>
+                            <span style="color: #EFF"> Amount_Credit</span>
+                            <br/>
+                            <span style="color: #BB80B3">FROM</span>
+                            <span style="color: #EFF"> imparte i</span>
+                            <span style="color: #89DDFF">,</span>
+                            <span style="color: #EFF"> asignaturas a</span>
+                            <br/>
+                            <span style="color: #BB80B3">WHERE</span>
+                            <span style="color: #EFF"> i</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">imp_asig </span>
+                            <span style="color: #89DDFF">=</span>
+                            <span style="color: #EFF"> a</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">asig_cod</span>
+                            <span style="color: #89DDFF">;</span>
+                        </code>
+                    </p>
+                </div>                                                                                                 
+            </div>
+
+            <div>
+                <mat-card-header>
+                <!-- <mat-card-title>Number of credits taught by each teacher.</mat-card-title>  -->
+                <mat-card-subtitle>Number of credits taught by each teacher.</mat-card-subtitle>               
+                </mat-card-header>
+                <div style="background: #263238; overflow:auto;width:40em;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                    <p style="margin: 0; line-height: 125%;">
+                        <code>
+                            <span style="color: #BB80B3">SELECT</span>
+                            <span style="color: #EFF"> i</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">imp_dni</span>
+                            <span style="color: #89DDFF">, </span>
+                            <span style="color: #EFF"> </span>
+                            <span style="color: #BB80B3">SUM</span>
+                            <span style="color: #89DDFF">(</span>
+                            <span style="color: #EFF">a</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">asig_cred</span>
+                            <span style="color: #89DDFF">)</span>
+                            <span style="color: #EFF"> Amount_Credit</span>
+                            <br/>
+                            <span style="color: #BB80B3">FROM</span>
+                            <span style="color: #EFF"> imparte i</span>                            
+                            <br/>                            
+                            <span class="tab1 join">JOIN</span>
+                            <span style="color: #EFF"> asignaturas a </span>
+                            <span style="color: #BB80B3">ON</span>
+                            <span style="color: #EFF"> </span>
+                            <span style="color: #89DDFF">(</span>
+                            <span style="color: #EFF">i</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">imp_asig </span>
+                            <span style="color: #89DDFF">=</span>
+                            <span style="color: #EFF"> a</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">asig_cod</span>
+                            <span style="color: #89DDFF">)</span>
+                            <br/>
+                            <span style="color: #BB80B3">GROUP</span>
+                            <span style="color: #EFF"> </span>
+                            <span style="color: #BB80B3">BY</span>
+                            <span style="color: #EFF"> i</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">imp_dni</span>
+                            <span style="color: #89DDFF">;</span>
+                        </code>
+                    </p>
+                </div>                                                                                                 
+            </div>
+
+            <div>
+                <mat-card-header>                
+                <mat-card-subtitle>Name of the teachers, ids and credits they teach.</mat-card-subtitle>               
+                </mat-card-header>
+                <div style="background: #263238; overflow:auto;width:40em;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                    <p style="margin: 0; line-height: 125%;">
+                        <code>
+                            <span style="color: #BB80B3">SELECT</span>
+                            <span style="color: #EFF"> p</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">prof_nombre</span>
+                            <span style="color: #89DDFF">,</span>
+                            <span style="color: #EFF"> p</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">prof_dni</span>
+                            <span style="color: #89DDFF">,</span>
+                            <span style="color: #EFF"> </span>
+                            <span style="color: #BB80B3">SUM</span>
+                            <span style="color: #89DDFF">(</span>
+                            <span style="color: #EFF">a</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">asig_cred</span>
+                            <span style="color: #89DDFF">)</span>
+                            <span style="color: #EFF"> Amount_Credit</span>
+                            <br/>
+                            <span style="color: #BB80B3">FROM</span>
+                            <span style="color: #EFF"> imparte i</span>
+                            <span style="color: #EFF">    </span>
+                            <br/>
+                            <span class="tab1 join">JOIN</span>
+                            <span style="color: #EFF"> asignaturas a </span>
+                            <span style="color: #BB80B3">ON</span>
+                            <span style="color: #EFF"> </span>
+                            <span style="color: #89DDFF">(</span>
+                            <span style="color: #EFF">i</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">imp_asig </span>
+                            <span style="color: #89DDFF">=</span>
+                            <span style="color: #EFF"> a</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">asig_cod</span>
+                            <span style="color: #89DDFF">)</span>
+                            <span style="color: #EFF">    </span>
+                            <br/>
+                            <span class="tab1 join">JOIN</span>
+                            <span style="color: #EFF"> profesores p </span>
+                            <span style="color: #BB80B3">ON</span>
+                            <span style="color: #EFF"> </span>
+                            <span style="color: #89DDFF">(</span>
+                            <span style="color: #EFF">i</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">imp_dni </span>
+                            <span style="color: #89DDFF">=</span>
+                            <span style="color: #EFF"> p</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">prof_dni</span>
+                            <span style="color: #89DDFF">)</span>
+                            <span style="color: #EFF"> </span>
+                            <br/>
+                            <span style="color: #BB80B3">GROUP</span>
+                            <span style="color: #EFF"> </span>
+                            <span style="color: #BB80B3">BY</span>
+                            <span style="color: #EFF"> p</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">prof_nombre</span>
+                            <span style="color: #89DDFF">,</span>
+                            <span style="color: #EFF"> p</span>
+                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #EFF">prof_dni</span>
+                            <span style="color: #89DDFF">;</span>
+                        </code>
+                    </p>
+                </div>                                                                                                 
+            </div>
+
+        </mat-card-content>
+    </mat-card>    

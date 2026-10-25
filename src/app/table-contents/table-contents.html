@@ -6,7 +6,17 @@
   <!-- Name Column -->
   <ng-container matColumnDef="topic">
     <th mat-header-cell *matHeaderCellDef> {{headerTopic}} </th>
-    <td mat-cell *matCellDef="let element"> <a href="#">{{element.topic}}</a> </td>
+    <td mat-cell *matCellDef="let element"> 
+        <!-- <a href="#">{{element.topic}}</a>  -->
+         <!-- <a [routerLink]="['/join']">{{element.topic}}</a>  -->
+          <a [routerLink]="[element.route]">{{element.topic}}</a>
+          <!-- @if(element.topic!="Joins"){
+            <a [routerLink]="['']">{{element.topic}}</a>
+          }
+          @else {
+            <a [routerLink]="[element.route]">{{element.topic}}</a>
+          }          -->
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

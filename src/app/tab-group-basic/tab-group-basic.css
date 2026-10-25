@@ -1,27 +1,8 @@
-.example-tab-icon {
-  margin-right: 8px;
+:host {  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
-img{
-	/* vertical-align: text-top; */
-    display: flow-root;
-	width:auto;
-	height:35px;
-	margin-left:20px;
-	margin-right:10px;	
-}
-
-
-.card {
-  max-width: 30em;
-}
-
-.card-image{
-  height: 100px;
-
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}

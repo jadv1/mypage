@@ -1,25 +1,27 @@
 import { Component } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
+import { RouterLink } from '@angular/router';
 
 
 export interface PeriodicElement {
   topic: string;
+  route: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {topic: 'Database Relationship'},
-  {topic: 'Agreggation'},
-  {topic: 'Subqueries'},
-  {topic: 'Columns arithmetics'},
-  {topic: 'Joins'},
-  {topic: 'Sets'},  
+  {topic: 'Database Relationship', route: '/'},
+  {topic: 'Agreggation', route: '/'},
+  {topic: 'Subqueries', route: '/'},
+  {topic: 'Columns arithmetics', route: '/'},
+  {topic: 'Joins', route: '/join'},
+  {topic: 'Sets', route: '/'}
 ];
 
 /**
  * @title Basic use of `<table mat-table>`
  */
 @Component({
-  imports: [MatTableModule],
+  imports: [MatTableModule, RouterLink],
   selector: 'app-table-contents',
   styleUrl: './table-contents.css',
   templateUrl: './table-contents.html',

@@ -10,25 +10,34 @@ import { GridListDynamic } from '../grid-list-dynamic/grid-list-dynamic';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { TableContents } from '../table-contents/table-contents';
+import { CardOverview } from '../card-overview/card-overview';
+import { RouterOutlet } from '@angular/router';
+import { PageAggregation } from '../page-aggregation/page-aggregation';
 
 @Component({  
   selector: 'app-tab-group-basic',
   styleUrl: './tab-group-basic.css',
   templateUrl: './tab-group-basic.html',
-  imports: [MatTabsModule, MatIconModule, MatGridList, MatGridTile, MatCardModule, MatTableModule, TableContents]
+  imports: [
+    MatTabsModule,
+    MatIconModule, 
+    MatCardModule, 
+    MatTableModule
+    
+]
 })
 export class TabGroupBasic {
   ngOnInit(): void {   
   }
 
-  tiles = new GridListDynamic();
-  db = new DataBases();
-  subjectDB = this.db.getTitle().toUpperCase();
-  subjectFDB = this.db.getjDBF().toUpperCase();
-  subjectDBD = this.db.getjDBD().toUpperCase();
-  subjectAMDB = this.db.getjMADB().toUpperCase();
+  // tiles = new GridListDynamic();
+  // db = new DataBases();
+  // subjectDB = this.db.getTitle().toUpperCase();
+  // subjectFDB = this.db.getjDBF().toUpperCase();
+  // subjectDBD = this.db.getjDBD().toUpperCase();
+  // subjectAMDB = this.db.getjMADB().toUpperCase();
   
-  subjectP = (new Programming()).getTitle().toUpperCase();
-  subjectSW = (new SwPt()).getTitle().toUpperCase();
-  subjectSy = (new System()).getTitle().toUpperCase();
+  // subjectP = (new Programming()).getTitle().toUpperCase();
+  // subjectSW = (new SwPt()).getTitle().toUpperCase();
+  // subjectSy = (new System()).getTitle().toUpperCase();
 }
