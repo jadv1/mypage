@@ -145,12 +145,16 @@ pre{
 
 
 // app-card-overview
+@media screen{
+  .card {
+    height: auto; 
+  }
+}
 @media screen and (max-width:700px),  screen and (max-width:1920px){
   .card {
     max-width: 100em;
     max-height: 60em;
-    width:  1600px;
-    height: auto;  
+    width:  1600px;     
   }
 }
 
@@ -158,8 +162,7 @@ pre{
   .card {
     max-width: 100em;
     max-height: 60em;
-    width:  900px;
-    height: 600px;  
+    width:  900px;    
   }
 }
 
@@ -168,7 +171,6 @@ pre{
     max-width: 100em;
     max-height: 90em;
     width:  35em;
-    height: auto;  
   }
 }
 // app-card-overview

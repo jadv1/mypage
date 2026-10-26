@@ -18,7 +18,7 @@
 
         <mat-card-content class="m-c-content">
             <div>
-                <p class="tab1">Using aggregate functions allows us to perform calculated operations on all rows that meet a certain condition (or on all rows in the table)</p>
+                <p class="tab1 spacingAfter">Using aggregate functions allows us to perform calculated operations on all rows that meet a certain condition (or on all rows in the table)</p>
             </div>                
         </mat-card-content>        
         <mat-card-content class="m-c-content">
@@ -157,11 +157,9 @@
                             <br/>
                             <span style="color: #BB80B3">GROUP</span>
                             <span style="color: #EFF"> </span>
-                            <span style="color: #BB80B3">BY</span>
+                            <span style="color: #BB80B3">BY </span>
                             <span style="color: #EFF">prof_nombre</span>
-                            <span style="color: #89DDFF">,</span>
-                            <span style="color: #EFF"> p</span>
-                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #89DDFF">, </span>
                             <span style="color: #EFF">prof_dni</span>
                             <span style="color: #89DDFF">;</span>
                         </code>
@@ -169,5 +167,62 @@
                 </div>                                                                                                 
             </div>
 
+            <div>
+                <div class="mat-card-content">
+                    <mat-card-subtitle>                                
+                        <h4>Output ordering</h4>                
+                    </mat-card-subtitle>
+                    <mat-card-header class="m-c-content">
+                    <!-- <mat-card-title>Number of credits taught by each teacher.</mat-card-title>  -->
+                        <mat-card-subtitle>Number of credits taught by each teacher oder by "Amount_Credit"</mat-card-subtitle>               
+                    </mat-card-header>
+                    <div class="sqlcell">
+                        <p style="margin: 0; line-height: 125%;">
+                            <code>
+                                <span style="color: #BB80B3">SELECT </span>
+                                <span style="color: #EFF">imp_dni</span>
+                                <span style="color: #89DDFF">, </span>
+                                <span style="color: #EFF"> </span>
+                                <span style="color: #BB80B3">SUM</span>
+                                <span style="color: #89DDFF">(</span>
+                                
+                                <span style="color: #EFF">asig_cred</span>
+                                <span style="color: #89DDFF">)</span>
+                                <span style="color: #EFF"> Amount_Credit</span>
+                                <br/>
+                                <span style="color: #BB80B3">FROM</span>
+                                <span style="color: #EFF"> imparte i</span>                            
+                                <br/>                            
+                                <span class="tab1 join">JOIN</span>
+                                <span style="color: #EFF"> asignaturas a </span>
+                                <span style="color: #BB80B3">ON </span>
+                                <span style="color: #EFF"> </span>
+                                <span style="color: #89DDFF">(</span>
+                                <span style="color: #EFF">imp_asig </span>
+                                <span style="color: #89DDFF">= </span>
+                                <span style="color: #EFF">asig_cod</span>
+                                <span style="color: #89DDFF">)</span>
+                                <br/>
+                                <span style="color: #BB80B3">GROUP</span>
+                                <span style="color: #EFF"> </span>
+                                <span style="color: #BB80B3">BY </span>
+                                <span style="color: #EFF">imp_dni</span>
+                                
+                                <br/>
+                                <span class="tab1" style="color: #BB80B3">ORDER </span>
+                                <span style="color: #EFF"> </span>
+                                <span style="color: #BB80B3">BY </span>
+                                <span style="color: #EFF">Amount_Credit</span>
+                                <span style="color: #89DDFF">;</span>                            
+                            </code>
+                        </p>                    
+                    </div>  
+                    <mat-card-content id="headTitle">
+                        <div><p>It's also valid "ORDER BY 2" or "ORDER BY SUM(asig_cred)" </p></div>                                                                                               
+                    </mat-card-content>    
+                </div>            
+                    
+            </div>        
         </mat-card-content>
+
     </mat-card>    
