@@ -1,27 +1,27 @@
 
     <mat-card class="card" appearance="raised">
-        <mat-card-header>
+        <mat-card-header class="m-c-content">
             <!-- <div mat-card-avatar class="card-header-image"></div> -->
             <mat-card-title>
-                <mat-card-content>
-                    Aggregation
+                <mat-card-content id="headTitle">
+                    <h1>Aggregation</h1>
                 </mat-card-content>
             </mat-card-title>
-            <mat-card-subtitle>
-                <mat-card-content>
-                    Group by                    
-                </mat-card-content>
+            <mat-card-subtitle>                
+                
+                    <h3>Group by</h3>
+                
             </mat-card-subtitle>
         </mat-card-header>
         
         <!-- <img class="card-image" mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
 
-        <mat-card-content>
+        <mat-card-content class="m-c-content">
             <div>
                 <p class="tab1">Using aggregate functions allows us to perform calculated operations on all rows that meet a certain condition (or on all rows in the table)</p>
             </div>                
         </mat-card-content>        
-        <mat-card-content>
+        <mat-card-content class="m-c-content">
             <div style="display: none; border: solid gray;border-width: .1em .1em .1em .8em; padding: .2em .6em; background: #f0f4f6">
                 <p class="sql">
                     <code>
@@ -36,11 +36,11 @@
             </div>
                 
             <div>
-                <mat-card-header>
+                <mat-card-header class="m-c-content">
                 <!-- <mat-card-title>Number of credits being taught.</mat-card-title> -->
-                <mat-card-subtitle>Number of credits being taught.</mat-card-subtitle>
+                    <mat-card-subtitle>Number of credits being taught.</mat-card-subtitle>
                 </mat-card-header>
-                <div style="background: #263238; overflow:auto;width:40em;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <div class="sqlcell">
                     <p style="margin: 0; line-height: 125%;">
                         <code>
                             <span style="color: #BB80B3">SELECT </span>                        
@@ -72,11 +72,11 @@
             </div>
 
             <div>
-                <mat-card-header>
+                <mat-card-header class="m-c-content">
                 <!-- <mat-card-title>Number of credits taught by each teacher.</mat-card-title>  -->
-                <mat-card-subtitle>Number of credits taught by each teacher.</mat-card-subtitle>               
+                    <mat-card-subtitle>Number of credits taught by each teacher.</mat-card-subtitle>               
                 </mat-card-header>
-                <div style="background: #263238; overflow:auto;width:40em;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <div class="sqlcell">
                     <p style="margin: 0; line-height: 125%;">
                         <code>
                             <span style="color: #BB80B3">SELECT</span>
@@ -122,27 +122,20 @@
                 </div>                                                                                                 
             </div>
 
-            <div>
-                <mat-card-header>                
-                <mat-card-subtitle>Name of the teachers, ids and credits they teach.</mat-card-subtitle>               
+            <div class="mat-card-content">
+                <mat-card-header class="m-c-content">                
+                 <mat-card-subtitle>Name of the teachers, ids and credits they teach.</mat-card-subtitle>               
                 </mat-card-header>
-                <div style="background: #263238; overflow:auto;width:40em;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <div class="sqlcell">
                     <p style="margin: 0; line-height: 125%;">
                         <code>
-                            <span style="color: #BB80B3">SELECT</span>
-                            <span style="color: #EFF"> p</span>
-                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #BB80B3">SELECT </span>                            
                             <span style="color: #EFF">prof_nombre</span>
-                            <span style="color: #89DDFF">,</span>
-                            <span style="color: #EFF"> p</span>
-                            <span style="color: #89DDFF">.</span>
+                            <span style="color: #89DDFF">, </span>
                             <span style="color: #EFF">prof_dni</span>
-                            <span style="color: #89DDFF">,</span>
-                            <span style="color: #EFF"> </span>
+                            <span style="color: #89DDFF">, </span>                            
                             <span style="color: #BB80B3">SUM</span>
                             <span style="color: #89DDFF">(</span>
-                            <span style="color: #EFF">a</span>
-                            <span style="color: #89DDFF">.</span>
                             <span style="color: #EFF">asig_cred</span>
                             <span style="color: #89DDFF">)</span>
                             <span style="color: #EFF"> Amount_Credit</span>

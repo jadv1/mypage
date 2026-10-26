@@ -30,6 +30,34 @@ html {
   );
 }
 
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+}
+
+:root {
+  @include mat.card-overrides((
+    elevated-container-color: rgb(237, 235, 235),        
+  ));
+  @include mat.icon-overrides((
+    color: rgb(3, 135, 23),
+  ));  
+}
+
+// mat-mdc-card-content: {  padding: 2px}    
 mat-tab-group {  
   @include mat.tabs-overrides((
     active-focus-label-text-color: rgb(27, 27, 149),
@@ -38,6 +66,11 @@ mat-tab-group {
     active-indicator-color: #369215,
     pagination-icon-color: red,   
   ));
+}
+
+
+mat-grid-tile {
+  height: 10em;
 }
 
 // mat-tab {  
@@ -70,24 +103,6 @@ mat-tab-group {
   ));
 }
 
-body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
-  margin: 0;
-  height: 100%;
-}
-
 .my-component {
   background: var(--mat-sys-primary-container);
   color: var(--mat-sys-on-primary-container);
@@ -97,12 +112,6 @@ body {
 
 .mat-bg-primary {
   background-color: var(--mat-sys-primary);
-}
-
-:root {
-  @include mat.icon-overrides((
-    color: rgb(3, 135, 23),
-  ));
 }
 
 .leftmargin{
@@ -135,18 +144,13 @@ pre{
 
 
 
-// .card {
-//   max-width: 100em;
-//   max-height: 60em;
-//   width:  1600px;
-//   height: 900px;  
-// }
+// app-card-overview
 @media screen and (max-width:700px),  screen and (max-width:1920px){
   .card {
     max-width: 100em;
     max-height: 60em;
     width:  1600px;
-    height: 900px;  
+    height: auto;  
   }
 }
 
@@ -163,11 +167,11 @@ pre{
   .card {
     max-width: 100em;
     max-height: 90em;
-    width:  535px;
-    height: 410px;  
+    width:  35em;
+    height: auto;  
   }
 }
-
+// app-card-overview
 .card-image{
   height: 100px;
 }
@@ -183,7 +187,7 @@ pre{
 
 img{
 	/* vertical-align: text-top; */
-    display: flow-root;
+  display: flow-root;
 	width:auto;
 	height:35px;
 	margin-left:20px;

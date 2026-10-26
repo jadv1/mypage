@@ -20,7 +20,7 @@ export class GridListDynamic {
     {text: 'One', cols: 2, rows: 1, color: 'lightblue'},
     {text: 'Two', cols: 2, rows: 1, color: 'lightgreen'},
     {text: 'Three', cols: 4, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 1, rows: 2, color: '#d4d0ff'},
+    {text: 'Four', cols: 1, rows: 2, color: '#c3c1de'},
     {text: 'Five', cols: 3, rows: 2, color: '#cfcad2'},
   ];
 

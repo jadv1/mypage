@@ -7,3 +7,27 @@
 .tab2{    
     margin-left: 2em;
 }
+.sqlcell{        
+    max-width: max-content;
+    background: #263238; 
+    overflow:auto;
+    border:solid gray;
+    border-width:.1em .1em .1em .8em;    
+    padding:.2em .6em;        
+}
+
+.m-c-content{
+    padding-left: 3px;
+    padding-right: 1px;
+}
+
+.mat-mdc-card-subtitle{
+    margin-left: 4px;
+}
+mat-card-content > div > p{
+    margin-left: 2px;
+}
+
+#headTitle{
+    margin-left: -10px;
+}
