@@ -6,7 +6,7 @@ import {MatListModule} from '@angular/material/list';
 import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { TableContents } from './table-contents/table-contents';
-import { PageAggregation } from './page-aggregation/page-aggregation';
+import { PageAggregation } from './pages/page-aggregation/page-aggregation';
 import { DataBases } from './data-bases/data-bases';
 import { GridListDynamic } from './grid-list-dynamic/grid-list-dynamic';
 import { Programming } from './programming/programming';

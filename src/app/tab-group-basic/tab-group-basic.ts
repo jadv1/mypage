@@ -12,7 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 import { TableContents } from '../table-contents/table-contents';
 import { CardOverview } from '../card-overview/card-overview';
 import { RouterOutlet } from '@angular/router';
-import { PageAggregation } from '../page-aggregation/page-aggregation';
+import { PageAggregation } from '../pages/page-aggregation/page-aggregation';
 
 @Component({  
   selector: 'app-tab-group-basic',

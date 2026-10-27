@@ -7,222 +7,112 @@
                     <h1>Aggregation</h1>
                 </mat-card-content>
             </mat-card-title>
-            <mat-card-subtitle>                
-                
-                    <h3>Group by</h3>
-                
-            </mat-card-subtitle>
-        </mat-card-header>
-        
+        </mat-card-header>        
         <!-- <img class="card-image" mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-
         <mat-card-content class="m-c-content">
-            <div>
-                <p class="tab1 spacingAfter">Using aggregate functions allows us to perform calculated operations on all rows that meet a certain condition (or on all rows in the table)</p>
-            </div>                
-        </mat-card-content>        
-        <mat-card-content class="m-c-content">
-            <div style="display: none; border: solid gray;border-width: .1em .1em .1em .8em; padding: .2em .6em; background: #f0f4f6">
-                <p class="sql">
-                    <code>
-                        <span class="sqlui capitalize">selet</span> 
-                        count(*) Amount_teachers <span class="sqlui">,</span> Subjects<br/>
-                        <span class="sqlui capitalize">from</span> 
-                        teachers t <br/>
-                        <span class="sqlui capitalize">group by</span>
-                        id_t
-                    </code>                                            
-                </p>
-            </div>
-                
-            <div>
-                <mat-card-header class="m-c-content">
-                <!-- <mat-card-title>Number of credits being taught.</mat-card-title> -->
-                    <mat-card-subtitle>Number of credits being taught.</mat-card-subtitle>
-                </mat-card-header>
-                <div class="sqlcell">
-                    <p style="margin: 0; line-height: 125%;">
-                        <code>
-                            <span style="color: #BB80B3">SELECT </span>                        
-                            <span style="color: #BB80B3">SUM</span>
-                            <span style="color: #89DDFF">(</span>
-                            <span style="color: #EFF">a</span>
-                            <span style="color: #89DDFF">.</span>
-                            <span style="color: #EFF">asig_cred</span>
-                            <span style="color: #89DDFF">)</span>
-                            <span style="color: #EFF"> Amount_Credit</span>
-                            <br/>
-                            <span style="color: #BB80B3">FROM</span>
-                            <span style="color: #EFF"> imparte i</span>
-                            <span style="color: #89DDFF">,</span>
-                            <span style="color: #EFF"> asignaturas a</span>
-                            <br/>
-                            <span style="color: #BB80B3">WHERE</span>
-                            <span style="color: #EFF">imp_asig </span>
-                            <span style="color: #89DDFF">= </span>
-                            <span style="color: #EFF">asig_cod</span>
-                            <span style="color: #89DDFF">;</span>
-                        </code>
-                    </p>
-                </div>                                                                                                 
-            </div>
-
-            <div>
-                <mat-card-header class="m-c-content">
-                <!-- <mat-card-title>Number of credits taught by each teacher.</mat-card-title>  -->
-                    <mat-card-subtitle>Number of credits taught by each teacher.</mat-card-subtitle>               
-                </mat-card-header>
-                <div class="sqlcell">
-                    <p style="margin: 0; line-height: 125%;">
-                        <code>
-                            <span style="color: #BB80B3">SELECT </span>
-                            <span style="color: #EFF">imp_dni</span>
-                            <span style="color: #89DDFF">, </span>
-                            <span style="color: #EFF"> </span>
-                            <span style="color: #BB80B3">SUM</span>
-                            <span style="color: #89DDFF">(</span>
-                            
-                            <span style="color: #EFF">asig_cred</span>
-                            <span style="color: #89DDFF">)</span>
-                            <span style="color: #EFF"> Amount_Credit</span>
-                            <br/>
-                            <span style="color: #BB80B3">FROM</span>
-                            <span style="color: #EFF"> imparte i</span>                            
-                            <br/>                            
-                            <span class="tab1 join">JOIN</span>
-                            <span style="color: #EFF"> asignaturas a </span>
-                            <span style="color: #BB80B3">ON </span>
-                            <span style="color: #EFF"> </span>
-                            <span style="color: #89DDFF">(</span>
-                            <span style="color: #EFF">imp_asig </span>
-                            <span style="color: #89DDFF">= </span>
-                            <span style="color: #EFF">asig_cod</span>
-                            <span style="color: #89DDFF">)</span>
-                            <br/>
-                            <span style="color: #BB80B3">GROUP</span>
-                            <span style="color: #EFF"> </span>
-                            <span style="color: #BB80B3">BY </span>
-                            <span style="color: #EFF">imp_dni</span>
-                            <span style="color: #89DDFF">;</span>
-                        </code>
-                    </p>
-                </div>                                                                                                 
-            </div>
-
-            <div class="mat-card-content">
-                <mat-card-header class="m-c-content">                
-                 <mat-card-subtitle>Name of the teachers, ids and credits they teach.</mat-card-subtitle>               
-                </mat-card-header>
-                <div class="sqlcell">
-                    <p style="margin: 0; line-height: 125%;">
-                        <code>
-                            <span style="color: #BB80B3">SELECT </span>                            
-                            <span style="color: #EFF">prof_nombre</span>
-                            <span style="color: #89DDFF">, </span>
-                            <span style="color: #EFF">prof_dni</span>
-                            <span style="color: #89DDFF">, </span>                            
-                            <span style="color: #BB80B3">SUM</span>
-                            <span style="color: #89DDFF">(</span>
-                            <span style="color: #EFF">asig_cred</span>
-                            <span style="color: #89DDFF">)</span>
-                            <span style="color: #EFF"> Amount_Credit</span>
-                            <br/>
-                            <span style="color: #BB80B3">FROM</span>
-                            <span style="color: #EFF"> imparte i</span>
-                            <span style="color: #EFF">    </span>
-                            <br/>
-                            <span class="tab1 join">JOIN</span>
-                            <span style="color: #EFF"> asignaturas a </span>
-                            <span style="color: #BB80B3">ON </span>
-                            <span style="color: #EFF"> </span>
-                            <span style="color: #89DDFF">(</span>
-
-                            <span style="color: #EFF">imp_asig </span>
-                            <span style="color: #89DDFF">= </span>
-
-                            <span style="color: #EFF">asig_cod</span>
-                            <span style="color: #89DDFF">)</span>
-                            <span style="color: #EFF">    </span>
-                            <br/>
-                            <span class="tab1 join">JOIN</span>
-                            <span style="color: #EFF"> profesores p </span>
-                            <span style="color: #BB80B3">ON </span>
-                            <span style="color: #EFF"> </span>
-                            <span style="color: #89DDFF">(</span>
-                            <span style="color: #EFF">imp_dni </span>
-                            <span style="color: #89DDFF">= </span>
-                            <span style="color: #EFF">prof_dni</span>
-                            <span style="color: #89DDFF">)</span>
-                            <span style="color: #EFF"> </span>
-                            <br/>
-                            <span style="color: #BB80B3">GROUP</span>
-                            <span style="color: #EFF"> </span>
-                            <span style="color: #BB80B3">BY </span>
-                            <span style="color: #EFF">prof_nombre</span>
-                            <span style="color: #89DDFF">, </span>
-                            <span style="color: #EFF">prof_dni</span>
-                            <span style="color: #89DDFF">;</span>
-                        </code>
-                    </p>
-                </div>                                                                                                 
-            </div>
-
-            <div>
-                <div class="mat-card-content">
-                    <mat-card-subtitle>                                
-                        <h4>Output ordering</h4>                
-                    </mat-card-subtitle>
-                    <mat-card-header class="m-c-content">
-                    <!-- <mat-card-title>Number of credits taught by each teacher.</mat-card-title>  -->
-                        <mat-card-subtitle>Number of credits taught by each teacher oder by "Amount_Credit"</mat-card-subtitle>               
-                    </mat-card-header>
-                    <div class="sqlcell">
-                        <p style="margin: 0; line-height: 125%;">
-                            <code>
-                                <span style="color: #BB80B3">SELECT </span>
-                                <span style="color: #EFF">imp_dni</span>
-                                <span style="color: #89DDFF">, </span>
-                                <span style="color: #EFF"> </span>
-                                <span style="color: #BB80B3">SUM</span>
-                                <span style="color: #89DDFF">(</span>
-                                
-                                <span style="color: #EFF">asig_cred</span>
-                                <span style="color: #89DDFF">)</span>
-                                <span style="color: #EFF"> Amount_Credit</span>
-                                <br/>
-                                <span style="color: #BB80B3">FROM</span>
-                                <span style="color: #EFF"> imparte i</span>                            
-                                <br/>                            
-                                <span class="tab1 join">JOIN</span>
-                                <span style="color: #EFF"> asignaturas a </span>
-                                <span style="color: #BB80B3">ON </span>
-                                <span style="color: #EFF"> </span>
-                                <span style="color: #89DDFF">(</span>
-                                <span style="color: #EFF">imp_asig </span>
-                                <span style="color: #89DDFF">= </span>
-                                <span style="color: #EFF">asig_cod</span>
-                                <span style="color: #89DDFF">)</span>
-                                <br/>
-                                <span style="color: #BB80B3">GROUP</span>
-                                <span style="color: #EFF"> </span>
-                                <span style="color: #BB80B3">BY </span>
-                                <span style="color: #EFF">imp_dni</span>
-                                
-                                <br/>
-                                <span class="tab1" style="color: #BB80B3">ORDER </span>
-                                <span style="color: #EFF"> </span>
-                                <span style="color: #BB80B3">BY </span>
-                                <span style="color: #EFF">Amount_Credit</span>
-                                <span style="color: #89DDFF">;</span>                            
-                            </code>
-                        </p>                    
-                    </div>  
-                    <mat-card-content id="headTitle">
-                        <div><p>It's also valid "ORDER BY 2" or "ORDER BY SUM(asig_cred)" </p></div>                                                                                               
-                    </mat-card-content>    
+        @for (arr of arrHn; track arr; let i = $index){            
+            <mat-card-subtitle>                                
+                @if (isH2(arr.desc)) {
+                    <h2>{{arr.desc}}</h2>
+                }
+                @else {
+                    <h3>{{arr.desc}}</h3>
+                }
+            </mat-card-subtitle>
+            @if (i==0) {            
+                <div>
+                    <p class="tab1 spacingAfter">{{msgaggre}}</p>
                 </div>            
-                    
-            </div>        
+            }
+            @else if (isStrHaving(arr.desc)) {
+                <div>
+                    <p class="tab1 spacingAfter">{{msghaving}}</p>
+                    <br/>                    
+                </div>                 
+            }
+            @for (odescheader of arr.arrobjqueries; track odescheader; let j = $index) {
+
+                <mat-card-subtitle>{{odescheader.headerquery}}</mat-card-subtitle>               
+                        
+                <div class="sqlcell">
+                    <p style="margin: 0; line-height: 125%;">
+                        <code>
+                        @for (arr2d of odescheader.arr; track arr2d; let k = $index) {
+                            @switch(arr2d.toUpperCase()) {
+                                @case("Select".toUpperCase()){
+                                    <span class="qkeyword">{{(arr2d + " ").toUpperCase()}}</span>
+                                }                                                                
+                                @case("From".toUpperCase())
+                                @case("Where".toUpperCase()) {
+                                    <br/>
+                                    <span class="qkeyword">{{(arr2d + " ").toUpperCase()}}</span>
+                                }
+                                @case("join".toUpperCase()) {
+                                    <br/>
+                                    <span class="qkeyword tab1">{{(arr2d + " ").toUpperCase()}}</span>
+                                }
+                                @case("order".toUpperCase()) {
+                                    <br/>
+                                    <span class="qkeyword tab1">{{(arr2d + " ").toUpperCase()}}</span>
+                                }
+                                @case("having".toUpperCase()) {
+                                    <br/>
+                                    <span class="qkeyword tab1">{{(arr2d + " ").toUpperCase()}}</span>
+                                }
+                                @case("on".toUpperCase()) {
+                                    <span class="qkeyword">{{(" " + arr2d + " ").toUpperCase()}}</span>
+                                }                               
+                                @case("group".toUpperCase()){
+                                    <br/>
+                                    <span class="qkeyword">{{(arr2d + " ").toUpperCase()}}</span>
+                                }
+                                @case("by".toUpperCase()) {
+                                    <span class="qkeyword">{{(arr2d + " ").toUpperCase()}}</span>
+                                }
+                                @case("sum".toUpperCase()){
+                                    <span class="qkeyword">{{(arr2d).toUpperCase()}}</span>
+                                }   
+                                @case("count".toUpperCase()){
+                                    <span class="qkeyword">{{(arr2d).toUpperCase()}}</span>
+                                }                                                                                                        
+                                @case(",".toUpperCase()){
+                                    <span class="qspecchar">{{arr2d + " "}}</span>
+                                }                                
+                                @case("=".toUpperCase()){
+                                    <span class="qspecchar">{{" " + arr2d + " "}}</span>
+                                }                                
+                                @case(">=".toUpperCase()){
+                                    <span class="qspecchar">{{" " + arr2d + " "}}</span>
+                                }
+                                @case("(".toUpperCase()){
+                                    <span class="qspecchar">{{arr2d}}</span>
+                                }
+                                @case(")".toUpperCase()){
+                                    <span class="qspecchar">{{arr2d + " "}}</span>
+                                }
+                                @case(";".toUpperCase()){
+                                    <span class="qspecchar">{{arr2d}}</span>
+                                }               
+                                @default{
+                                    <span class="qchar">{{arr2d}}</span>
+                                }
+                            }      
+                                                    
+                        }
+                            
+                        </code>
+                    </p>
+                </div>                
+                @if (i==1 && j==0) {
+                    <mat-card-content id="headTitle">
+                        <div>
+                            <p>{{msgorderby}}</p>
+                        </div>
+                    </mat-card-content>                        
+                }
+                
+            }
+        }
         </mat-card-content>
 
     </mat-card>    
