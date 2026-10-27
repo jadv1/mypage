@@ -11,7 +11,7 @@ import { MatCell } from '@angular/material/table';
 export class CardOverview {
 
   ngOnInit():void{
-    this.printerTest()
+    
   }
 
   subtitleH4: String[] = [    
@@ -55,14 +55,6 @@ export class CardOverview {
   msgorderby: string = "It's also valid \"ORDER BY 2\" or \"ORDER BY SUM(subj_cred)\"";  
   msghaving: string = "Once the calculated information over the groups of rows is obtained using the group by, it is possible to filter these results and showing only those we need using the having clause. \"Having\" is to \"Group by\" the same as \"Where\" is to \"Select-From\".";
 
-  printerTest(){
-    var temp = "SELECT SUM(a.subj_cred) Amount_Credit FROM conduct i, subjects a WHERE cond_subj = subj_cod;"
-    let arrtemp = temp.split(" ");
-
-    for (let i = 0; i < arrtemp.length; i++) {
-      console.log(arrtemp[i])      
-    }
-  }
   
   isH2(str: string){
     return (this.isStringEqual("group by", str) || this.isStringEqual("having", str))

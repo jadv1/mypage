@@ -16,7 +16,7 @@ import { PageDbRelationship } from './pages/page-db-relationship/page-db-relatio
 import { ExpansionOverview } from './expansion-overview/expansion-overview';
 
 @Component({
-  imports: [MatDividerModule, MatListModule, RouterOutlet, MatTabGroup, MatTabsModule, MatGridListModule, TableContents, ExpansionOverview],
+  imports: [MatDividerModule, MatListModule, RouterOutlet, MatTabGroup, MatTabsModule, MatGridListModule, ExpansionOverview],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

@@ -11,7 +11,7 @@
              @for (element of elements; track element; let i = $index){
                  <tr class="tr-border">
                      <td>
-                         <a [routerLink]="element.route">{{element.topic}}</a>
+                         <a [routerLink]="element.route" [class.abckgd]="element.bckgd" (click)="changeBckgd($event)">{{element.topic}}</a>
                      </td>
                  </tr>
              }
