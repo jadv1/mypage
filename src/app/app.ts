@@ -34,4 +34,8 @@ export class App {
   subjectP = (new Programming()).getTitle().toUpperCase();
   subjectSW = (new SwPt()).getTitle().toUpperCase();
   subjectSy = (new System()).getTitle().toUpperCase();
+
+  getMsgImprogre(){
+    return this.msgprogress;
+  }
 }
