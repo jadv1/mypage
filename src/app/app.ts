@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, Input, input, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TabGroupBasic } from './tab-group-basic/tab-group-basic';
 import {MatDividerModule} from '@angular/material/divider';
@@ -12,6 +12,7 @@ import { GridListDynamic } from './grid-list-dynamic/grid-list-dynamic';
 import { Programming } from './programming/programming';
 import { SwPt } from './sw-pt/sw-pt';
 import { System } from './system/system';
+import { PageDbRelationship } from './pages/page-db-relationship/page-db-relationship';
 
 @Component({
   imports: [MatDividerModule, MatListModule, RouterOutlet, MatTabGroup, MatTabsModule, MatGridListModule, TableContents],
@@ -21,8 +22,8 @@ import { System } from './system/system';
 })
 export class App {
   protected readonly title = signal('myweb');
-
   msgprogress = "Development in progress!"
+  
 
   tiles = new GridListDynamic();
   db = new DataBases();

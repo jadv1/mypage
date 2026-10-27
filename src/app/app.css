@@ -15,3 +15,7 @@ div {
     display: block;
 }
 
+.mat-grid-tile-content{
+  display: table;
+  padding-left: 0.1em;  
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { App } from '../../app';
 
 @Component({
   imports: [],
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   templateUrl: './page-joins.html',
 })
 export class PageJoins {
-  msgprogress = "Development in progress!"  
+  msgprogress = (new App()).msgprogress;
 }

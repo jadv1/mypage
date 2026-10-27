@@ -68,11 +68,22 @@ mat-tab-group {
   ));
 }
 
-
-mat-grid-tile {
-  height: 10em;
+.gridMain {
+  display: flex !important; 
+  // padding-top: 2px;
+  height: 100em;  
 }
 
+.gridR{
+  width: 200em;
+}
+.gridL{
+  width: 20em;
+}
+
+.gridL, .gridR{
+  background-color: rgb(237, 235, 235)
+}
 // mat-tab {  
 //   @include mat.tabs-overrides((
 //     position: sticky,    
@@ -148,27 +159,27 @@ pre{
     height: auto; 
   }
 }
-@media screen and (max-width:700px),  screen and (max-width:1920px){
-  .card {
-    max-width: 100em;
-    width:  1600px;     
-  }
-}
+// @media screen and (max-width:700px),  screen and (max-width:1920px){
+//   .card {
+//     max-width: 100em;
+//     width:  1600px;     
+//   }
+// }
 
-@media screen and (max-width:1440px){
-  .card {
-    max-width: 100em;
+// @media screen and (max-width:1440px){
+//   .card {
+//     max-width: 100em;
 
-    width:  900px;    
-  }
-}
+//     width:  900px;    
+//   }
+// }
 
-@media screen and (max-width:960px){
-  .card {
-    max-width: 100em;
-    width:  35em;
-  }
-}
+// @media screen and (max-width:960px){
+//   .card {
+//     max-width: 100em;
+//     width:  35em;
+//   }
+// }
 // app-card-overview
 .card-image{
   height: 100px;

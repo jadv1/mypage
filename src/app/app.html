@@ -24,34 +24,14 @@
                 <mat-tab-group class="app-toolbar-sub">
                     <mat-tab label={{subjectFDB}}>
                         <ng-template matTabContent>
-                            <mat-grid-list cols="4" rowHeight="50em"> <!-- rowHeight for making the Card height grow -->
-                                <mat-grid-tile                                
-                                    [colspan]=tiles.getTiles()[3].cols
-                                    [rowspan]=tiles.getTiles()[3].rows
-                                    [style.background]=tiles.getTiles()[3].color >
-                                    
-                                        <app-table-contents></app-table-contents>
-                                    
-                                </mat-grid-tile>
-                                <mat-grid-tile id="gidright"
-                                    [colspan]=tiles.getTiles()[4].cols
-                                    [rowspan]=tiles.getTiles()[4].rows
-                                    [style.background]=tiles.getTiles()[4].color >
-                                        
-                                        <router-outlet></router-outlet>
-                                </mat-grid-tile>
-
-                            <!-- @for (tile of tiles.getTiles(); track tile) {
-                                <mat-grid-tile
-                                    [colspan]="tile.cols"
-                                    [rowspan]="tile.rows"
-                                    [style.background]="tile.color">
-                                        {{tile.text}}                        
-                                </mat-grid-tile>
-                            } -->
-
-                                
-                            </mat-grid-list>                        
+                            <div class="gridMain">
+                                <div class="gridL">
+                                    <app-table-contents></app-table-contents>
+                                </div>
+                                 <div class="gridR">
+                                    <router-outlet></router-outlet>
+                                </div>
+                            </div>                            
                         </ng-template>                                        
                     </mat-tab>
                     <mat-tab label={{subjectDBD}}>
@@ -87,6 +67,6 @@
         </mat-tab>    
     </mat-tab-group>
 
-  </div>  
+  </div>
 </body>
 <footer></footer>

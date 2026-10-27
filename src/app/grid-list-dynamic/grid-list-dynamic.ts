@@ -21,7 +21,7 @@ export class GridListDynamic {
     {text: 'Two', cols: 2, rows: 1, color: 'lightgreen'},
     {text: 'Three', cols: 4, rows: 1, color: 'lightpink'},
     {text: 'Four', cols: 1, rows: 2, color: '#c3c1de'},
-    {text: 'Five', cols: 3, rows: 2, color: '#cfcad2'},
+    {text: 'Five', cols: 4, rows: 2, color: '#cfcad2'},
   ];
 
   getTiles(){

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { App } from '../../app';
 
 @Component({
   imports: [],
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './page-db-relationship.css',
   templateUrl: './page-db-relationship.html',
 })
-export class PageDbRelationship {
-   msgprogress = "Development in progress!" 
+export class PageDbRelationship {  
+   msgprogress = (new App()).msgprogress;
 }
