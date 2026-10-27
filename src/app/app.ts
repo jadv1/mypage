@@ -13,9 +13,10 @@ import { Programming } from './programming/programming';
 import { SwPt } from './sw-pt/sw-pt';
 import { System } from './system/system';
 import { PageDbRelationship } from './pages/page-db-relationship/page-db-relationship';
+import { ExpansionOverview } from './expansion-overview/expansion-overview';
 
 @Component({
-  imports: [MatDividerModule, MatListModule, RouterOutlet, MatTabGroup, MatTabsModule, MatGridListModule, TableContents],
+  imports: [MatDividerModule, MatListModule, RouterOutlet, MatTabGroup, MatTabsModule, MatGridListModule, TableContents, ExpansionOverview],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

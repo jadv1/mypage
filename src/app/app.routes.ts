@@ -9,7 +9,7 @@ import { PageSets } from './pages/page-sets/page-sets';
 export const routes: Routes = [
     {component: PageAggregation, path:''},
     {component: PageJoins, path:'join'},
-    {component: PageSubqueries, path:'subq'},
+    {component: PageSubqueries, path:'nesq'},
     {component: PageColsArithmetics, path:'colari'},
     {component: PageSets, path:'sets'},
     {component: PageDbRelationship, path:'dbrelatn'}

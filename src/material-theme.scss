@@ -55,6 +55,12 @@ body {
   @include mat.icon-overrides((
     color: rgb(3, 135, 23),
   ));  
+  @include mat.expansion-overrides((
+    container-shape: 10px,
+    container-text-line-height: 2em,
+    header-expanded-state-height: 4em,
+    header-text-color: rgb(193 100 13),
+  ));
 }
 
 // mat-mdc-card-content: {  padding: 2px}    
@@ -78,7 +84,7 @@ mat-tab-group {
   width: 200em;
 }
 .gridL{
-  width: 20em;
+  width: 30em;
 }
 
 .gridL, .gridR{
