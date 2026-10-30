@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { MatCell } from '@angular/material/table';
+import {LowerCasePipe, UpperCasePipe}  from '@angular/common'
 
 @Component({
-  imports: [MatCardModule],
+  imports: [MatCardModule, UpperCasePipe],
   selector: 'app-card-overview',
   styleUrl: './card-overview.css',
   templateUrl: './card-overview.html',

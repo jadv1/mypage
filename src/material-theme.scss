@@ -59,20 +59,23 @@ body {
     container-shape: 10px,
     container-text-line-height: 2em,
     header-expanded-state-height: 4em,
-    header-text-color: rgb(193 100 13),
-    header-text-size: 1.8em,
-    header-text-weight: bold
+    header-text-color: #948A54,
+    header-text-size: 1.3em,
+    // header-text-weight: 
+  ));
+  @include mat.tree-overrides((    
+    node-text-color: #948A54,
   ));
 }
 
-// mat-mdc-card-content: {  padding: 2px}    
 mat-tab-group {  
   @include mat.tabs-overrides((
-    active-focus-label-text-color: rgb(27, 27, 149),
+    active-focus-label-text-color: #948A54,
     inactive-label-text-color:rgb(184, 181, 181),
     active-focus-indicator-color: #369215,
     active-indicator-color: #369215,
     pagination-icon-color: red,   
+    label-text-size: 1.6em
   ));
 }
 
@@ -154,7 +157,7 @@ pre{
 }
 
 .sqlui{
-  color: #9334e6
+  color: #948A54
 }
 
 .capitalize {

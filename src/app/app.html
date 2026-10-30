@@ -1,16 +1,5 @@
 <head> JADV </head>
 <body>
-  <div>
-  <!-- <mat-list>
-    <mat-list-item>Item 1</mat-list-item>
-    <mat-divider [vertical]="false"></mat-divider>
-    <mat-list-item>Item 2</mat-list-item>
-    <mat-divider [vertical]="false"></mat-divider>
-    <mat-list-item>Item 3</mat-list-item>
-  </mat-list> -->
-      
-  </div>
-
   <div>      
     <mat-tab-group class="app-toolbar" animationDuration="1000ms">
         <!-- ======================================== Subjet1 ======================================== -->
@@ -19,33 +8,21 @@
                 <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> -->
                 <img src="/css/images/db.svg" alt="foodJpg">
                 {{subjectDB}} 
-            </ng-template>        
+            </ng-template>      
+             
             <ng-template matTabContent>      
-                <mat-tab-group class="app-toolbar-sub">
-                    <mat-tab label={{subjectFDB}}>
-                        <ng-template matTabContent>
-                            <div class="gridMain">
-                                <div class="gridL">
-                                    <app-expansion-overview></app-expansion-overview>                                    
-                                </div>
-                                 <div class="gridR">
-                                    <router-outlet></router-outlet>
-                                </div>
-                            </div>                            
-                        </ng-template>                                        
-                    </mat-tab>
-                    <mat-tab label={{subjectDBD}}>
-                        <ng-template matTabContent>
-                            {{msgprogress}}
-                        </ng-template>                       
-                    </mat-tab>
-                    <mat-tab label={{subjectAMDB}}>
-                        <ng-template matTabContent>
-                            {{msgprogress}}
-                        </ng-template>                       
-                    </mat-tab>                
-                </mat-tab-group>               
+                <div class="gridMain">
+                    <div class="gridL">
+                        <app-expansion-overview [title]="subjectDB"></app-expansion-overview>                                    
+                    </div>
+
+                    <div class="gridR">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>                  
+
             </ng-template>
+            <!-- ======================================== End TODO - Movit to left pane ======================================== --> 
         </mat-tab>    
         <!-- ======================================== Subjet2 ======================================== -->
         <mat-tab [class.tabs-overrides] label={{subjectP}}>

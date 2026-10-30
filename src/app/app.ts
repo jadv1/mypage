@@ -29,10 +29,7 @@ export class App {
   tiles = new GridListDynamic();
   db = new DataBases();
   subjectDB = this.db.getTitle().toUpperCase();
-  subjectFDB = this.db.getjDBF().toUpperCase();
-  subjectDBD = this.db.getjDBD().toUpperCase();
-  subjectAMDB = this.db.getjMADB().toUpperCase();
-  
+    
   subjectP = (new Programming()).getTitle().toUpperCase();
   subjectSW = (new SwPt()).getTitle().toUpperCase();
   subjectSy = (new System()).getTitle().toUpperCase();

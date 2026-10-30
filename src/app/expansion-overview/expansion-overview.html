@@ -1,21 +1,69 @@
-<mat-accordion>
-  <mat-expansion-panel [expanded]="true">
-    <mat-expansion-panel-header>
-      <mat-panel-title> SQL </mat-panel-title>
-      <!-- <mat-panel-description>
-        Currently I am {{panelOpenState() ? 'open' : 'closed'}}
-      </mat-panel-description> -->
-    </mat-expansion-panel-header>
-     <ng-template matExpansionPanelContent>
-         <table>
-             @for (element of elements; track element; let i = $index){
-                 <tr class="tr-border">
-                     <td>
-                         <a [routerLink]="element.route" [class.abckgd]="element.bckgd" (click)="changeBckgd($event)">{{element.topic}}</a>
-                     </td>
-                 </tr>
-             }
-         </table>
-     </ng-template>
-  </mat-expansion-panel>
-</mat-accordion>
+  <mat-accordion>
+    
+      @if(title===subjectDB){
+        
+        
+        @for (subjt of arrdtsrc; track subjt; let i = $index) {
+          <mat-expansion-panel [expanded]=subjt.exp>
+          
+          
+          <mat-expansion-panel-header>
+              <mat-panel-title> {{subjt.sb}} </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          @if(i==0){
+
+          
+          <mat-tree #tree [dataSource]="dataSource" [childrenAccessor]="childrenAccessor">
+            
+            <!-- This is the tree node template for leaf nodes -->           
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [matTreeNodePadding]="0.1">                          
+              <!-- use a disabled button to provide padding for tree leaf -->
+              <button matIconButton disabled></button>
+              <a [routerLink]="node.otopic.route" [class.abckgd]="node.otopic.bckgd" (click)="changeBckgd($event)">{{node.otopic.topic}}</a> <!-- children -->
+            </mat-tree-node>
+            <!-- This is the tree node template for expandable nodes -->
+            <mat-tree-node *matTreeNodeDef="let node; when: hasChild" [matTreeNodePadding]="0.1" 
+                          [cdkTreeNodeTypeaheadLabel]="node.name" 
+                          isExpandable
+                          [isExpanded]="true"
+                          tabindex="0">
+                          <!-- {{tree.toggle(node)}} -->
+              
+              <button id="butsql" matIconButton matTreeNodeToggle
+                      [attr.aria-label]="'Toggle ' + node.name">
+                <mat-icon class="mat-icon-rtl-mirror">  
+                  {{tree.isExpanded(node) ? 'expand_more' : 'chevron_right'}}                                 
+                </mat-icon>           
+                   
+              </button>
+              <!-- @for (subtop of node.otopic; track $index) {
+                
+              } -->
+              
+              
+              <span >{{node.otopic}}</span> <!-- Header -->            
+            </mat-tree-node>
+          </mat-tree>
+          
+          <!-- <mat-expansion-panel [expanded]="false">
+            <mat-expansion-panel-header>
+              <mat-panel-title> {{elemCate[0].topic}} </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+                <table>
+                    @for (element of elements; track element; let i = $index){
+                        <tr class="tr-border">
+                            <td>
+                                <a [routerLink]="element.route" [class.abckgd]="element.bckgd" (click)="changeBckgd($event)">{{element.topic}}</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </ng-template>
+          </mat-expansion-panel> -->
+        }
+        </mat-expansion-panel>    
+      }  
+      }
+  </mat-accordion>    

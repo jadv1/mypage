@@ -39,8 +39,8 @@
                         <code>
                         @for (arr2d of odescheader.arr; track arr2d; let k = $index) {
                             @switch(arr2d.toUpperCase()) {
-                                @case("Select".toUpperCase()){
-                                    <span class="qkeyword">{{(arr2d + " ").toUpperCase()}}</span>
+                                @case("Select" | uppercase){ <!-- Using pipe just for test -->
+                                    <span class="qkeyword">{{(arr2d + " ") | uppercase}}</span>
                                 }                                                                
                                 @case("From".toUpperCase())
                                 @case("Where".toUpperCase()) {
