@@ -97,11 +97,11 @@ export class CardOverview implements OnInit {
       }
     }
 
-    for (let i = 0; i < this.tabimparte.length; i++) {      
-      for (let j = 0; j < this.tabimparte[i].length; j++) {        
-          console.log("" + i +":" + j +" - "+this.tabimparte[i][j])
-      }
-    }
+    // for (let i = 0; i < this.tabimparte.length; i++) {      
+    //   for (let j = 0; j < this.tabimparte[i].length; j++) {        
+    //       console.log("" + i +":" + j +" - "+this.tabimparte[i][j])
+    //   }
+    // }
     
   }
 
