@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import {LowerCasePipe, UpperCasePipe}  from '@angular/common'
+
+
 
 @Component({
   imports: [MatCardModule, UpperCasePipe],
@@ -8,10 +10,17 @@ import {LowerCasePipe, UpperCasePipe}  from '@angular/common'
   styleUrl: './card-overview.css',
   templateUrl: './card-overview.html',
 })
-export class CardOverview {
+export class CardOverview implements OnInit {
+  tabimparte: string[][] = [[],[]];
+
+  constructor(){
+    // this.tabimparte = Array<Array<string>>();
+  }
+  
+  
 
   ngOnInit():void{
-    
+    this.printtabtest()
   }
 
   subtitleH4: String[] = [    
@@ -51,7 +60,8 @@ export class CardOverview {
            {desc: "Having", arrobjqueries: this.arrobjquerhaving1},
         ];
 
-  msgaggre: string = "Using aggregate functions allows us to perform calculated operations on all rows that meet a certain condition (or on all rows in the table)";
+  msgaggre: string = "Using aggregate functions allows us to perform calculated operations over all rows that meet certain condition (or over all rows in the table),\
+                      but when we need to perform these operations depending on a perticular cretaria, \"Group by\" can help us with that.";
   msgorderby: string = "It's also valid \"ORDER BY 2\" or \"ORDER BY SUM(subj_cred)\"";  
   msghaving: string = "Once the calculated information over the groups of rows is obtained using the group by, it is possible to filter these results and showing only those we need using the having clause. \"Having\" is to \"Group by\" the same as \"Where\" is to \"Select-From\".";
 
@@ -65,5 +75,35 @@ export class CardOverview {
   isStringEqual(str: string, str2: string){
     return (str.toLowerCase()==str2.toLowerCase()?true:false)
   }
+
+  bucket_tableImp = "cond_ID,cond_subj 21111222,DGBD 21111222,FBD 21333444,PC".split(" ");
+  bucket_tableAsig = "cond_ID,cond_subj 21111222,DGBD 21111222,FBD 21333444,xx".split(" ");
+
+  bucket_tables = [this.bucket_tableImp, this.bucket_tableAsig];  
+  
+
+  printtabtest(){
+    let str = "";
+    let k = 0; 
+    
+
+    for (let i = 0; i < this.bucket_tables.length; i++) {      
+      for (let j = 0; j < this.bucket_tables[i].length; j++) {               
+        (this.bucket_tables[i][j].split(" ")).forEach(element => {                           
+          element.split(",").forEach(element => {            
+            this.tabimparte[i].push(element.toUpperCase())            
+          });;          
+        });
+      }
+    }
+
+    for (let i = 0; i < this.tabimparte.length; i++) {      
+      for (let j = 0; j < this.tabimparte[i].length; j++) {        
+          console.log("" + i +":" + j +" - "+this.tabimparte[i][j])
+      }
+    }
+    
+  }
+
 }
 

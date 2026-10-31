@@ -50,3 +50,41 @@ h3, h2{
 .qchar{
     color: #EFF
 }
+
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 2px solid rgb(140 140 140);
+  font:
+    16px "Open Sans",
+    "Helvetica",
+    "Arial",
+    sans-serif;
+    margin: 1em 1em 1em 0;
+}
+th,
+td {
+  border: 1px solid rgb(160 160 160);
+  padding: 4px 6px;
+  text-align: left;
+}
+
+th {
+  vertical-align: bottom;
+}
+
+thead > tr {
+  background-color: rgb(244, 245, 228);
+}
+
+thead > tr:nth-of-type(2) {
+  border-bottom: 2px solid rgb(140 140 140);
+}
+
+caption {
+  caption-side: bottom;
+  padding: 10px;
+  font-weight: bold;
+}

@@ -19,11 +19,60 @@
                     <h3>{{arr.desc}}</h3>
                 }
             </mat-card-subtitle>
+
             @if (i==0) {            
                 <div>
                     <p class="tab1 spacingAfter">{{msgaggre}}</p>
+                    
+                    
+                    <!-- @for (cellsdt of tabimparte; track cellsdt; let x = $index; let z = $index) { -->
+<div>
+                        <table>
+                             <caption>
+                                Conduct
+                            </caption>
+                         <thead>
+                         <tr>
+                        <!-- @for (cdt of cellsdt; track cdt) {
+                            @if(z<=1){ -->
+                                <th>{{tabimparte[0][0]}}</th>
+                                <th>{{tabimparte[0][1]}}</th>
+                            <!-- }
+                            {{z=z+1}}; -->
+                        <!-- }                                         -->
+                        </tr>
+                        </thead>                            
+                        <tbody>
+                            <tr>                        
+                            <!-- @if(z>1){ -->
+                                <th>{{tabimparte[0][2]}}</th>
+                                <th>{{tabimparte[0][3]}}</th>
+                                <!-- {{z=z+1}}; -->
+                                <!-- {{z=z+1}};                                 -->
+                            <!-- } -->
+                            </tr>
+                            <tr>                                        
+                            <!-- @if(z>1){ -->
+                                <th>{{tabimparte[0][4]}}</th>
+                                <!-- {{z=z+1}}; -->
+                                <th>{{tabimparte[0][5]}}</th>
+                                <!-- {{z=z+1}};                                 -->
+                            <!-- } -->
+                            </tr>
+                            <tr>              
+                                <th>{{tabimparte[0][6]}}</th>
+                                <th>{{tabimparte[0][7]}}</th>                                
+                            </tr>
+                        </tbody> 
+                        </table>
+                    </div>                                                    
+                                  
+                    <!-- }   -->
                 </div>            
-            }
+            }       
+
+
+            
             @else if (isStrHaving(arr.desc)) {
                 <div>
                     <p class="tab1 spacingAfter">{{msghaving}}</p>
