@@ -36,6 +36,10 @@ mat-card-content > div > p{
     margin-left: -10px;
 }
 
+.txtsizesubtitle{
+    font-size: 14pt;
+    margin-bottom: 0.5em;
+}
 h3, h2{
     margin-bottom: 0;
 }

@@ -3,8 +3,6 @@ import { MatCardModule } from '@angular/material/card';
 import {LowerCasePipe, UpperCasePipe}  from '@angular/common'
 import { elementAt } from 'rxjs';
 
-
-
 @Component({
   imports: [MatCardModule, UpperCasePipe],
   selector: 'app-card-overview',
@@ -12,20 +10,14 @@ import { elementAt } from 'rxjs';
   templateUrl: './card-overview.html',
 })
 export class CardOverview implements OnInit {
-  
-  
-  
-  constructor(){
-    
-    // this.tabimparte = Array<Array<string>>();
-  }
-  
-  
+  arr3D= [[[]],[[]],[[]]];
 
   ngOnInit():void{
     
     // arr3D = new Array(new Array(new Array<String[]>()));
-    this.printtabtest()
+    this.printMainTables()
+    this.printTablRes()
+
   }
 
   subtitleH4: String[] = [    
@@ -40,6 +32,7 @@ export class CardOverview implements OnInit {
   q4 = "SELECT cond_id , SUM ( subj_cred ) Amount_Credit FROM conduct JOIN subjects ON ( cond_subj = subj_cod ) GROUP BY cond_id ORDER BY Amount_Credit ;"
   
   qhaving1 = "SELECT teac_id , teac_name , COUNT ( * ) subjects FROM teachers JOIN conduct on ( teac_id = cond_id ) GROUP BY teac_id , teac_name having count ( * ) >= 2"
+  qhaving2 = "select teac_id , teac_name , count ( * ) subjects from teachers , conduct , subjects where teac_id = cond_id and cond_subj = subj_cod group by teac_id , teac_name having sum ( subj_cred ) > 5"
 
   arrqueries1: string[] = this.q1.split(" ");
   arrqueries2: string[] = this.q2.split(" ");
@@ -48,28 +41,34 @@ export class CardOverview implements OnInit {
   arrqueries4: string[] = this.q4.split(" ");
   
   arrqhaving1: string[] = this.qhaving1.split(" ");
+  arrqhaving2: string[] = this.qhaving2.split(" ");
 
   // ======================================================  
-  arrobjqueries1 = [{headerquery: 'Number of credits being taught.', arr: this.arrqueries1},
-                   {headerquery: 'Number of credits taught by each teacher.', arr: this.arrqueries2},
-                   {headerquery: 'Name of the teachers, ids and credits they teach.', arr: this.arrqueries3},                   
+  
+  arrobjqueries1 = [{headerquery: 'Number of credits being taught.', arr: this.arrqueries1, tbl: [[[]],[[]],[[]]]},
+                   {headerquery: 'Number of credits taught by each teacher.', arr: this.arrqueries2, tbl: [[[]],[[]],[[]]]},
+                   {headerquery: 'Name of the teachers, ids and credits they teach.', arr: this.arrqueries3, tbl: [[[]],[[]],[[]]]},                   
                   ];
 
-  arrobjqueries2 = [{headerquery: 'Number of credits taught by each teacher oder by "Amount_Credit"', arr: this.arrqueries4}];                  
+  arrobjqueries2 = [{headerquery: 'Number of credits taught by each teacher oder by "Amount_Credit"', arr: this.arrqueries4, tbl: [[[]],[[]],[[]]]}];
   
-  arrobjquerhaving1 = [{headerquery: 'How many subjects are taught by teachers with 2 or more subjects?', arr: this.arrqhaving1}];                  
+  arrobjquerhaving1 = [{headerquery: 'How many subjects are taught by teachers with 2 or more subjects?', arr: this.arrqhaving1, tbl: [[[]],[[]],[[]]]},
+                       {headerquery: 'How many subjects teaches each teacher in case the sum of credits is greater than 5?', arr: this.arrqhaving2, tbl: [[[]],[[]],[[]]]}];                  
 // ======================================================
 
-  arrHn = [{desc: "Group by", arrobjqueries: this.arrobjqueries1},
-           {desc: "Output ordering", arrobjqueries: this.arrobjqueries2},
-           {desc: "Having", arrobjqueries: this.arrobjquerhaving1},
-        ];
+  arrSessions = [{desc: "Group by", arrObjQueries: this.arrobjqueries1},
+                 {desc: "Output ordering", arrObjQueries: this.arrobjqueries2},
+                 {desc: "Having", arrObjQueries: this.arrobjquerhaving1}];
 
+// ====================================================== MESSAGES ====================================================== //
   msgaggre: string = "Using aggregate functions allows us to perform calculated operations over all rows that meet certain condition (or over all rows in the table),\
                       but when we need to perform these operations depending on a perticular cretaria, \"Group by\" can help us with that.";
   msgorderby: string = "It's also valid \"ORDER BY 2\" or \"ORDER BY SUM(subj_cred)\"";  
-  msghaving: string = "Once the calculated information over the groups of rows is obtained using the group by, it is possible to filter these results and showing only those we need using the having clause. \"Having\" is to \"Group by\" the same as \"Where\" is to \"Select-From\".";
 
+  msghaving1: string = "Once the calculated information over the groups of rows is obtained using the group by, it is possible to filter these results and showing only those we need using the having clause. \"Having\" is to \"Group by\" the same as \"Where\" is to \"Select-From\".";
+  msghaving2: string = "The condition of the \"Having\" clause is not necessarily over the calculus to show, e.g.:";
+  msghaving = [this.msghaving1, this.msghaving2]  
+  // ====================================================== END MESSAGES ====================================================== //
   
   isH2(str: string){
     return (this.isStringEqual("group by", str) || this.isStringEqual("having", str))
@@ -81,7 +80,6 @@ export class CardOverview implements OnInit {
     return (str.toLowerCase()==str2.toLowerCase()?true:false)
   }
 
- 
   tabcond = "Conduct";
   bucket_tableImp = "\
 COND_ID|COND_SUBJ;\
@@ -110,26 +108,78 @@ teac_id|teac_name|teac_CATEGory|teac_hired;\
 21333444|RAFAEL ROMERO|ASO6|16/06/92".
 split(";");
 
-  arr3D: string[][][] = [[[]],[[]],[[]]];
+  grby_tb1 = "AMOUNT_CREDIT;18".split(";");
+  grby_tb2 = "\
+cond_id|AMOUNT_CREDIT;\
+21111222|12;\
+21333444|6"
+  .split(";");
+  grby_tb3 = "\
+teac_name|teac_id|AMOUNT_CREDIT;\
+EVA GOMEZ|21111222|12;\
+RAFAEL ROMERO|21333444|6"
+  .split(";");
 
+  orderby_tb = "\
+cond_id|AMOUNT_CREDIT;\
+21333444|6;\
+21111222|12"
+  .split(";");
+
+  having_tb1 = "\
+teac_id|teac_name|SUBJECTS;\
+21111222|EVA GOMEZ|2"
+  .split(";");
+  having_tb2 = "\
+teac_id|teac_name|SUBJECTS;\
+21111222|EVA GOMEZ|2;\
+21333444|RAFAEL ROMERO|1"
+  .split(";");
   bucket_tables = [{nameTbl: this.tabteac, tbl: this.bucket_tableTeac},
                    {nameTbl: this.tabcond, tbl: this.bucket_tableImp},
                    {nameTbl: this.tabasig, tbl: this.bucket_tableAsig}                   
                   ];  
   
-  printtabtest(){    
-    for (let k = 0; k < this.bucket_tables.length; k++) {
+  printMainTables(){
+    printTabls(this.bucket_tables, this.arr3D);          
+  } 
 
-      for (let i = 0; i < this.bucket_tables[k].tbl.length; i++) {
-        if(i==0){
-          this.arr3D[k][0] = this.bucket_tables[k].tbl[i].split("|")
-        }
-        else{
-          this.arr3D[k][i] = this.bucket_tables[k].tbl[i].split("|")
-        }
-      }            
-    } 
+  
+  
+  arr_bucket_tablesres = [
+    [[{nameTbl: "", tbl: this.grby_tb1}],
+     [{nameTbl: "", tbl: this.grby_tb2}],
+     [{nameTbl: "", tbl: this.grby_tb3}]],
+
+    [[{nameTbl: "", tbl: this.orderby_tb}]],
+    [[{nameTbl: "", tbl: this.having_tb1}],
+     [{nameTbl: "", tbl: this.having_tb2}]]
+    ]
     
+  printTablRes(){
+    this.arrSessions.forEach( (element, i) => {
+      element.arrObjQueries.forEach((obElem, index) => {      
+        if(obElem.tbl!=null){
+          printTabls(this.arr_bucket_tablesres[i][index], obElem.tbl);     
+        }
+      });    
+    });
+  }
+}
+
+// Printing tables
+function printTabls(bucket_tables: { nameTbl: string; tbl: string[]; }[], arr3Dres: string[][][]) {
+  for (let k = 0; k < bucket_tables.length; k++) {
+    for (let i = 0; i < bucket_tables[k].tbl.length; i++) {
+      if(i==0){
+        arr3Dres[k][0] = bucket_tables[k].tbl[i].split("|")
+      }
+      else{
+        arr3Dres[k][i] = bucket_tables[k].tbl[i].split("|")
+      }
+    }
+  }
+
     // this.arr3D.forEach(cellsdt => {
     //         console.log(cellsdt)
 
@@ -141,7 +191,5 @@ split(";");
     //   });
 
     // });    
-  }
-  
 }
 
