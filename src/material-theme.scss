@@ -100,9 +100,15 @@ app-expansion-overview {
 };
 
 @media screen and (max-width:375px){
-  .gridL{
-    width: 2em;
+  .gridL{    
+    position: fixed; 
   }
+}
+
+@media screen and (max-width:700px){
+  app-expansion-overview {  
+      position: relative; 
+  };
 }
 
 @media screen and (max-width:1440px){
