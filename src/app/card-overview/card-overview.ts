@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import {LowerCasePipe, UpperCasePipe}  from '@angular/common'
+import { elementAt } from 'rxjs';
 
 
 
@@ -11,15 +12,19 @@ import {LowerCasePipe, UpperCasePipe}  from '@angular/common'
   templateUrl: './card-overview.html',
 })
 export class CardOverview implements OnInit {
-  tabimparte: string[][] = [[],[]];
-
+  
+  
+  
   constructor(){
+    
     // this.tabimparte = Array<Array<string>>();
   }
   
   
 
   ngOnInit():void{
+    
+    // arr3D = new Array(new Array(new Array<String[]>()));
     this.printtabtest()
   }
 
@@ -76,34 +81,67 @@ export class CardOverview implements OnInit {
     return (str.toLowerCase()==str2.toLowerCase()?true:false)
   }
 
-  bucket_tableImp = "cond_ID,cond_subj 21111222,DGBD 21111222,FBD 21333444,PC".split(" ");
-  bucket_tableAsig = "cond_ID,cond_subj 21111222,DGBD 21111222,FBD 21333444,xx".split(" ");
+ 
+  tabcond = "Conduct";
+  bucket_tableImp = "\
+COND_ID|COND_SUBJ;\
+21111222|DGBD;\
+21111222|FBD;\
+21333444|PC".
+  split(";");
 
-  bucket_tables = [this.bucket_tableImp, this.bucket_tableAsig];  
+  tabasig = "Subjects";
+  bucket_tableAsig = "\
+SUBJ_COD|SUBJ_DESC|SUBJ_CRED|SUBJ_CREDP;\
+HI   |HISTORIA DE LA INFORMATICA|4,5|(null);\
+FBD  |FUNDAMENTOS DE LAS BASES DE DATOS|6|1,5;\
+DGBD |DISEÑO Y GESTION DE BASES DE DATOS|6|3;\
+PC   |PROGRAMACION CONCURRENTE|6|1,5;\
+FP   |FUNDAMENTOS DE LA PROGRAMACION|9|4,5;\
+AGBD |ADMINISTRACIÓN DE BASES DE DATOS|6|0".
+  split(";");
+
+  tabteac = "Teachers";
+  bucket_tableTeac = "\
+teac_id|teac_name|teac_CATEGory|teac_hired;\
+21333445|RAFAEL2 ROMEO|ASO5|03/05/24;\
+21111222|EVA GOMEZ|TEU |01/10/93;\
+21222333|MANUEL PALOMAR|TEU |16/06/89;\
+21333444|RAFAEL ROMERO|ASO6|16/06/92".
+split(";");
+
+  arr3D: string[][][] = [[[]],[[]],[[]]];
+
+  bucket_tables = [{nameTbl: this.tabteac, tbl: this.bucket_tableTeac},
+                   {nameTbl: this.tabcond, tbl: this.bucket_tableImp},
+                   {nameTbl: this.tabasig, tbl: this.bucket_tableAsig}                   
+                  ];  
   
+  printtabtest(){    
+    for (let k = 0; k < this.bucket_tables.length; k++) {
 
-  printtabtest(){
-    let str = "";
-    let k = 0; 
+      for (let i = 0; i < this.bucket_tables[k].tbl.length; i++) {
+        if(i==0){
+          this.arr3D[k][0] = this.bucket_tables[k].tbl[i].split("|")
+        }
+        else{
+          this.arr3D[k][i] = this.bucket_tables[k].tbl[i].split("|")
+        }
+      }            
+    } 
     
+    // this.arr3D.forEach(cellsdt => {
+    //         console.log(cellsdt)
 
-    for (let i = 0; i < this.bucket_tables.length; i++) {      
-      for (let j = 0; j < this.bucket_tables[i].length; j++) {               
-        (this.bucket_tables[i][j].split(" ")).forEach(element => {                           
-          element.split(",").forEach(element => {            
-            this.tabimparte[i].push(element.toUpperCase())            
-          });;          
-        });
-      }
-    }
+    //   cellsdt.forEach(item => {
+    //     console.log(item)
+    //     item.forEach(element => {
+    //       console.log(element)          
+    //     });
+    //   });
 
-    // for (let i = 0; i < this.tabimparte.length; i++) {      
-    //   for (let j = 0; j < this.tabimparte[i].length; j++) {        
-    //       console.log("" + i +":" + j +" - "+this.tabimparte[i][j])
-    //   }
-    // }
-    
+    // });    
   }
-
+  
 }
 

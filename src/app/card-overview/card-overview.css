@@ -41,7 +41,7 @@ h3, h2{
 }
 
 .qkeyword{
-    color: #BB80B3
+    color: #c9bc72
 }
 
 .qspecchar{
@@ -76,15 +76,32 @@ th {
 }
 
 thead > tr {
-  background-color: rgb(244, 245, 228);
+  background-color: #e6e2cd;
 }
 
 thead > tr:nth-of-type(2) {
   border-bottom: 2px solid rgb(140 140 140);
 }
 
+tbody > tr:nth-of-type(odd) { 
+    background: #fffffa; 
+}
+
 caption {
-  caption-side: bottom;
-  padding: 10px;
+  caption-side: top;
+  text-align: left;
+  padding: 5px;
   font-weight: bold;
+}
+
+@media screen and (max-width:700px),  screen and (max-width:1920px){
+    .divTbl{
+        display: flex;
+    }
+}
+
+@media screen  and (max-width:960px), screen and (max-width:1440px){
+    .divTbl{
+        display: block;
+    }
 }

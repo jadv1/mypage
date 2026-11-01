@@ -23,51 +23,43 @@
             @if (i==0) {            
                 <div>
                     <p class="tab1 spacingAfter">{{msgaggre}}</p>
-                    
-                    
-                    <!-- @for (cellsdt of tabimparte; track cellsdt; let x = $index; let z = $index) { -->
-<div>
-                        <table>
-                             <caption>
-                                Conduct
-                            </caption>
-                         <thead>
-                         <tr>
-                        <!-- @for (cdt of cellsdt; track cdt) {
-                            @if(z<=1){ -->
-                                <th>{{tabimparte[0][0]}}</th>
-                                <th>{{tabimparte[0][1]}}</th>
-                            <!-- }
-                            {{z=z+1}}; -->
-                        <!-- }                                         -->
-                        </tr>
-                        </thead>                            
-                        <tbody>
-                            <tr>                        
-                            <!-- @if(z>1){ -->
-                                <th>{{tabimparte[0][2]}}</th>
-                                <th>{{tabimparte[0][3]}}</th>
-                                <!-- {{z=z+1}}; -->
-                                <!-- {{z=z+1}};                                 -->
-                            <!-- } -->
-                            </tr>
-                            <tr>                                        
-                            <!-- @if(z>1){ -->
-                                <th>{{tabimparte[0][4]}}</th>
-                                <!-- {{z=z+1}}; -->
-                                <th>{{tabimparte[0][5]}}</th>
-                                <!-- {{z=z+1}};                                 -->
-                            <!-- } -->
-                            </tr>
-                            <tr>              
-                                <th>{{tabimparte[0][6]}}</th>
-                                <th>{{tabimparte[0][7]}}</th>                                
-                            </tr>
-                        </tbody> 
-                        </table>
-                    </div>                                                    
-                                  
-                    <!-- }   -->
+
+<!-- ======================================= Tables ======================================= -->
+                    <div class="divTbl">
+                        @for (cellsdt of arr3D; track cellsdt; let k = $index) {
+                            <div>
+                                <table>
+                                    <caption>
+                                        {{bucket_tables[k].nameTbl | uppercase}}
+                                    </caption>
+                                    <thead>
+                                        @for (item of cellsdt; track item; let j = $index) {
+                                        <tr>
+                                                @for (element of item; track element; let i = $index) {
+                                                    @if(j===0){
+                                                        <th>{{element  | uppercase}}</th>
+                                                    }                                            
+                                                }
+                                            </tr>
+                                        }
+                                    </thead>
+                                    <tbody>
+                                        @for (item of cellsdt; track item; let j = $index) {
+                                        <tr>
+                                                @for (element of item; track element; let i = $index) {
+                                                    @if(j!==0){
+                                                        <td>{{element}}</td>
+                                                    }                                            
+                                                }                                         
+                                        </tr>
+                                        }                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                    </div>
+<!-- ======================================= End Tables ======================================= -->
+
                 </div>            
             }       
 
