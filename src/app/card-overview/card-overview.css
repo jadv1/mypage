@@ -104,7 +104,7 @@ caption {
     }
 }
 
-@media screen  and (max-width:960px), screen and (max-width:1440px){
+@media screen and (max-width:960px), screen and (max-width:1440px){
     .divTbl{
         display: block;
     }

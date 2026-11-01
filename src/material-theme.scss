@@ -88,17 +88,35 @@ mat-tab-group {
 .gridR{
   width: 200em;
 }
+
+.gridL{  
+  height: fit-content;
+}
 .gridL{
   width: 48em;
-  height: fit-content;
-  // position: fixed; 
-  // width: 26.3em;
 }
-app-expansion-overview{
-  position: fixed; 
-  width: 26.3em;
+app-expansion-overview {  
+    position: fixed; 
+};
+
+@media screen and (max-width:375px){
+  .gridL{
+    width: 2em;
+  }
 }
 
+@media screen and (max-width:1440px){
+  app-expansion-overview {
+    width: 17.4em;  
+  };
+
+}
+
+@media screen and (width:1920px){
+  app-expansion-overview {
+    width: 26.3em;    
+  };
+}
 
 .gridL, .gridR{
   background-color: rgb(237, 235, 235)
