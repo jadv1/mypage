@@ -50,7 +50,9 @@ body {
 
 :root {
   @include mat.card-overrides((
-    elevated-container-color: rgb(237, 235, 235),        
+    elevated-container-color: rgb(237, 235, 235),    
+    outlined-outline-width:1px,
+    outlined-container-shape: var(--mat-sys-corner-small)
   ));
   @include mat.icon-overrides((
     color: rgb(3, 135, 23),
@@ -66,6 +68,11 @@ body {
   @include mat.tree-overrides((    
     node-text-color: #948A54,
   ));
+  @include mat.menu-overrides((
+      container-shape: 6px,
+      divider-color: #948A54,
+      container-color: transparent
+  ));  
 }
 
 mat-tab-group {  
@@ -90,14 +97,15 @@ mat-tab-header{
 }
 
 .gridR{
-  width: 200em;
+  width: 169em;
+  margin-right: 15em;
 }
 
 .gridL{  
   height: fit-content;
 }
 .gridL{
-  width: 48em;
+  width: 48em;  
 }
 app-expansion-overview {  
     position: fixed; 
@@ -126,7 +134,7 @@ app-expansion-overview {
 
 @media screen and (max-width:1440px){
   app-expansion-overview {
-    width: 17.35em;  
+    width: 16.35em;  
   };
   .gridMain {
   height: 45em;  
@@ -216,6 +224,7 @@ pre{
 @media screen{
   .card {
     height: auto; 
+    border: none;
   }
 }
 // @media screen and (max-width:700px),  screen and (max-width:1920px){
@@ -243,6 +252,7 @@ pre{
 
 .matCardHeader{
   padding: 0 0 0 0 !important;
+  display: flex;
   
 }
 
@@ -259,20 +269,40 @@ pre{
   // background-image:  url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
   background-size: cover;
   border-radius: 100%;
-  margin-left: 810px;
+  margin-left: 910px;
   padding: 0.5% 0.5% 0.5% 0.5%;
   
 }
 
 #mydata{
-  position: absolute; 
   z-index: 1; 
-  margin-left: 853px; 
-  margin-top: 24px;
+  margin-left: 0; 
+  margin-top: 0;
 }
 
-#mydata > button{
-  background: transparent;
+mat-icon:hover {
+    cursor: pointer;
+}
+
+mat-menu{
+  background: black !important;
+}
+
+#mydata>p{
+  margin-top: 5px;
+  margin-bottom: 0;  
+}
+
+// div[id|="cdk-overlay"]{
+//   bottom: 0 !important;
+//   // margin-left: 318px;
+//   top: 57px;  
+//   justify-content: right;
+//   position: relative;
+// }
+
+#meSubmenu > button{
+  background: transparent !important;
 }
 
 #mydatacontent{

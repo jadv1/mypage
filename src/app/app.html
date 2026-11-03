@@ -1,28 +1,31 @@
 <head> JADV </head>
 <body>
-    <mat-card-header class="matCardHeader" >                 
+    <mat-card-header class="matCardHeader" > 
         <div id="divavatar" mat-card-avatar class="card-header-image" >
             <img id="avatar_image">
-        </div>
-        <div style="margin-left: 0.8em; margin-top: 0.2em;">                  
-            <p style="margin: 0;">Me</p>            
-        </div>
+        </div>        
+        <!-- <mat-divider [vertical]="true"></mat-divider>        -->
         <div id="mydata">
-            <button matButton [matMenuTriggerFor]="menu" style="border: none;">
-                    <mat-icon>expand_more</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-                <div id="mydatacontent">
-                    <span>
-                        <b>Jorge Adalberto Díaz Valdés</b>
-                        <p>Computer Engineer</p>
-                        <a href="https://www.linkedin.com/in/jorge-adalberto-d%C3%ADaz-vald%C3%A9s-3a003bbb/" target="_blank">LinkedIn</a>
-                    </span>
-                </div>
-            </mat-menu>  
+            <p style="margin-left: 10px;">Me</p>     
+            <div id="meSubmenu">
+                <button matButton [matMenuTriggerFor]="menu" style="border: none;">
+                        <mat-icon>expand_more</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                    <div id="mydatacontent">
+                        <span>
+                            <b>Jorge Adalberto Díaz Valdés</b>
+                            <p>Computer Engineer</p>
+                            <mat-divider></mat-divider>
+                            <a href="https://www.linkedin.com/in/jorge-adalberto-d%C3%ADaz-vald%C3%A9s-3a003bbb/" target="_blank">LinkedIn</a>
+                        </span>
+                    </div>
+                </mat-menu>
+            </div>       
         </div>
     </mat-card-header>
-    <div style="padding-left: 10px"> 
+    
+    <div style="padding-left: 100px;"> 
       <mat-tab-group class="app-toolbar" animationDuration="1000ms">
           <!-- ======================================== Subjet1 ======================================== -->
            <mat-tab-header>
@@ -70,8 +73,8 @@
                       </ng-template>        
                   </mat-tab>    
                   
-              </mat-tab-header>
-          </mat-tab-group>
+                </mat-tab-header>                
+          </mat-tab-group>          
       </div>
 </body>
 <footer></footer>
