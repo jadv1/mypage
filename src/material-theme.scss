@@ -71,7 +71,7 @@ body {
   @include mat.menu-overrides((
       container-shape: 6px,
       divider-color: #948A54,
-      container-color: transparent
+      container-color: #f8f8f8
   ));  
 }
 
@@ -114,8 +114,22 @@ app-expansion-overview {
 @media screen and (max-width:420px){
   .gridL{    
     position: relative; 
-  }
+  };
 }
+@media screen and (max-width:700px){
+  .gridL{    
+    position: relative; 
+  };
+  div#cdk-overlay-0{
+    bottom: 0 !important;
+    // margin-left: 318px;
+    top: 800px;  
+    justify-content: right;
+    position: relative;
+    right: 0 !important;
+  }  
+}
+
 
 // @media screen and (max-width:700px){
 //   app-expansion-overview {  
@@ -292,14 +306,6 @@ mat-menu{
   margin-top: 5px;
   margin-bottom: 0;  
 }
-
-// div[id|="cdk-overlay"]{
-//   bottom: 0 !important;
-//   // margin-left: 318px;
-//   top: 57px;  
-//   justify-content: right;
-//   position: relative;
-// }
 
 #meSubmenu > button{
   background: transparent !important;

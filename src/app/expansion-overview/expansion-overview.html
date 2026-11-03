@@ -5,8 +5,7 @@
         
         @for (subjt of arrdtsrc; track subjt; let i = $index) {
           <mat-expansion-panel [expanded]=subjt.exp>
-          
-          
+                    
           <mat-expansion-panel-header>
               <mat-panel-title> {{subjt.sb}} </mat-panel-title>
           </mat-expansion-panel-header>
@@ -20,8 +19,9 @@
             <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [matTreeNodePadding]="0.1">                          
               <!-- use a disabled button to provide padding for tree leaf -->
               <button matIconButton disabled></button>
-              <a [routerLink]="node.otopic.route" [class.abckgd]="node.otopic.bckgd" (click)="changeBckgd($event)">{{node.otopic.topic}}</a> <!-- children -->
+              <a [routerLink]="node.otopic.route" [class.abckgd]="node.otopic.bckgd" (click)="changeBckgd($event)">{{node.otopic.topic}}</a> <!-- children -->              
             </mat-tree-node>
+            
             <!-- This is the tree node template for expandable nodes -->
             <mat-tree-node *matTreeNodeDef="let node; when: hasChild" [matTreeNodePadding]="0.1" 
                           [cdkTreeNodeTypeaheadLabel]="node.name" 
@@ -30,6 +30,7 @@
                           tabindex="0">
                           <!-- {{tree.toggle(node)}} -->
               
+                         
               <button id="butsql" matIconButton matTreeNodeToggle
                       [attr.aria-label]="'Toggle ' + node.name">
                 <mat-icon class="mat-icon-rtl-mirror">  
@@ -37,13 +38,8 @@
                 </mat-icon>           
                    
               </button>
-              <!-- @for (subtop of node.otopic; track $index) {
-                
-              } -->
-              
-              
-              <span >{{node.otopic}}</span> <!-- Header -->            
-            </mat-tree-node>
+              <span >{{node.otopic}}</span> <!-- Header -->     
+            </mat-tree-node>            
           </mat-tree>
           
           <!-- <mat-expansion-panel [expanded]="false">

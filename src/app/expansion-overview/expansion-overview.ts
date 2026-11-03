@@ -5,6 +5,7 @@ import { DataBases } from '../data-bases/data-bases';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 
 interface SubjectNode {
   otopic: {};
@@ -13,7 +14,7 @@ interface SubjectNode {
 
 
 @Component({
-  imports: [MatExpansionModule, RouterLink, MatTreeModule, MatButtonModule, MatIconModule],  
+  imports: [MatExpansionModule, RouterLink, MatTreeModule, MatButtonModule, MatIconModule, MatDividerModule],  
   selector: 'app-expansion-overview',
   styleUrl: './expansion-overview.css',
   templateUrl: './expansion-overview.html',
