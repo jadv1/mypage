@@ -55,7 +55,7 @@ body {
     outlined-container-shape: var(--mat-sys-corner-small)
   ));
   @include mat.icon-overrides((
-    color: rgb(3, 135, 23),
+    color: inherit,
   ));  
   @include mat.expansion-overrides((
     container-shape: 10px,
