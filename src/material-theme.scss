@@ -122,7 +122,9 @@ app-expansion-overview {
   .gridL{    
     position: relative; 
   };
-  div#cdk-overlay-0{
+  
+  // CSS Selenium Driver based on CSS
+  div[id^="cdk-overlay-"]{
     bottom: 0 !important;
     // margin-left: 318px;
     top: 800px;  
@@ -131,7 +133,6 @@ app-expansion-overview {
     right: 0 !important;
   }  
 }
-
 
 // @media screen and (max-width:700px){
 //   app-expansion-overview {  
