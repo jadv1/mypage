@@ -116,7 +116,9 @@ app-expansion-overview {
     position: relative; 
   };
 }
-@media screen and (max-width:700px){
+
+// When mobile is horizontal
+@media screen and (max-width:800px){
   .gridL{    
     position: relative; 
   };
