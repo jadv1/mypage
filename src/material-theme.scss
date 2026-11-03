@@ -79,10 +79,14 @@ mat-tab-group {
   ));
 }
 
+mat-tab-header{
+  width: 800px;
+  // margin-left: 10px;
+}
 .gridMain {
   display: flex !important; 
   // padding-top: 2px;
-  height: 100em;  
+  height: 65em;  
 }
 
 .gridR{
@@ -105,16 +109,28 @@ app-expansion-overview {
   }
 }
 
-@media screen and (max-width:700px){
+// @media screen and (max-width:700px){
+//   app-expansion-overview {  
+//       position: relative; 
+//   };
+// }
+
+@media screen and (max-width:800px){
   app-expansion-overview {  
-      position: relative; 
+      position: fixed; 
   };
+  div.gridMain{  
+    height: 100%
+  }  
 }
 
 @media screen and (max-width:1440px){
   app-expansion-overview {
-    width: 17.4em;  
+    width: 17.35em;  
   };
+  .gridMain {
+  height: 45em;  
+}
 
 }
 
@@ -224,24 +240,73 @@ pre{
 //   }
 // }
 // app-card-overview
+
+.matCardHeader{
+  padding: 0 0 0 0 !important;
+  
+}
+
 .card-image{
   height: 100px;
 }
 
+#divavatar{
+  margin-bottom: 0;
+  margin-top: 4px;
+}
 .card-header-image {
-  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-image: url('/css/images/me.png');
+  // background-image:  url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
   background-size: cover;
+  border-radius: 100%;
+  margin-left: 810px;
+  padding: 0.5% 0.5% 0.5% 0.5%;
+  
 }
 
+#mydata{
+  position: absolute; 
+  z-index: 1; 
+  margin-left: 853px; 
+  margin-top: 24px;
+}
+
+#mydata > button{
+  background: transparent;
+}
+
+#mydatacontent{
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+  font-family: sans-serif;
+}
+
+#mydatacontent p{
+  margin: 0;
+}
+
+.mat-mdc-card-avatar{
+  height: 20px !important;
+  width: 20px !important
+}
+#avatar_image{  
+  display: block;
+	width:auto;
+	height:35px;
+	margin-top:1px;
+	margin-left:20px;
+	margin-right:20px;	  
+}
+
+#db_image{
+  /* vertical-align: text-top; */
+  display: flow-root;
+  width:auto;
+  height:35px;
+  margin-left:20px;
+  margin-right:10px;	
+}
 .example-tab-icon {
   margin-right: 8px;
 }
 
-img{
-	/* vertical-align: text-top; */
-  display: flow-root;
-	width:auto;
-	height:35px;
-	margin-left:20px;
-	margin-right:10px;	
-}

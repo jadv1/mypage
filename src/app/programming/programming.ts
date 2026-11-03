@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @Component({
-  imports: [],
+  imports: [MatSidenavModule],
   selector: 'app-programming',
   styleUrl: './programming.css',
   templateUrl: './programming.html',
