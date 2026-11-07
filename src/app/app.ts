@@ -28,9 +28,14 @@ import { MatMenuModule, MatMenu } from '@angular/material/menu';
   templateUrl: './app.html',
 })
 export class App {
+
+  constructor(){
+    this.ismenusub=this.displayContent()
+  }
   protected readonly title = signal('myweb');
   msgprogress = "Development in progress!"
   
+  ismenusub = false;
 
   tiles = new GridListDynamic();
   db = new DataBases();
@@ -42,5 +47,9 @@ export class App {
 
   getMsgImprogre(){
     return this.msgprogress;
+  }
+  
+  displayContent(){
+    return this.ismenusub = !this.ismenusub;
   }
 }

@@ -1,80 +1,88 @@
-<head> JADV </head>
-<body>
-    <mat-card-header class="matCardHeader" > 
-        <div id="divavatar" mat-card-avatar class="card-header-image" >
-            <img id="avatar_image">
-        </div>        
+<mat-card-header class="matCardHeader" > 
+    <div id="divavatar" mat-card-avatar class="card-header-image" >
+        <img id="avatar_image">
+    </div>        
         <!-- <mat-divider [vertical]="true"></mat-divider>        -->
-        <div id="mydata">
+    <div id="mydata">
             <p style="margin-left: 10px;">Me</p>     
-            <div id="meSubmenu">
-                <button matButton [matMenuTriggerFor]="menu" style="border: none;">
-                        <mat-icon>expand_more</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu" xPosition="before">
-                    <div id="mydatacontent">
+        <div id="meSubmenu">
+            <button matButton [matMenuTriggerFor]="menu" style="border: none;">
+                    <mat-icon>expand_more</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+                <div id="mydatacontent">
+                    <address>
                         <span>
-                            <b>Jorge A. Díaz Valdés</b>
+                            <p id="meName">Jorge A. Díaz Valdés</p>
                             <p>Computer Engineer</p>
-                            <mat-divider></mat-divider>
-                            <a href="https://www.linkedin.com/in/jorge-adalberto-d%C3%ADaz-vald%C3%A9s-3a003bbb/" target="_blank">LinkedIn</a>
+                            <mat-divider></mat-divider>   
+                            <div id="me_div_ico_in">
+                                <mat-icon id="icoLinkedin"></mat-icon>                                                     
+                                <div id="me_div_a_in">
+                                    <a href="https://www.linkedin.com/in/jorge-adalberto-d%C3%ADaz-vald%C3%A9s-3a003bbb/" target="_blank">LinkedIn</a>
+                                </div>
+                            </div>
                         </span>
-                    </div>
-                </mat-menu>
-            </div>       
-        </div>
-    </mat-card-header>
-    
-    <div style="padding-left: 100px;"> 
-      <mat-tab-group class="app-toolbar" animationDuration="1000ms">
-          <!-- ======================================== Subjet1 ======================================== -->
-           <mat-tab-header>
-               <mat-tab>        
-                   <ng-template mat-tab-label>
-                       <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> -->
-                       <img id="db_image" src="/css/images/db.svg" alt="DB icon">
-                       {{subjectDB}} 
-                   </ng-template>      
-                    
-                   <ng-template matTabContent>      
-                       <!-- TODO Move this to DB Component -->
-                       <div class="gridMain">
-                           <div class="gridL">
-                               <app-expansion-overview [title]="subjectDB"></app-expansion-overview>                                    
-                           </div>
-       
-                           <div class="gridR">
-                               <router-outlet></router-outlet>
-                           </div>
-                       </div>                  
-                       <!-- End TODO Move this to DB Component -->
-       
-                       <!-- <router-outlet></router-outlet> -->
-                   </ng-template>
-                   <!-- ======================================== End TODO - Movit to left pane ======================================== --> 
-               </mat-tab>    
-               <!-- ======================================== Subjet2 ======================================== -->
-               <mat-tab [class.tabs-overrides] label={{subjectP}}>
-                   <ng-template matTabContent>
-                       {{msgprogress}}
-                       <!-- <app-programming></app-programming>                      -->
-                   </ng-template>        
-               </mat-tab>  
-               <!-- ======================================== Subje3 ======================================== -->  
-               <mat-tab [class.tabs-overrides] label={{subjectSW}}>
-                   <ng-template matTabContent>
-                       {{msgprogress}}
-                   </ng-template>
-               </mat-tab>
-               <!-- ======================================== Subjet4 ======================================== -->    
-               <mat-tab [class.tabs-overrides] label={{subjectSy}}>
-                   <ng-template matTabContent>
-                       {{msgprogress}}
-                      </ng-template>        
-                  </mat-tab>    
-                  
-                </mat-tab-header>                
-          </mat-tab-group>          
-      </div>
-</body>
-<footer></footer>
+                    </address>
+                </div>
+            </mat-menu>
+        </div>       
+    </div>
+</mat-card-header>
+
+<div style="padding-left: 100px;"> 
+    <mat-tab-group class="app-toolbar" animationDuration="1000ms">
+        <!-- ======================================== Subjet1 ======================================== -->
+        <mat-tab-header>
+            <mat-tab>        
+                <ng-template mat-tab-label>
+                    <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> -->
+                    <img id="db_image" src="/css/images/db.svg" alt="DB icon">
+                    {{subjectDB}} 
+                </ng-template>      
+                
+                <ng-template matTabContent>      
+                    <!-- TODO Move this to DB Component -->
+                    <div class="gridMain">
+                        <div class="gridL">
+                            <app-expansion-overview [title]="subjectDB"></app-expansion-overview>                                    
+                        </div>
+                        <div class="gridLx">
+                            <button  matIconButton class="btSubmenuDB" (click)="displayContent()">
+                              <mat-icon>menu</mat-icon>
+                            </button>
+                            <app-expansion-overview [title]="subjectDB" [hidden]="ismenusub" style="z-index: 5;"></app-expansion-overview>
+                        </div>                        
+
+                        <div class="gridR">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>                  
+                    <!-- End TODO Move this to DB Component -->
+
+                    <!-- <router-outlet></router-outlet> -->
+                </ng-template>
+                <!-- ======================================== End TODO - Movit to left pane ======================================== --> 
+            </mat-tab>    
+            <!-- ======================================== Subjet2 ======================================== -->
+            <mat-tab [class.tabs-overrides] label={{subjectP}}>
+                <ng-template matTabContent>
+                    {{msgprogress}}
+                    <!-- <app-programming></app-programming>                      -->
+                </ng-template>        
+            </mat-tab>  
+            <!-- ======================================== Subje3 ======================================== -->  
+            <mat-tab [class.tabs-overrides] label={{subjectSW}}>
+                <ng-template matTabContent>
+                    {{msgprogress}}
+                </ng-template>
+            </mat-tab>
+            <!-- ======================================== Subjet4 ======================================== -->    
+            <mat-tab [class.tabs-overrides] label={{subjectSy}}>
+                <ng-template matTabContent>
+                    {{msgprogress}}
+                </ng-template>        
+            </mat-tab>                
+        </mat-tab-header>                
+    </mat-tab-group>          
+</div>

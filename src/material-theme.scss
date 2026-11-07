@@ -48,6 +48,18 @@ body {
   height: 100%;
 }
 
+h1{  
+  font-size: 40px;
+}
+
+h2{  
+  font-size: 30px;
+}
+
+h3{  
+  font-size: 25px;
+}
+
 :root {
   @include mat.card-overrides((
     elevated-container-color: rgb(237, 235, 235),    
@@ -55,7 +67,7 @@ body {
     outlined-container-shape: var(--mat-sys-corner-small)
   ));
   @include mat.icon-overrides((
-    color: inherit,
+    color: inherit    
   ));  
   @include mat.expansion-overrides((
     container-shape: 10px,
@@ -90,39 +102,81 @@ mat-tab-header{
   width: 800px;
   // margin-left: 10px;
 }
+
 .gridMain {
   display: flex !important; 
   // padding-top: 2px;
-  height: 65em;  
+  height: auto;  
 }
 
-.gridR{
-  width: 169em;
-  margin-right: 15em;
-}
-
-.gridL{  
-  height: fit-content;
+.gridR{  
+  margin-right: 15em; 
 }
 .gridL{
   width: 48em;  
 }
+
+.gridL, .gridR{
+  background-color: rgb(237, 235, 235);
+  height: 100%;
+}
+
 app-expansion-overview {  
     position: fixed; 
 };
 
-@media screen and (max-width:420px){
-  .gridL{    
-    position: relative; 
+// @media screen and (max-width:700px){
+//   app-expansion-overview {  
+//       position: relative; 
+//   };
+// }
+
+@media screen and (width:1920px){
+  app-expansion-overview {
+    width: 26.3em;    
   };
+  .gridR{
+    width: 169em !important;
+  };
+  .gridL{
+    width: 47.5em
+  }
 }
 
+@media screen and (max-width:1440px){
+  app-expansion-overview {
+    width: 16.35em;  
+  };
+  .gridL{
+    width: 41em;
+  };
+  .gridR{
+    width: 146em;
+  }
+}
+
+@media screen and (max-width :1920px){  
+  .gridLx{      
+    display: none !important;
+  };
+}
 // When mobile is horizontal
 @media screen and (max-width:800px){
-  .gridL{    
-    position: relative; 
+  .gridR{
+    width: 48em;
+  };  
+  .gridLx{      
+    display: block !important
+  };  
+  .gridL{      
+    display: none !important
   };
-  
+  mat-tab-header{
+    width: 700px;  
+  };
+  .card-header-image {
+    margin-left: 810px !important;
+  };
   // CSS Selenium Driver based on CSS
   div[id^="cdk-overlay-"]{
     bottom: 0 !important;
@@ -131,51 +185,14 @@ app-expansion-overview {
     justify-content: right;
     position: relative;
     right: 0 !important;
-  }  
-}
-
-// @media screen and (max-width:700px){
-//   app-expansion-overview {  
-//       position: relative; 
-//   };
-// }
-
-@media screen and (max-width:800px){
+  };
   app-expansion-overview {  
-      position: fixed; 
+      position: relative;
   };
   div.gridMain{  
     height: 100%
-  }  
+  };  
 }
-
-@media screen and (max-width:1440px){
-  app-expansion-overview {
-    width: 16.35em;  
-  };
-  .gridMain {
-  height: 45em;  
-}
-
-}
-
-@media screen and (width:1920px){
-  app-expansion-overview {
-    width: 26.3em;    
-  };
-}
-
-.gridL, .gridR{
-  background-color: rgb(237, 235, 235)
-}
-// mat-tab {  
-//   @include mat.tabs-overrides((
-//     position: sticky,    
-//     top: 0, /* Sets the sticky toolbar to be on top */
-//     z-index: 1000, /* Ensure that your app's content doesn't overlap the toolbar */
-    
-//   ));
-// }
 
 .app-toolbar {
     position: fixed;
@@ -287,8 +304,7 @@ pre{
   background-size: cover;
   border-radius: 100%;
   margin-left: 910px;
-  padding: 0.5% 0.5% 0.5% 0.5%;
-  
+  padding: 0.5% 0.5% 0.5% 0.5%;  
 }
 
 #mydata{
@@ -349,3 +365,7 @@ mat-menu{
   margin-right: 8px;
 }
 
+
+address{
+  font-style: normal;
+}

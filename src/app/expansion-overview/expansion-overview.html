@@ -15,12 +15,15 @@
           
           <mat-tree #tree [dataSource]="dataSource" [childrenAccessor]="childrenAccessor">
             
-            <!-- This is the tree node template for leaf nodes -->           
-            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [matTreeNodePadding]="0.1">                          
-              <!-- use a disabled button to provide padding for tree leaf -->
-              <button matIconButton disabled></button>
-              <a [routerLink]="node.otopic.route" [class.abckgd]="node.otopic.bckgd" (click)="changeBckgd($event)">{{node.otopic.topic}}</a> <!-- children -->              
-            </mat-tree-node>
+            <!-- This is the tree node template for leaf nodes -->  
+             
+               <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [matTreeNodePadding]="0.1">                          
+                 <!-- use a disabled button to provide padding for tree leaf -->
+                 <button matIconButton disabled></button>              
+                   <!-- children -->
+                   <a [routerLink]="node.otopic.route" [class.abckgd]="node.otopic.bckgd" (click)="changeBckgd($event)">{{node.otopic.topic}}</a>              
+               </mat-tree-node>
+             
             
             <!-- This is the tree node template for expandable nodes -->
             <mat-tree-node *matTreeNodeDef="let node; when: hasChild" [matTreeNodePadding]="0.1" 

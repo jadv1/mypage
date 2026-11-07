@@ -19,3 +19,39 @@ div {
   display: table;
   padding-left: 0.1em;  
 }
+
+#meName{
+    font-weight: bold;
+}
+
+/* a[href^="tel"]::before {
+  content: "📞 ";
+} */
+
+#me_div_a_in{
+    /* display: inline-flex; */
+    padding-left: 5px;
+}
+#me_div_ico_in{
+    display: inline-flex
+}
+#icoLinkedin{
+    content: url('/css/images/linkedin.ico');
+    width: 20px;
+    height: 20px;
+}
+
+
+.btSubmenuDB{
+    border-radius: 5px;    
+    border-width: 1px;    
+    border-color: inherit;
+    position: fixed;
+    top: 50px;    
+    left: 62px;
+    
+}
+
+/* .btSubmenuDB:hover {
+    
+} */
