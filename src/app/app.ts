@@ -10,8 +10,6 @@ import { GridListDynamic } from './grid-list-dynamic/grid-list-dynamic';
 import { Programming } from './programming/programming';
 import { SwPt } from './sw-pt/sw-pt';
 import { System } from './system/system';
-import { PageDbRelationship } from './pages/page-db-relationship/page-db-relationship';
-import { ExpansionOverview } from './expansion-overview/expansion-overview';
 import { MatCardHeader, MatCardTitle, MatCardSubtitle, MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,8 +18,8 @@ import { MatMenuModule, MatMenu } from '@angular/material/menu';
 
 
 @Component({
-  imports: [MatMenuModule, MatDividerModule, MatListModule, RouterOutlet, MatTabGroup, 
-    MatTabsModule, MatGridListModule, ExpansionOverview, MatCardHeader, MatTabHeader, 
+  imports: [MatMenuModule, MatDividerModule, MatListModule, RouterOutlet, MatTabGroup,
+    MatTabsModule, MatGridListModule, MatCardHeader, MatTabHeader,
     MatCardModule, MatExpansionModule, MatIconModule, MatTreeModule, MatMenu],
   selector: 'app-root',
   styleUrl: './app.css',
@@ -34,8 +32,6 @@ export class App {
   }
   protected readonly title = signal('myweb');
   msgprogress = "Development in progress!"
-  
-  ismenusub = false;
 
   tiles = new GridListDynamic();
   db = new DataBases();
@@ -49,6 +45,7 @@ export class App {
     return this.msgprogress;
   }
   
+  ismenusub = false;
   displayContent(){
     return this.ismenusub = !this.ismenusub;
   }

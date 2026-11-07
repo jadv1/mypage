@@ -15,10 +15,7 @@ div {
     display: block;
 }
 
-.mat-grid-tile-content{
-  display: table;
-  padding-left: 0.1em;  
-}
+
 
 #meName{
     font-weight: bold;
@@ -39,17 +36,6 @@ div {
     content: url('/css/images/linkedin.ico');
     width: 20px;
     height: 20px;
-}
-
-
-.btSubmenuDB{
-    border-radius: 5px;    
-    border-width: 1px;    
-    border-color: inherit;
-    position: fixed;
-    top: 50px;    
-    left: 62px;
-    
 }
 
 /* .btSubmenuDB:hover {

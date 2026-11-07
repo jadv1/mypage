@@ -5,12 +5,37 @@ import { PageDbRelationship } from './pages/page-db-relationship/page-db-relatio
 import { PageSubqueries } from './pages/page-subqueries/page-subqueries';
 import { PageColsArithmetics } from './pages/page-cols-arithmetics/page-cols-arithmetics';
 import { PageSets } from './pages/page-sets/page-sets';
+import { DataBases } from './data-bases/data-bases';
+import { Programming } from './programming/programming';
+import { SwPt } from './sw-pt/sw-pt';
+import { System } from './system/system';
 
-export const routes: Routes = [
-    {component: PageAggregation, path:''},
-    {component: PageJoins, path:'join'},
-    {component: PageSubqueries, path:'nesq'},
-    {component: PageColsArithmetics, path:'colari'},
-    {component: PageSets, path:'sets'},
-    {component: PageDbRelationship, path:'dbrelatn'}
+export const routes: Routes = [    
+    {
+        path:'', 
+        component: DataBases, 
+        children: [
+            {path:'agreg', component: PageAggregation},
+            {path:'join', component: PageJoins},
+            {path:'nesq', component: PageSubqueries},
+            {path:'colari', component: PageColsArithmetics},
+            {path:'sets', component: PageSets},
+            {path:'dbrelatn', component: PageDbRelationship},
+        ]
+    },
+    {
+        path:'', 
+        component: Programming, 
+        outlet: 'r-programming'
+    },
+    {
+        path:'', 
+        component: SwPt, 
+        outlet: 'r-swpt'
+    },
+    {
+        path:'', 
+        component: System, 
+        outlet: 'r-system'
+    }
 ];

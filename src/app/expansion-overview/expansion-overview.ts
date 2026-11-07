@@ -45,7 +45,7 @@ export class ExpansionOverview  implements OnInit {
                     
   
   
-  arrobtree = [{otopic: {topic: 'Agreggation', route: '/', bckgd: true}},
+  arrobtree = [{otopic: {topic: 'Agreggation', route: '/agreg', bckgd: false}},
                {otopic: {topic: 'Database Relationship', route: '/dbrelatn', bckgd: false}},
                {otopic: {topic: 'Nested queries', route: '/nesq', bckgd: false}},
                {otopic: {topic: 'Column arithmetic', route: '/colari', bckgd: false}},

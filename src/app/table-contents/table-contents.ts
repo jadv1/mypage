@@ -9,7 +9,7 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {topic: 'Agreggation', route: '/'},
+  {topic: 'Agreggation', route: '/agreg'},
   {topic: 'Database Relationship', route: '/dbrelatn'},
   {topic: 'Subqueries', route: '/subq'},
   {topic: 'Columns arithmetics', route: '/colari'},

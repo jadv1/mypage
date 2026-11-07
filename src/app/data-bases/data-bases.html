@@ -1,0 +1,19 @@
+
+    <div class="gridMain">    
+
+        <div class="gridL">
+            <app-expansion-overview [title]="getTitle().toUpperCase()"></app-expansion-overview>
+        </div>
+        <div class="gridLx">
+            <button  matIconButton class="btSubmenuDB" (click)="displayContent()">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <app-expansion-overview [title]="getTitle().toUpperCase()" [hidden]="ismenusub" style="z-index: 5;"></app-expansion-overview>
+        </div>
+
+        <div class="gridR">            
+            <!-- <app-page-aggregation></app-page-aggregation> -->
+             <router-outlet />
+             <!-- <router-outlet name="r-agreg"></router-outlet> -->
+        </div>
+    </div>

@@ -6,6 +6,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
   selector: 'app-programming',
   styleUrl: './programming.css',
   templateUrl: './programming.html',
+  template: `
+    <h2>Test</h2>
+  `,
 })
 export class Programming {
   title = "programming"

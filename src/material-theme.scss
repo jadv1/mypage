@@ -106,7 +106,9 @@ mat-tab-header{
 .gridMain {
   display: flex !important; 
   // padding-top: 2px;
+  width: 136em;
   height: auto;  
+  background-color: var(--mat-sys-surface);
 }
 
 .gridR{  
@@ -124,75 +126,6 @@ mat-tab-header{
 app-expansion-overview {  
     position: fixed; 
 };
-
-// @media screen and (max-width:700px){
-//   app-expansion-overview {  
-//       position: relative; 
-//   };
-// }
-
-@media screen and (width:1920px){
-  app-expansion-overview {
-    width: 26.3em;    
-  };
-  .gridR{
-    width: 169em !important;
-  };
-  .gridL{
-    width: 47.5em
-  }
-}
-
-@media screen and (max-width:1440px){
-  app-expansion-overview {
-    width: 16.35em;  
-  };
-  .gridL{
-    width: 41em;
-  };
-  .gridR{
-    width: 146em;
-  }
-}
-
-@media screen and (max-width :1920px){  
-  .gridLx{      
-    display: none !important;
-  };
-}
-// When mobile is horizontal
-@media screen and (max-width:800px){
-  .gridR{
-    width: 48em;
-  };  
-  .gridLx{      
-    display: block !important
-  };  
-  .gridL{      
-    display: none !important
-  };
-  mat-tab-header{
-    width: 700px;  
-  };
-  .card-header-image {
-    margin-left: 810px !important;
-  };
-  // CSS Selenium Driver based on CSS
-  div[id^="cdk-overlay-"]{
-    bottom: 0 !important;
-    // margin-left: 318px;
-    top: 800px;  
-    justify-content: right;
-    position: relative;
-    right: 0 !important;
-  };
-  app-expansion-overview {  
-      position: relative;
-  };
-  div.gridMain{  
-    height: 100%
-  };  
-}
 
 .app-toolbar {
     position: fixed;
@@ -253,36 +186,6 @@ pre{
 .capitalize {
     text-transform: uppercase;
 }
-
-// app-card-overview
-@media screen{
-  .card {
-    height: auto; 
-    border: none;
-  }
-}
-// @media screen and (max-width:700px),  screen and (max-width:1920px){
-//   .card {
-//     max-width: 100em;
-//     width:  1600px;     
-//   }
-// }
-
-// @media screen and (max-width:1440px){
-//   .card {
-//     max-width: 100em;
-
-//     width:  900px;    
-//   }
-// }
-
-// @media screen and (max-width:960px){
-//   .card {
-//     max-width: 100em;
-//     width:  35em;
-//   }
-// }
-// app-card-overview
 
 .matCardHeader{
   padding: 0 0 0 0 !important;
@@ -368,4 +271,79 @@ mat-menu{
 
 address{
   font-style: normal;
+}
+
+// ============================================================== @MEDIA ============================================================== //
+
+// app-card-overview
+@media screen{
+  .card {
+    height: auto; 
+    border: none;
+  }
+}
+
+@media screen and (max-width:1920px){
+  app-expansion-overview {
+    width: 26.3em;    
+  };
+  .gridR{
+    width: 169em;
+  };
+  .gridL{
+    width: 47.5em
+  };
+  .gridLx{      
+    display: none !important;
+  };
+}
+
+@media screen and (max-width:1440px){
+  app-expansion-overview {
+    width: 16.35em;  
+  };
+  .gridMain {
+    width: 85.5em;
+  };
+  .gridL{
+    width: 41em;
+  };
+  .gridR{
+    width: 154em;
+    margin-right: 7em;
+  };
+}
+
+// When mobile is horizontal
+@media screen and (max-width:800px){  
+  app-expansion-overview {  
+      position: relative;
+  };
+  mat-tab-header{
+    width: 700px;  
+  };
+  .gridR{
+    width: 48em;
+  };  
+  .gridL{      
+    display: none !important
+  };  
+  .gridLx{      
+    display: block !important
+  };
+  div.gridMain{  
+    height: 100%
+  };  
+  .card-header-image {
+    margin-left: 810px !important;
+  };
+  // CSS Selenium Driver based on CSS
+  div[id^="cdk-overlay-"]{
+    bottom: 0 !important;
+    // margin-left: 318px;
+    top: 800px;  
+    justify-content: right;
+    position: relative;
+    right: 0 !important;
+  };
 }
