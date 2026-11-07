@@ -45,7 +45,7 @@ export class ExpansionOverview  implements OnInit {
                     
   
   
-  arrobtree = [{otopic: {topic: 'Agreggation', route: '/agreg', bckgd: false}},
+  arrobtree = [{otopic: {topic: 'Agreggation', route: '/', bckgd: true}},
                {otopic: {topic: 'Database Relationship', route: '/dbrelatn', bckgd: false}},
                {otopic: {topic: 'Nested queries', route: '/nesq', bckgd: false}},
                {otopic: {topic: 'Column arithmetic', route: '/colari', bckgd: false}},
@@ -84,6 +84,10 @@ export class ExpansionOverview  implements OnInit {
         element.otopic.bckgd=false
       }    
     });
-
   }  
+
+  // displaynone = false
+  // tempDisplayNone(){
+  //   this.displaynone = true
+  // }
 }

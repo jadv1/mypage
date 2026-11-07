@@ -3,7 +3,6 @@ import { ExpansionOverview } from '../expansion-overview/expansion-overview';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterOutlet } from '@angular/router';
 
-
 @Component({
   imports: [ExpansionOverview, MatIconModule, RouterOutlet],
   selector: 'app-data-bases',
@@ -16,12 +15,18 @@ export class DataBases {
   subjFBD = "DB Fundamentals"
   subjDBD = "Design DB"
   subjMADB = "Management & Admin. DB" 
+  displaynone=true;
+
   constructor(){
     this.ismenusub=this.displayContent()
   }
 
   ismenusub = false;
   
+  onNotify(){
+    this.displaynone = true;
+  }
+
   displayContent(){
     return this.ismenusub = !this.ismenusub;
   }

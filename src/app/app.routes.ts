@@ -14,8 +14,9 @@ export const routes: Routes = [
     {
         path:'', 
         component: DataBases, 
+        outlet: '',
         children: [
-            {path:'agreg', component: PageAggregation},
+            {path:'', component: PageAggregation},
             {path:'join', component: PageJoins},
             {path:'nesq', component: PageSubqueries},
             {path:'colari', component: PageColsArithmetics},
