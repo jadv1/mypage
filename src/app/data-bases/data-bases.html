@@ -1,17 +1,17 @@
+<div class="gridMain">    
 
-    <div class="gridMain">    
-
-        <div class="gridL">
-            <app-expansion-overview [title]="getTitle().toUpperCase()"></app-expansion-overview>
-        </div>
-        <div class="gridLx">
-            <button  matIconButton class="btSubmenuDB" (click)="displayContent()">
-              <mat-icon>menu</mat-icon>
-            </button>
-            <app-expansion-overview [title]="getTitle().toUpperCase()" [hidden]="ismenusub" style="z-index: 5;"></app-expansion-overview>
-        </div>
-
-        <div class="gridR">            
-             <router-outlet />
-        </div>
+    <div class="gridL">
+        <app-expansion-overview [title]="title"></app-expansion-overview>
     </div>
+    <div class="gridLx">
+        <button  matIconButton class="btSubmenuDB" (click)="displayContent()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <app-expansion-overview [title]="title" [hidden]="ismenusub" style="z-index: 5;"></app-expansion-overview>
+    </div>
+
+    <div class="gridR">            
+            <router-outlet />
+    </div>
+</div>
+

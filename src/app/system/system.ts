@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { contSys } from '../contentsmenues';
 
 @Component({
   imports: [],
@@ -7,8 +8,5 @@ import { Component } from '@angular/core';
   templateUrl: './system.html',
 })
 export class System {
-  title = "system admin"
-  getTitle(){
-    return this.title;
-  }  
+  title = contSys.title  
 }

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ExpansionOverview } from '../expansion-overview/expansion-overview';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
+import { contDB } from '../contentsmenues';
 
 @Component({
   imports: [ExpansionOverview, MatIconModule, RouterOutlet],
@@ -10,39 +11,34 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './data-bases.html',
 })
 
-export class DataBases {
-  title = "Database"
-  subjFBD = "DB Fundamentals"
-  subjDBD = "Design DB"
-  subjMADB = "Management & Admin. DB" 
+export class DataBases implements OnInit{
+  title = contDB.title.toUpperCase()
   displaynone=true;
 
-  constructor(){
-    this.ismenusub=this.displayContent()
-  }
-
-  ismenusub = false;
-  
   onNotify(){
     this.displaynone = true;
   }
 
+  private router = inject(Router);
+  navigateToProfile() {
+    this.router.navigate(['/'], {replaceUrl: true});
+  }
+
+  ngOnInit(): void {
+    this.navigateToProfile()
+  }
+
+  ismenusub = false;
+  constructor(){
+    this.ismenusub=this.displayContent()
+  }
   displayContent(){
     return this.ismenusub = !this.ismenusub;
   }
 
-  getjDBF(){
-    return this.subjFBD;
-  }
-  getjDBD(){
-    return this.subjDBD;
-  }    
-  getjMADB(){
-    return this.subjMADB;
-  }
-  getTitle(){
-    return this.title;
-  }
+  // getNavSQL(){
+  //   return this.arrobtree
+  // }
 }
 
 

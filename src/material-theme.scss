@@ -103,6 +103,10 @@ mat-tab-header{
   // margin-left: 10px;
 }
 
+// .accordion{
+//   background-color: var(--mat-sys-surface);
+// }
+
 .gridMain {
   display: flex !important; 
   // padding-top: 2px;
@@ -112,14 +116,14 @@ mat-tab-header{
 }
 
 .gridR{  
-  margin-right: 15em; 
+  margin-right: 15em;   
 }
 .gridL{
   width: 48em;  
 }
 
 .gridL, .gridR{
-  background-color: rgb(237, 235, 235);
+  // background-color: rgb(237, 235, 235);
   height: 100%;
 }
 
@@ -346,4 +350,13 @@ address{
     position: relative;
     right: 0 !important;
   };
+}
+
+.btSubmenuDB{
+    border-radius: 5px;    
+    border-width: 1px;    
+    border-color: inherit;
+    position: fixed;
+    top: 50px;    
+    left: 62px;
 }

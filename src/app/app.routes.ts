@@ -9,12 +9,16 @@ import { DataBases } from './data-bases/data-bases';
 import { Programming } from './programming/programming';
 import { SwPt } from './sw-pt/sw-pt';
 import { System } from './system/system';
+import { FuctionalTesting } from './sw-pt/pages/fuctional-testing/fuctional-testing';
+import { NonFuctionalTesting } from './sw-pt/pages/non-fuctional-testing/non-fuctional-testing';
+import { Playwright } from './sw-pt/pages/playwright/playwright';
+import { Selenium } from './sw-pt/pages/selenium/selenium';
 
 export const routes: Routes = [    
     {
         path:'', 
         component: DataBases, 
-        outlet: '',
+        outlet: 'r-db',
         children: [
             {path:'', component: PageAggregation},
             {path:'join', component: PageJoins},
@@ -32,7 +36,13 @@ export const routes: Routes = [
     {
         path:'', 
         component: SwPt, 
-        outlet: 'r-swpt'
+        outlet: 'r-swpt',
+        children: [
+            {path:'', component: FuctionalTesting},
+            {path:'nfun', component: NonFuctionalTesting},
+            {path:'plwt', component: Playwright},
+            {path:'sele', component: Selenium},
+        ]
     },
     {
         path:'', 

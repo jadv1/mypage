@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { ExpansionOverview } from '../expansion-overview/expansion-overview';
+import { RouterOutlet } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { contProg } from '../contentsmenues';
 
 @Component({
-  imports: [MatSidenavModule],
+  imports: [MatSidenavModule, MatIconModule],
   selector: 'app-programming',
   styleUrl: './programming.css',
   templateUrl: './programming.html',
@@ -11,8 +15,5 @@ import {MatSidenavModule} from '@angular/material/sidenav';
   `,
 })
 export class Programming {
-  title = "programming"
-  getTitle(){
-    return this.title;
-  }  
+  title = contProg.title
 }

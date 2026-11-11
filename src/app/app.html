@@ -1,6 +1,6 @@
 <mat-card-header class="matCardHeader" > 
     <div id="divavatar" mat-card-avatar class="card-header-image" >
-        <img id="avatar_image">
+        <img id="avatar_image" alt="My photo profile">
     </div>        
         <!-- <mat-divider [vertical]="true"></mat-divider>        -->
     <div id="mydata">
@@ -34,15 +34,19 @@
     <mat-tab-group class="app-toolbar" animationDuration="1000ms">
         <!-- ======================================== Subjet1 ======================================== -->
         <mat-tab-header>
-            <mat-tab>        
+            <mat-tab>            
                 <ng-template mat-tab-label>
-                    <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> -->
                     <img id="db_image" src="/css/images/db.svg" alt="DB icon">
-                    {{subjectDB}} 
+                    {{subjectDB}}
+                    <!-- <a href="/agre">{{subjectDB}}</a> -->
+                    <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> -->
+                     
                 </ng-template>      
                 
                 <ng-template matTabContent>                          
-                    <router-outlet></router-outlet>
+                    <!-- With name give the same url (...) result as the other -->
+                    <router-outlet name="r-db"></router-outlet>
+                    <!-- <router-outlet/> -->
                 </ng-template>
                 <!-- ======================================== End TODO - Movit to left pane ======================================== --> 
             </mat-tab>    
@@ -53,7 +57,12 @@
                 </ng-template>        
             </mat-tab>  
             <!-- ======================================== Subje3 ======================================== -->  
+            <!-- <mat-tab aria-pressed="true"> -->
+                <!-- <mat-tab (click)="navigateToProfile()"> -->
             <mat-tab [class.tabs-overrides] label={{subjectSW}}>
+                <!-- <ng-template mat-tab-label> -->
+                    <!-- <a href="/fun">{{subjectSW}}</a> -->
+                    <!-- </ng-template> -->
                 <ng-template matTabContent>
                     <router-outlet name="r-swpt"></router-outlet>
                 </ng-template>

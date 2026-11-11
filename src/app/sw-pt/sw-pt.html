@@ -1,1 +1,17 @@
-<p>Development in progress!</p>
+<div class="gridMain">    
+
+    <div class="gridL">        
+         <app-expansion-overview [title]="title"></app-expansion-overview>
+    </div>
+    <div class="gridLx">
+        <button  matIconButton class="btSubmenuDB" (click)="displayContent()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <app-expansion-overview [title]="title" [hidden]="ismenusub" style="z-index: 5;"></app-expansion-overview>        
+    </div>
+
+    <div class="gridR">                
+        <router-outlet/>        
+        <!-- <router-outlet name="nfun"></router-outlet> -->
+    </div>
+</div>
