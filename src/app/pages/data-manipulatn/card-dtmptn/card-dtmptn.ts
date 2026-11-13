@@ -15,7 +15,7 @@ export class CardDtmptn {
   msgaggre: string = "In order to modify the database, we can use 3 commands INSERT, DELETE, and UPDATE"; 
   p_insert1 = "To enter new data into a database, we'll use the SQL INSERT command.\
              The minimal expression comprises two clauses: INTO and VALUES."
-             c_insert1 = "INSERT INTO tableName VALUES ( expresionList )"
+             c_insert1 = "INSERT INTO tableName VALUES ( expressionList )"
   // ====================================================== END MESSAGES ====================================================== //
 
   arrSessions = [{desc: "Insert"},

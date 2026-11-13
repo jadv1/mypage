@@ -378,14 +378,18 @@ address{
 
 pre{
   text-align: left;
-  white-space: nowrap;
+  white-space: normal;
   width: 800px;
   height: 2em;
 }
 
-code{
-  display: grid;
-    height: 23px;
-    justify-content: left;
-    white-space: nowrap;
+.card-title{
+  padding: 0 !important;
 }
+
+// code{
+//   display: grid;
+//     height: 23px;
+//     justify-content: left;
+//     white-space: nowrap;
+// }

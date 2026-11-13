@@ -97,3 +97,10 @@ caption {
         display: block;
     }
 }
+
+#mcc_note{
+    padding: 0;
+}
+#mcc_note p{
+    margin: 0;
+}
