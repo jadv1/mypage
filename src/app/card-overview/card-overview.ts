@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import {LowerCasePipe, UpperCasePipe}  from '@angular/common'
 import { elementAt } from 'rxjs';
+import { AuxFunc } from '../pages/aux-func/aux-func';
 
 @Component({
-  imports: [MatCardModule, UpperCasePipe],
+  imports: [MatCardModule, UpperCasePipe, AuxFunc],
   selector: 'app-card-overview',
   styleUrl: './card-overview.css',
   templateUrl: './card-overview.html',

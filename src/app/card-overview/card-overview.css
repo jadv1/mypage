@@ -2,15 +2,6 @@
     color: #BB80B3; 
 }
 
-.sqlcell{        
-    max-width: max-content;
-    background: #263238; 
-    overflow:auto;
-    border:solid gray;
-    border-width:.1em .1em .1em .8em;    
-    padding:.2em .6em;        
-}
-
 .m-c-content{
     padding-left: 1em;
     padding-right: 1px;
@@ -31,19 +22,6 @@ mat-card-content > div > p{
 h3, h2{
     margin-bottom: 0;
 }
-
-.qkeyword{
-    color: #c9bc72
-}
-
-.qspecchar{
-    color: #89DDFF
-}
-.qchar{
-    color: #EFF
-}
-
-
 
 table {
   border-collapse: collapse;
@@ -84,18 +62,6 @@ caption {
   text-align: left;
   padding: 5px;
   font-weight: bold;
-}
-
-@media screen and (max-width:700px),  screen and (max-width:1920px){
-    .divTbl{
-        display: flex;
-    }
-}
-
-@media screen and (max-width:960px), screen and (max-width:1440px){
-    .divTbl{
-        display: block;
-    }
 }
 
 #mcc_note{

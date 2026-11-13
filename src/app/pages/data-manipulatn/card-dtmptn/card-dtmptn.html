@@ -11,19 +11,11 @@
             <p class="tab1 spacingAfter txtsizesubtitle">{{msgaggre}}</p>
         @for (arr of arrSessions; track arr; let i = $index){            
             <section>
-                                               
-                    <h2>{{arr.desc}}</h2>
-                    @if (arr.desc==arrSessions[0].desc) {
-                        <p class="tab1 txtsizesubtitle">{{p_insert1}}</p>
-                        
-                            <pre class="tab2">
-                                <code>
-                                    {{c_insert1}}
-                                </code>
-                            </pre>
-                        
-                    }
-                
+                <h2>{{arr.desc}}</h2>
+                @if (arr.desc==arrSessions[0].desc) {
+                    <p class="tab1 txtsizesubtitle">{{p_insert1}}</p>
+                    <app-aux-func class="sqlcell tab2" [arrstr]="arrqueries1"></app-aux-func>
+                }
             </section>
         }            
                 

@@ -373,23 +373,41 @@ address{
     margin-left: 2em;
 }
 .spacingAfter{
-    margin-bottom: 0;
+    margin-bottom: 1ex;
 }
 
 pre{
   text-align: left;
   white-space: normal;
-  width: 800px;
-  height: 2em;
+  width: max-content;
+  height: fit-content;
 }
 
 .card-title{
   padding: 0 !important;
 }
 
-// code{
-//   display: grid;
-//     height: 23px;
-//     justify-content: left;
-//     white-space: nowrap;
-// }
+
+.qkeyword{
+    color: #c9bc72
+}
+
+.qspecchar{
+    color: #89DDFF
+}
+.qchar{
+    color: #EFF
+}
+.sqlcell{        
+    max-width: max-content;
+    background: #263238; 
+    overflow:auto;
+    border:solid gray;
+    border-width:.1em .1em .1em .8em;    
+    padding:.2em .6em;        
+}
+app-aux-func{
+    display: inline-table;
+    width: 92px;
+    line-height: 125%;
+}

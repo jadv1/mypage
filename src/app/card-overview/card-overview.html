@@ -25,7 +25,7 @@
                     <p class="tab1 spacingAfter txtsizesubtitle">{{msgaggre}}</p>
 
 <!-- ======================================= Tables ======================================= -->
-                    <div class="divTbl">
+                    <div>
                         @for (cellsdt of arr3D; track cellsdt; let k = $index) {
                             <div>
                                 <table>
@@ -72,88 +72,14 @@
                 }
                 <mat-card-subtitle>{{odescheader.headerquery}}</mat-card-subtitle>               
                         
-                <div class="sqlcell">
-                    <p style="margin: 0; line-height: 125%;">
-                        <code>
-                        @for (arr2d of odescheader.arr; track arr2d; let k = $index) {
-                            @switch(arr2d.toUpperCase()) {
-                                @case("Select" | uppercase){ <!-- Using pipe just for test -->
-                                    <span class="qkeyword">{{(arr2d + " ") | uppercase}}</span>
-                                }                                                                
-                                @case("From".toUpperCase())
-                                @case("Where".toUpperCase()) {
-                                    <br/>
-                                    <span class="qkeyword">{{(arr2d + " ").toUpperCase()}}</span>
-                                }
-                                @case("join".toUpperCase()) {
-                                    <br/>
-                                    <span class="qkeyword tab1">{{(arr2d + " ").toUpperCase()}}</span>
-                                }
-                                @case("order".toUpperCase()) {
-                                    <br/>
-                                    <span class="qkeyword tab1">{{(arr2d + " ").toUpperCase()}}</span>
-                                }
-                                @case("having".toUpperCase()) {
-                                    <br/>
-                                    <span class="qkeyword tab1">{{(arr2d + " ").toUpperCase()}}</span>
-                                }
-                                @case("on".toUpperCase()) {
-                                    <span class="qkeyword">{{(" " + arr2d + " ").toUpperCase()}}</span>
-                                }   
-                                @case("and".toUpperCase()) {
-                                    <span class="qkeyword">{{(" " + arr2d + " ").toUpperCase()}}</span>
-                                }                               
-                                @case("group".toUpperCase()){
-                                    <br/>
-                                    <span class="qkeyword">{{(arr2d + " ").toUpperCase()}}</span>
-                                }
-                                @case("by".toUpperCase()) {
-                                    <span class="qkeyword">{{(arr2d + " ").toUpperCase()}}</span>
-                                }
-                                @case("sum".toUpperCase()){
-                                    <span class="qkeyword">{{(arr2d).toUpperCase()}}</span>
-                                }   
-                                @case("count".toUpperCase()){
-                                    <span class="qkeyword">{{(arr2d).toUpperCase()}}</span>
-                                }                                                                                                        
-                                @case(",".toUpperCase()){
-                                    <span class="qspecchar">{{arr2d + " "}}</span>
-                                }                                
-                                @case("=".toUpperCase()){
-                                    <span class="qspecchar">{{" " + arr2d + " "}}</span>
-                                }                                
-                                @case(">=".toUpperCase()){
-                                    <span class="qspecchar">{{" " + arr2d + " "}}</span>
-                                }                                
-                                @case(">".toUpperCase()){
-                                    <span class="qspecchar">{{" " + arr2d + " "}}</span>
-                                }
-                                @case("(".toUpperCase()){
-                                    <span class="qspecchar">{{arr2d}}</span>
-                                }
-                                @case(")".toUpperCase()){
-                                    <span class="qspecchar">{{arr2d + " "}}</span>
-                                }
-                                @case(";".toUpperCase()){
-                                    <span class="qspecchar">{{arr2d}}</span>
-                                }               
-                                @default{
-                                    <span class="qchar">{{arr2d}}</span>
-                                }
-                            }      
-                                                    
-                        }
-                            
-                        </code>
-                    </p>
-                </div>
-                
+                <app-aux-func class="sqlcell" [arrstr]="odescheader.arr"></app-aux-func>
+                    
                 @if(odescheader.tbl!==null){
-                    <div class="divTbl">
-                            @for (cellsdt of odescheader.tbl; track cellsdt; let k = $index) {
-                                <div>
-                                    <table>                                   
-                                        <thead>
+                    <div>
+                        <div>
+                            <table>                                   
+                                <thead>
+                                    @for (cellsdt of odescheader.tbl; track cellsdt; let k = $index) {
                                             @for (item of cellsdt; track item; let j = $index) {
                                             <tr>
                                                     @for (element of item; track element; let i = $index) {
@@ -163,8 +89,10 @@
                                                     }
                                                 </tr>
                                             }
-                                        </thead>
-                                        <tbody>
+                                    }
+                                </thead>
+                                <tbody>
+                                    @for (cellsdt of odescheader.tbl; track cellsdt; let k = $index) {
                                             @for (item of cellsdt; track item; let j = $index) {
                                             <tr>
                                                     @for (element of item; track element; let i = $index) {
@@ -173,11 +101,12 @@
                                                         }                                            
                                                     }                                         
                                             </tr>
-                                            }                                        
-                                        </tbody>
-                                    </table>
+                                            }           
+                                    }                             
+                                </tbody>
+                                </table>
                                 </div>
-                            }
+                            
                     </div>                    
                 }
                 

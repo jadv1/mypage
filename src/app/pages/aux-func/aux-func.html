@@ -1,0 +1,80 @@
+<pre>
+    <code>
+        @for (qword of arrstr; track qword; let k = $index) {
+            @switch(qword?.toUpperCase()) {
+                @case("SELECT" | uppercase){ <!-- Using pipe just for test -->
+                    <span class="qkeyword">{{(qword + " ") | uppercase}}</span>
+                }                                                                
+                @case("FROM".toUpperCase())
+                @case("Where".toUpperCase()) {
+                    <br/>
+                    <span class="qkeyword">{{(qword + " ").toUpperCase()}}</span>
+                }
+                @case("JOIN".toUpperCase()) {
+                    <br/>
+                    <span class="qkeyword tab1">{{(qword + " ").toUpperCase()}}</span>
+                }
+                @case("ORDER".toUpperCase()) {
+                    <br/>
+                    <span class="qkeyword tab1">{{(qword + " ").toUpperCase()}}</span>
+                }
+                @case("having".toUpperCase()) {
+                    <br/>
+                    <span class="qkeyword tab1">{{(qword + " ").toUpperCase()}}</span>
+                }
+                @case("on".toUpperCase()) {
+                    <span class="qkeyword">{{(" " + qword + " ").toUpperCase()}}</span>
+                }   
+                @case("and".toUpperCase()) {
+                    <span class="qkeyword">{{(" " + qword + " ").toUpperCase()}}</span>
+                }                               
+                @case("group".toUpperCase()){
+                    <br/>
+                    <span class="qkeyword">{{(qword + " ").toUpperCase()}}</span>
+                }
+                @case("by".toUpperCase()) {
+                    <span class="qkeyword">{{(qword + " ").toUpperCase()}}</span>
+                }
+                @case("sum".toUpperCase()){
+                    <span class="qkeyword">{{(qword).toUpperCase()}}</span>
+                }   
+                @case("count".toUpperCase()){
+                    <span class="qkeyword">{{(qword).toUpperCase()}}</span>
+                }
+                @case("INSERT"){
+                    <span class="qkeyword">{{(qword).toUpperCase()}}</span>
+                }                                                                                                        
+                @case("INTO"){
+                    <span class="qkeyword">{{(qword).toUpperCase()}}</span>
+                }                                                                                                        
+                @case("VALUES"){
+                    <span class="qkeyword">{{(qword).toUpperCase()}}</span>
+                }                                                                                                        
+                @case(",".toUpperCase()){
+                    <span class="qspecchar">{{qword + " "}}</span>
+                }                                
+                @case("=".toUpperCase()){
+                    <span class="qspecchar">{{" " + qword + " "}}</span>
+                }                                
+                @case(">=".toUpperCase()){
+                    <span class="qspecchar">{{" " + qword + " "}}</span>
+                }                                
+                @case(">".toUpperCase()){
+                    <span class="qspecchar">{{" " + qword + " "}}</span>
+                }
+                @case("(".toUpperCase()){
+                    <span class="qspecchar">{{qword}}</span>
+                }
+                @case(")".toUpperCase()){
+                    <span class="qspecchar">{{qword + " "}}</span>
+                }
+                @case(";".toUpperCase()){
+                    <span class="qspecchar">{{qword}}</span>
+                }               
+                @default{
+                    <span class="qchar">{{qword}}</span>
+                }
+            }  
+        }
+    </code>
+</pre>
