@@ -1,15 +1,7 @@
 .join{
     color: #BB80B3; 
 }
-.tab1{    
-    margin-left: 1em;
-}
-.tab2{    
-    margin-left: 2em;
-}
-.spacingAfter{
-    margin-bottom: 0;
-}
+
 .sqlcell{        
     max-width: max-content;
     background: #263238; 
@@ -36,10 +28,6 @@ mat-card-content > div > p{
     margin-left: -10px;
 }
 
-.txtsizesubtitle{
-    font-size: 14pt;
-    margin-bottom: 0.5em;
-}
 h3, h2{
     margin-bottom: 0;
 }

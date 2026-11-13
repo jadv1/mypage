@@ -1,0 +1,31 @@
+<mat-card class="card" appearance="outlined">
+            <mat-card-header class="m-c-content">
+            <!-- <div mat-card-avatar class="card-header-image"></div> -->
+            <mat-card-title>
+                <mat-card-content id="headTitle">
+                    <h1>{{topicfunc}}</h1>
+                </mat-card-content>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="m-c-content">
+            <p class="tab1 spacingAfter txtsizesubtitle">{{msgaggre}}</p>
+        @for (arr of arrSessions; track arr; let i = $index){            
+            <section>
+                                               
+                    <h2>{{arr.desc}}</h2>
+                    @if (arr.desc==arrSessions[0].desc) {
+                        <p class="tab1 txtsizesubtitle">{{p_insert1}}</p>
+                        
+                            <pre class="tab2">
+                                <code>
+                                    {{c_insert1}}
+                                </code>
+                            </pre>
+                        
+                    }
+                
+            </section>
+        }            
+                
+        </mat-card-content>
+</mat-card>

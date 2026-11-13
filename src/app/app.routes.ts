@@ -13,6 +13,8 @@ import { FuctionalTesting } from './sw-pt/pages/fuctional-testing/fuctional-test
 import { NonFuctionalTesting } from './sw-pt/pages/non-fuctional-testing/non-fuctional-testing';
 import { Playwright } from './sw-pt/pages/playwright/playwright';
 import { Selenium } from './sw-pt/pages/selenium/selenium';
+import { PageEtl } from './pages/page-etl/page-etl';
+import { DataManipulatn } from './pages/data-manipulatn/data-manipulatn';
 
 export const routes: Routes = [    
     {
@@ -25,7 +27,8 @@ export const routes: Routes = [
             {path:'nesq', component: PageSubqueries},
             {path:'colari', component: PageColsArithmetics},
             {path:'sets', component: PageSets},
-            {path:'dbrelatn', component: PageDbRelationship},
+            {path:'dmani', component: DataManipulatn},
+            {path:'etl', component: PageEtl},
         ]
     },
     {

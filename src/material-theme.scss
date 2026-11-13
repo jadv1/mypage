@@ -360,3 +360,32 @@ address{
     top: 50px;    
     left: 62px;
 }
+
+.txtsizesubtitle{
+    font-size: 14pt;
+    margin-bottom: 0.5em;
+}
+
+.tab1{    
+    margin-left: 1em;
+}
+.tab2{    
+    margin-left: 2em;
+}
+.spacingAfter{
+    margin-bottom: 0;
+}
+
+pre{
+  text-align: left;
+  white-space: nowrap;
+  width: 800px;
+  height: 2em;
+}
+
+code{
+  display: grid;
+    height: 23px;
+    justify-content: left;
+    white-space: nowrap;
+}

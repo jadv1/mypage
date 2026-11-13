@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatMenuModule, MatMenu } from '@angular/material/menu';
 import { ExpansionOverview } from './expansion-overview/expansion-overview';
-import { contDB, contProg, contSws, contSys } from './contentsmenues';
+import { contDB, contProg, contSws, contSys, myname } from './contentsmenues';
 
 
 @Component({
@@ -32,6 +32,7 @@ export class App {
 
   constructor(){   
   }
+  readonly myname = myname;
   protected readonly title = signal('myweb');
   msgprogress = "Development in progress!"
 

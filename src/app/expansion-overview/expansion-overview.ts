@@ -6,7 +6,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
-import { contDB, contSws, arrobtree, arrobtree_tools, arrobtree_tsting } from '../contentsmenues';
+import { contDB, contSws, arrobtree, arrobtree_tools, arrobtree_tsting, tree_etl } from '../contentsmenues';
 import { copyArrayItem } from '@angular/cdk/drag-drop';
 
 
@@ -34,22 +34,23 @@ export class ExpansionOverview  implements OnInit {
   @Input() title: string | undefined
                       
   // List of subcontents
-  dataSource: SubjectNode[] = [{otopic: contDB.headSubSql, children: arrobtree}]; 
-  dataSoureLevel: SubjectNode[] = [{otopic: contSws.headSubAcpCri, children: arrobtree_tsting}]; 
-  dataSourceTools: SubjectNode[] = [{otopic: contSws.headSubAuto, children: arrobtree_tools}]; 
+  dataSource: SubjectNode[] = [{otopic: contDB.hd1_sect1, children: arrobtree}]; 
+  dataSrcDDB: SubjectNode[] = [{otopic: contDB.hd2_sect1, children: tree_etl}]; 
+  dataSoureLevel: SubjectNode[] = [{otopic: contSws.hd1_sect1, children: arrobtree_tsting}]; 
+  dataSourceTools: SubjectNode[] = [{otopic: contSws.hd2_sect1, children: arrobtree_tools}]; 
   dtsrcArrArr = [this.dataSource];
 
   arrdtsrc = [
-    {sb: contDB.subjectFDB, exp: true},
-    {sb: contDB.subjectDBD, exp: false},
-    {sb: contDB.subjectAMDB, exp: false}
+    {sb: contDB.hd1, exp: true},
+    {sb: contDB.hd2, exp: false},
+    {sb: contDB.hd3, exp: false}
   ]
   
 //Constants Testing
   arrdtsrc_tsting = [
-    {sb: contSws.hdLevel, exp: true},
-    {sb: contSws.headtools, exp: false},
-    {sb: contSws.headistqb, exp: false},    
+    {sb: contSws.hd1, exp: true},
+    {sb: contSws.hd2, exp: false},
+    {sb: contSws.hd3, exp: false},    
   ]  
 
   childrenAccessor = (node: SubjectNode) => node.children ?? [];
@@ -103,6 +104,7 @@ export class ExpansionOverview  implements OnInit {
       
       this.dtsrcArrArr.splice(0)
       this.dtsrcArrArr.push(this.dataSource)
+      this.dtsrcArrArr.push(this.dataSrcDDB)
       return this.arrdtsrc
     }
   }
