@@ -20,7 +20,7 @@ export const routes: Routes = [
     {
         path:'', 
         component: DataBases, 
-        outlet: 'r-db',
+        outlet: '',
         children: [
             {path:'', component: PageAggregation},
             {path:'join', component: PageJoins},

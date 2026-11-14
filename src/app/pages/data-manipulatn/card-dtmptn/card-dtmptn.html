@@ -14,10 +14,41 @@
                 <h2>{{arr.desc}}</h2>
                 @if (arr.desc==arrSessions[0].desc) {
                     <p class="tab1 txtsizesubtitle">{{p_insert1}}</p>
-                    <app-aux-func class="sqlcell tab2" [arrstr]="arrqueries1"></app-aux-func>
+                    <app-aux-func class="sqlcell tab2" [arrstr]="q1_insert"></app-aux-func>
+
+                    @for (hdrAndqry of headerqries; track $index) {
+                        @if(hdrAndqry.p!==undefined){
+                        <p class="tab1 txtsizesubtitle">{{hdrAndqry.p}}</p>
+                        }
+                        <div>
+                            <p class="tab1 spacingAfter txtsizesubtitle">{{hdrAndqry.headerquery}}</p>    
+                            <ul>
+                                @for (item of hdrAndqry.reg; track $index) {
+                                    <li>{{item}}</li>
+                                }
+                            </ul>                                   
+                        </div>    
+    
+                        <!-- <mat-card-subtitle>{{arrobjqueries1[0].headerquery}}</mat-card-subtitle> -->
+                        <app-aux-func class="sqlcell tab2" [arrstr]="hdrAndqry.arr"></app-aux-func>
+                    }
+                    
+
                 }
             </section>
         }            
                 
         </mat-card-content>
 </mat-card>
+
+<!-- @for (odescheader of arr.arrObjQueries; track odescheader; let j = $index) {
+
+                 @if (isStrHaving(arr.desc)) {
+                <div>
+                    <p class="tab1 spacingAfter txtsizesubtitle">{{msghaving[j]}}</p>                                       
+                </div>                 
+                }
+                <mat-card-subtitle>{{odescheader.headerquery}}</mat-card-subtitle>               
+                        
+                <app-aux-func class="sqlcell" [arrstr]="odescheader.arr"></app-aux-func>
+            } -->
