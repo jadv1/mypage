@@ -1,16 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import {LowerCasePipe, UpperCasePipe}  from '@angular/common'
 import { elementAt } from 'rxjs';
 import { AuxFunc } from '../pages/aux-func/aux-func';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  imports: [MatCardModule, UpperCasePipe, AuxFunc],
+  imports: [MatCardModule, UpperCasePipe, AuxFunc, MatIcon],
   selector: 'app-card-overview',
   styleUrl: './card-overview.css',
   templateUrl: './card-overview.html',
 })
-export class CardOverview implements OnInit {
+export class CardOverview implements OnInit, AfterViewInit  {
+butoff = true
+disappearbut() {  
+  this.butoff = false
+}
+  ngAfterViewInit(): void {
+    this.showUp();
+  }
+  @ViewChild('goUp', {static: false}) contentPage!: ElementRef;
+  showUp() {
+    const element = document.querySelector('#goUp');
+    element?.scrollIntoView();
+    this.butoff=true
+  }
+
+  focusoutM(){
+    console.log("kldfjd")
+  }
+  
+ 
+
   arr3D= [[[]],[[]],[[]]];
 
   ngOnInit():void{
@@ -18,7 +39,7 @@ export class CardOverview implements OnInit {
     // arr3D = new Array(new Array(new Array<String[]>()));
     this.printMainTables()
     this.printTablRes()
-
+       
   }
 
   subtitleH4: String[] = [    

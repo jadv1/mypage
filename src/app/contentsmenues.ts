@@ -1,5 +1,7 @@
 export const myname = "Jorge Adalberto Díaz Valdés"
 
+export var tabTeacher = {tabname:{name: "TEACHERS"},field:{id:"66"}}
+
 export const contDB = {
     title: "Database",
     hd1: "DB Fundamentals",

@@ -45,4 +45,5 @@ export class App {
   getMsgImprogre(){
     return this.msgprogress;
   }
+  
 }
