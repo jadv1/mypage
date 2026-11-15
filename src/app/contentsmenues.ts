@@ -1,7 +1,7 @@
 export const myname = "Jorge Adalberto Díaz Valdés"
 export const actionFab = "FAB"
 
-export var tabTeacher = {tabname:{name: "TEACHERS"},
+export var tabTeacher = {tabname: "teachers", 
                          fieldname:{f1:"TEAC_ID", f2:"TEAC_NAME", f3:"TEAC_CATEGORY", f4:"TEAC_HIRED"},
                          records:[
                           {id:"60", name:"John Wood", cat:"XYZ", reg:"01/01/1905"},

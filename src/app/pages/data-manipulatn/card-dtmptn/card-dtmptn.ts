@@ -27,8 +27,8 @@ export class CardDtmptn {
 
              q1 = "INSERT INTO tableName VALUES ( expressionList )"
              
-             q2 = "INSERT INTO TEACHERS VALUES ( "+getExpressionList(this.reg1)+" )"             
-             q3 = "INSERT INTO TEACHERS ("+tabTeacher.fieldname.f1+", "+tabTeacher.fieldname.f2+") VALUES ( "+getExpressionList(this.reg2)+" )"
+             q2 = "INSERT INTO "+tabTeacher.tabname+" VALUES ( "+getExpressionList(this.reg1)+" )"             
+             q3 = "INSERT INTO "+tabTeacher.tabname+" ("+tabTeacher.fieldname.f1+", "+tabTeacher.fieldname.f2+") VALUES ( "+getExpressionList(this.reg2)+" )"
   // ====================================================== END MESSAGES ====================================================== //
 
   q1_insert: string[] = this.q1.split(" ");
