@@ -337,6 +337,9 @@ address{
 }
 
 // When mobile is horizontal
+// @media screen and (max-width:800px){  
+//   width: 771px;
+// }
 @media screen and (max-width:800px){  
   app-expansion-overview {  
       position: relative;
@@ -345,7 +348,7 @@ address{
     width: 700px;  
   };
   .gridR{
-    width: 48em;
+    width: 674px;
   };  
   .gridL{      
     display: none !important
@@ -354,7 +357,8 @@ address{
     display: block !important
   };
   div.gridMain{  
-    height: 100%
+    height: 100%;
+    width: 771px;
   };  
   .card-header-image {
     margin-left: 810px !important;
