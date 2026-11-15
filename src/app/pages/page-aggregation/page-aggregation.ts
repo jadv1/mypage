@@ -1,9 +1,9 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component} from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { GridListDynamic } from '../../grid-list-dynamic/grid-list-dynamic';
 import { CardOverview } from '../../card-overview/card-overview';
-import { MatIcon } from '@angular/material/icon';
+
 
 
 @Component({
@@ -14,14 +14,7 @@ import { MatIcon } from '@angular/material/icon';
    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class PageAggregation implements OnInit{
-// focusoutM() {
-
-//   this.disappearbut()
-// }
-  
-ngOnInit(): void {
-}
+export class PageAggregation{
 
   tiles = new GridListDynamic();
 }

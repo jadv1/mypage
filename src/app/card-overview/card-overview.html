@@ -1,5 +1,6 @@
 
     <mat-card class="card" appearance="outlined" id="goUp" (wheel)="appearbutt($event)">
+        
         <mat-card-header class="m-c-content">
             <!-- <div mat-card-avatar class="card-header-image"></div> -->
             <mat-card-title>
@@ -122,16 +123,33 @@
             }
         }
     </mat-card-content>
+    <!-- <button type="button" (click)="scrollToTop()" [disabled]="scrollOffset() === 0">
+  Back to top
+</button> -->
     </mat-card>    
-    <div [class.offbut]="offbut">
-    <!-- <div [class.onbut]="onbut" [class.offbut]="false"> -->
+    <!-- <div id="testdiv" (scroll)="onScroll($event)"></div> -->
+     
+    <!-- <div class="offbut"> -->
+    <div [class.offbut]="offbut">    
         <button class="posfixed mdc-fab" [class.mdc-fab--exited]="getBut()" (click)="showUp()">
-          <span class="mat-mdc-button-persistent-ripple mdc-fab__ripple"></span>
-          <span class="mdc-button__label">
-              <mat-icon class="matjadv mat-icon">arrow_upward</mat-icon>
-          </span>
-          <span class="mat-focus-indicator"></span>
-          <span class="mat-mdc-button-touch-target"></span>
-          <span class="mat-ripple mat-mdc-button-ripple"></span>
+        <span class="mat-mdc-button-persistent-ripple mdc-fab__ripple"></span>
+        <span class="mdc-button__label">
+            <mat-icon class="matjadv mat-icon">arrow_upward</mat-icon>
+        </span>
+        <span class="mat-focus-indicator"></span>
+        <span class="mat-mdc-button-touch-target"></span>
+        <span class="mat-ripple mat-mdc-button-ripple"></span>
         </button>
+    </div>
+     
+    <div class="offbut">
+        <button class="posfixed mdc-fab" (click)="showUp()">
+            <span class="mat-mdc-button-persistent-ripple mdc-fab__ripple"></span>
+            <span class="mdc-button__label">
+                <mat-icon class="matjadv mat-icon">arrow_upward</mat-icon>
+            </span>
+            <span class="mat-focus-indicator"></span>
+            <span class="mat-mdc-button-touch-target"></span>
+            <span class="mat-ripple mat-mdc-button-ripple"></span>
+        </button>        
     </div>

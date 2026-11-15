@@ -1,12 +1,10 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import {LowerCasePipe, UpperCasePipe}  from '@angular/common'
-import { elementAt } from 'rxjs';
+import {UpperCasePipe}  from '@angular/common'
 import { AuxFunc } from '../pages/aux-func/aux-func';
 import { MatIcon } from '@angular/material/icon';
 
 let butoff: boolean
-
 
 @Component({
   imports: [MatCardModule, UpperCasePipe, AuxFunc, MatIcon],
@@ -24,7 +22,7 @@ export class CardOverview implements OnInit, AfterViewInit  {
   contentPageh1!: ElementRef;
 
   arr3D= [[[]],[[]],[[]]];
-
+  
   ngOnInit():void{
     butoff = true    
     this.offbut = true
@@ -38,6 +36,11 @@ export class CardOverview implements OnInit, AfterViewInit  {
 
   getBut(){
     return butoff
+  }
+
+  onScroll(e: any) {
+    console.log(e.position)
+    console.log("hi")
   }
 
   appearbutt(e: WheelEvent) {  
@@ -212,16 +215,4 @@ function printTabls(bucket_tables: { nameTbl: string; tbl: string[]; }[], arr3Dr
       }
     }
   }
-
-    // this.arr3D.forEach(cellsdt => {
-    //         console.log(cellsdt)
-
-    //   cellsdt.forEach(item => {
-    //     console.log(item)
-    //     item.forEach(element => {
-    //       console.log(element)          
-    //     });
-    //   });
-
-    // });    
 }

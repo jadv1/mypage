@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input } from '@angular/core';
 import {UpperCasePipe}  from '@angular/common'
 
 @Component({
@@ -7,7 +7,9 @@ import {UpperCasePipe}  from '@angular/common'
   styleUrl: './aux-func.css',
   templateUrl: './aux-func.html',
 })
-export class AuxFunc {
+export class AuxFunc{
+
   @Input() arrstr: string[] | undefined
-  
+  @Input() actionSelect: string | undefined
+  offbut: boolean = false;
 }
