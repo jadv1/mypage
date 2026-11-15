@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardSubtitle } from '@angular/material/card';
-import { contDB } from '../../../contentsmenues';
+import { contDB, tabTeacher } from '../../../contentsmenues';
 import { AuxFunc } from '../../aux-func/aux-func';
 
 @Component({
@@ -11,11 +11,10 @@ import { AuxFunc } from '../../aux-func/aux-func';
 })
 export class CardDtmptn {
   topicfunc = contDB.topicdman
-
-  Id2 = "88"
-  name2 = "George Dan"
-  reg1 = "ID: 60| Name: John Wood| Category: XYZ| Register Date: 01/01/1905".split("|")
-  reg2 = ("ID: "+this.Id2+"| Name: "+this.name2).split("|")  
+  Id2 = tabTeacher.records[1].id
+  name2 = tabTeacher.records[1].name
+  reg1 = ("ID: "+tabTeacher.records[0].id+"| Name: "+tabTeacher.records[0].name+"| Category: "+tabTeacher.records[0].cat+"| Register Date: "+tabTeacher.records[0].reg).split("|")    
+  reg2 = ("ID: "+this.Id2+"| Name: "+this.name2).split("|")    
 
   
   // ====================================================== MESSAGES ====================================================== //
@@ -29,7 +28,7 @@ export class CardDtmptn {
              q1 = "INSERT INTO tableName VALUES ( expressionList )"
              
              q2 = "INSERT INTO TEACHERS VALUES ( "+getExpressionList(this.reg1)+" )"             
-             q3 = "INSERT INTO TEACHERS (ID, Name) VALUES ( "+getExpressionList(this.reg2)+" )"
+             q3 = "INSERT INTO TEACHERS ("+tabTeacher.fieldname.f1+", "+tabTeacher.fieldname.f2+") VALUES ( "+getExpressionList(this.reg2)+" )"
   // ====================================================== END MESSAGES ====================================================== //
 
   q1_insert: string[] = this.q1.split(" ");

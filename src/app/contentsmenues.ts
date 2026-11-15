@@ -4,8 +4,8 @@ export const actionFab = "FAB"
 export var tabTeacher = {tabname:{name: "TEACHERS"},
                          fieldname:{f1:"TEAC_ID", f2:"TEAC_NAME", f3:"TEAC_CATEGORY", f4:"TEAC_HIRED"},
                          records:[
-                          {id:"66", name:"John Wood", cat:"XYZ", reg:"01/01/1905"},
-                          {id:"66", name:"John Wood", cat:"XYZ", reg:"01/01/1905"},]}
+                          {id:"60", name:"John Wood", cat:"XYZ", reg:"01/01/1905"},
+                          {id:"88", name:"George Dan", cat:"", reg:""}]}
 
 export const contDB = {
     title: "Database",
