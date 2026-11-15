@@ -1,10 +1,10 @@
 
-    <mat-card class="card" appearance="outlined" id="goUp" (wheel)="disappearbut()">
+    <mat-card class="card" appearance="outlined" id="goUp" (wheel)="appearbutt($event)">
         <mat-card-header class="m-c-content">
             <!-- <div mat-card-avatar class="card-header-image"></div> -->
             <mat-card-title>
                 <mat-card-content id="headTitle">
-                    <h1>Aggregation</h1>
+                    <h1 id="titleh1">Aggregation</h1>
                 </mat-card-content>
             </mat-card-title>
         </mat-card-header>        
@@ -121,15 +121,14 @@
                 
             }
         }
-        </mat-card-content>
-
+    </mat-card-content>
     </mat-card>    
-<button class="posfixed mdc-fab" [class.mdc-fab--exited]="butoff" (click)="showUp()">
-  <span class="mat-mdc-button-persistent-ripple mdc-fab__ripple"></span>
-  <span class="mdc-button__label">
-      <mat-icon class="matjadv mat-icon">arrow_upward</mat-icon>
-  </span>
-  <span class="mat-focus-indicator"></span>
-  <span class="mat-mdc-button-touch-target"></span>
-  <span class="mat-ripple mat-mdc-button-ripple"></span>
-</button>
+    <button class="posfixed mdc-fab" [class.mdc-fab--exited]="getBut()" (click)="showUp()">
+      <span class="mat-mdc-button-persistent-ripple mdc-fab__ripple"></span>
+      <span class="mdc-button__label">
+          <mat-icon class="matjadv mat-icon">arrow_upward</mat-icon>
+      </span>
+      <span class="mat-focus-indicator"></span>
+      <span class="mat-mdc-button-touch-target"></span>
+      <span class="mat-ripple mat-mdc-button-ripple"></span>
+    </button>

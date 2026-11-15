@@ -7,7 +7,7 @@ import { MatIcon } from '@angular/material/icon';
 
 
 @Component({
-  imports: [MatGridListModule, MatCardModule, CardOverview, MatIcon],
+  imports: [MatGridListModule, MatCardModule, CardOverview],
   selector: 'app-page-aggregation',
   styleUrl: './page-aggregation.css',
   templateUrl: './page-aggregation.html',
@@ -23,10 +23,5 @@ export class PageAggregation implements OnInit{
 ngOnInit(): void {
 }
 
-butoff = true
-disappearbut() {
-  console.log("kdfjd")
-  this.butoff = false
-}
   tiles = new GridListDynamic();
 }

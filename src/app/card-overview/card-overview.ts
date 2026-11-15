@@ -5,6 +5,8 @@ import { elementAt } from 'rxjs';
 import { AuxFunc } from '../pages/aux-func/aux-func';
 import { MatIcon } from '@angular/material/icon';
 
+let butoff: boolean
+
 @Component({
   imports: [MatCardModule, UpperCasePipe, AuxFunc, MatIcon],
   selector: 'app-card-overview',
@@ -12,36 +14,38 @@ import { MatIcon } from '@angular/material/icon';
   templateUrl: './card-overview.html',
 })
 export class CardOverview implements OnInit, AfterViewInit  {
-butoff = true
-disappearbut() {  
-  this.butoff = false
-}
-  ngAfterViewInit(): void {
-    this.showUp();
-  }
-  @ViewChild('goUp', {static: false}) contentPage!: ElementRef;
-  showUp() {
-    const element = document.querySelector('#goUp');
-    element?.scrollIntoView();
-    this.butoff=true
-  }
-
-  focusoutM(){
-    console.log("kldfjd")
-  }
+  @ViewChild('goUp', {static: false}) 
+  contentPage!: ElementRef;
   
- 
+  @ViewChild('titleh1', {static: false}) 
+  contentPageh1!: ElementRef;
 
   arr3D= [[[]],[[]],[[]]];
 
   ngOnInit():void{
-    
-    // arr3D = new Array(new Array(new Array<String[]>()));
+    butoff = true    
     this.printMainTables()
     this.printTablRes()
-       
   }
 
+  ngAfterViewInit(): void {    
+    this.showUp();
+  }
+
+  getBut(){
+    return butoff
+  }
+  appearbutt(e: WheelEvent) {  
+    const element = document.querySelector('#titleh1');
+    // This value is aprox 97 at start
+    butoff = (element!=null && element.getBoundingClientRect().y<0)?false:true
+  }
+  
+  showUp() {
+    const element = document.querySelector('#goUp');
+    element?.scrollIntoView();
+  }
+  
   subtitleH4: String[] = [    
     "Group by",
     "Output ordering",
@@ -214,4 +218,3 @@ function printTabls(bucket_tables: { nameTbl: string; tbl: string[]; }[], arr3Dr
 
     // });    
 }
-
