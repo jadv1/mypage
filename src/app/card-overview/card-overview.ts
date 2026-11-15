@@ -7,6 +7,7 @@ import { MatIcon } from '@angular/material/icon';
 
 let butoff: boolean
 
+
 @Component({
   imports: [MatCardModule, UpperCasePipe, AuxFunc, MatIcon],
   selector: 'app-card-overview',
@@ -14,6 +15,8 @@ let butoff: boolean
   templateUrl: './card-overview.html',
 })
 export class CardOverview implements OnInit, AfterViewInit  {
+  offbut: boolean = false;
+  
   @ViewChild('goUp', {static: false}) 
   contentPage!: ElementRef;
   
@@ -24,6 +27,7 @@ export class CardOverview implements OnInit, AfterViewInit  {
 
   ngOnInit():void{
     butoff = true    
+    this.offbut = true
     this.printMainTables()
     this.printTablRes()
   }
@@ -35,13 +39,16 @@ export class CardOverview implements OnInit, AfterViewInit  {
   getBut(){
     return butoff
   }
+
   appearbutt(e: WheelEvent) {  
+    this.offbut = false
     const element = document.querySelector('#titleh1');
     // This value is aprox 97 at start
     butoff = (element!=null && element.getBoundingClientRect().y<0)?false:true
   }
   
   showUp() {
+    this.offbut = true
     const element = document.querySelector('#goUp');
     element?.scrollIntoView();
   }

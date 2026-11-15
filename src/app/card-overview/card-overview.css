@@ -70,3 +70,7 @@ caption {
 #mcc_note p{
     margin: 0;
 }
+
+.offbut{
+    display: none;
+}
