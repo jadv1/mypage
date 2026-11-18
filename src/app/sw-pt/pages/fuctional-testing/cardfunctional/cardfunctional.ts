@@ -9,5 +9,5 @@ import { contSws } from '../../../../contentsmenues';
   templateUrl: './cardfunctional.html',
 })
 export class Cardfunctional {
-  topicfunc = contSws.topicfunc
+  titleh1 = contSws.topicfunc
 }

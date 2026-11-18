@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardSubtitle } from '@angular/material/card';
-import { contDB, tabTeacher } from '../../../contentsmenues';
+import { constDB, tabTeacher } from '../../../contentsmenues';
 import { AuxFunc } from '../../aux-func/aux-func';
 
 @Component({
@@ -10,7 +10,7 @@ import { AuxFunc } from '../../aux-func/aux-func';
   templateUrl: './card-dtmptn.html',
 })
 export class CardDtmptn {
-  topicfunc = contDB.topicdman
+  titleh1 = constDB.topicdman
   Id2 = tabTeacher.records[1].id
   name2 = tabTeacher.records[1].name
   reg1 = ("ID: "+tabTeacher.records[0].id+"| Name: "+tabTeacher.records[0].name+"| Category: "+tabTeacher.records[0].cat+"| Register Date: "+tabTeacher.records[0].reg).split("|")    

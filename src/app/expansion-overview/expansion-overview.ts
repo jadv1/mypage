@@ -6,7 +6,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
-import { contDB, contSws, arrobtree, arrobtree_tools, arrobtree_tsting, tree_etl } from '../contentsmenues';
+import { constDB, contSws, arrobtree, arrobtree_tools, arrobtree_tsting, tree_etl } from '../contentsmenues';
 import { copyArrayItem } from '@angular/cdk/drag-drop';
 
 
@@ -34,16 +34,16 @@ export class ExpansionOverview  implements OnInit {
   @Input() title: string | undefined
                       
   // List of subcontents
-  dataSource: SubjectNode[] = [{otopic: contDB.hd1_sect1, children: arrobtree}]; 
-  dataSrcDDB: SubjectNode[] = [{otopic: contDB.hd2_sect1, children: tree_etl}]; 
+  dataSource: SubjectNode[] = [{otopic: constDB.hd1_sect1, children: arrobtree}]; 
+  dataSrcDDB: SubjectNode[] = [{otopic: constDB.hd2_sect1, children: tree_etl}]; 
   dataSoureLevel: SubjectNode[] = [{otopic: contSws.hd1_sect1, children: arrobtree_tsting}]; 
   dataSourceTools: SubjectNode[] = [{otopic: contSws.hd2_sect1, children: arrobtree_tools}]; 
   dtsrcArrArr = [this.dataSource];
 
   arrdtsrc = [
-    {sb: contDB.hd1, exp: true},
-    {sb: contDB.hd2, exp: false},
-    {sb: contDB.hd3, exp: false}
+    {sb: constDB.hd1, exp: true},
+    {sb: constDB.hd2, exp: false},
+    {sb: constDB.hd3, exp: false}
   ]
   
 //Constants Testing
@@ -137,7 +137,7 @@ function copyArrayAll(
 
 function selectFirstTopic(arrobtreeex: { otopic: { topic: string; route: string; bckgd: boolean; }; }[], title: string | undefined) {
         for (let i = 0; i < arrobtreeex.length; i++) {
-          if(isDBtitle(title) && arrobtreeex[i].otopic.topic==contDB.topicagre){
+          if(isDBtitle(title) && arrobtreeex[i].otopic.topic==constDB.topicagre){
             arrobtreeex[i].otopic.bckgd=true;
             break;
           }
@@ -149,7 +149,7 @@ function selectFirstTopic(arrobtreeex: { otopic: { topic: string; route: string;
 }
 
 function isDBtitle(title: string | undefined) {
-  return ((title?.toUpperCase()===contDB.title.toUpperCase())?true:false)
+  return ((title?.toUpperCase()===constDB.title.toUpperCase())?true:false)
 }
 function isSWpttitle(title: string | undefined) {
   return ((title?.toUpperCase()===contSws.title.toUpperCase())?true:false)

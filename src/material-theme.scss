@@ -339,10 +339,6 @@ address{
   }  
 }
 
-// When mobile is horizontal
-// @media screen and (max-width:800px){  
-//   width: 771px;
-// }
 @media screen and (max-width:800px){  
   app-expansion-overview {  
       position: relative;
@@ -378,8 +374,16 @@ address{
   .posfixed{
     right: 37px;    
   }  
-  .offbut{
-      display: block;
+  // .offbut{
+  //     display: block;
+  // }  
+}
+
+// When a screen width is 460dp or less, the container of a default FAB (56dp) should transform into the mini size (40dp).
+@media screen and (max-width:460px){  
+  .posfixed{    
+    width: 40px;
+    height: 40px;
   }  
 }
 

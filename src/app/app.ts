@@ -10,7 +10,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatMenuModule, MatMenu } from '@angular/material/menu';
-import { contDB, contProg, contSws, contSys, myname } from './contentsmenues';
+import { constDB, contProg, contSws, contSys, myname } from './contentsmenues';
 
 
 @Component({
@@ -32,7 +32,7 @@ export class App {
   msgprogress = "Development in progress!"
 
   tiles = new GridListDynamic();  
-  subjectDB = contDB.title.toUpperCase();
+  subjectDB = constDB.title.toUpperCase();
   subjectP = contProg.title.toUpperCase();
   subjectSW = contSws.title.toUpperCase();
   subjectSy = contSys.title.toUpperCase();

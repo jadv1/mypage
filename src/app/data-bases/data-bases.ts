@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ExpansionOverview } from '../expansion-overview/expansion-overview';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterOutlet } from '@angular/router';
-import { contDB } from '../contentsmenues';
+import { constDB } from '../contentsmenues';
 
 @Component({
   imports: [ExpansionOverview, MatIconModule, RouterOutlet],
@@ -12,7 +12,7 @@ import { contDB } from '../contentsmenues';
 })
 
 export class DataBases implements OnInit{
-  title = contDB.title.toUpperCase()
+  title = constDB.title.toUpperCase()
   displaynone=true;
 
   onNotify(){

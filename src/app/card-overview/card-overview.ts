@@ -3,8 +3,12 @@ import { MatCardModule } from '@angular/material/card';
 import {UpperCasePipe}  from '@angular/common'
 import { AuxFunc } from '../pages/aux-func/aux-func';
 import { MatIcon } from '@angular/material/icon';
+import { constDB } from '../contentsmenues';
 
 let butoff: boolean
+
+function overHandler(event: any) {}
+function downHandler(ev: any) {}
 
 @Component({
   imports: [MatCardModule, UpperCasePipe, AuxFunc, MatIcon],
@@ -14,6 +18,8 @@ let butoff: boolean
 })
 export class CardOverview implements OnInit, AfterViewInit  {
   offbut: boolean = false;
+  titleh1 = constDB.topicagre
+  arrmov: Number[] = [];
   
   @ViewChild('goUp', {static: false}) 
   contentPage!: ElementRef;
@@ -27,7 +33,8 @@ export class CardOverview implements OnInit, AfterViewInit  {
     butoff = true    
     this.offbut = true
     this.printMainTables()
-    this.printTablRes()
+    this.printTablRes()    
+    this.pointerMoveEv()
   }
 
   ngAfterViewInit(): void {    
@@ -38,22 +45,73 @@ export class CardOverview implements OnInit, AfterViewInit  {
     return butoff
   }
 
-  onScroll(e: any) {
-    console.log(e.position)
-    console.log("hi")
+  pointerMoveEv(){
+    const el1 = document.getElementById("goUp"); 
+    const bt = document.getElementById("fabbutt1");
+    const dv = document.getElementById("fabdiv1"); 
+    // layerY R:[0-2440]
+    let yheight = 1000;
+    if(el1!=null){
+      el1.addEventListener("pointermove", (e) => { 
+        e.preventDefault()
+        
+        
+        if(bt!=null && dv!=null){
+          (e.layerY>yheight)?showFabButt(bt, dv):hideFabButt(bt, dv)
+        }
+        // console.log("Pointer Move")
+        // console.log("clientX")        
+        // console.log(event.clientY)
+        // this.arrmov.push(event.clientY)
+
+        // console.log("layerX")        
+        // console.log(e.layerY)
+        // console.log("movementX")
+        // console.log(event.movementX)
+        // console.log(event.movementY)
+        // console.log("offsetX")
+        // console.log(event.offsetX)
+        // console.log(event.offsetY)
+        // console.log("pageX")
+        // console.log(event.pageX)
+        // console.log(event.pageY)
+        // console.log("screenX")
+        // console.log(event.screenX)
+        // console.log(event.screenY)
+        // console.log("x")
+        // console.log(event.x)
+        // console.log(event.y)
+        
+      })
+    }
   }
 
-  appearbutt(e: WheelEvent) {  
+ 
+  appearbutt() {  
+    
     this.offbut = false
-    const element = document.querySelector('#titleh1');
+    const el = document.querySelector('#titleh1');
+    const bt = document.getElementById("fabbutt1");
+    const dv = document.getElementById("fabdiv1");      
+        if(bt!=null && dv!=null){
+          // This value is aprox 97 at start
+          (el!=null && el.getBoundingClientRect().y<0)?showFabButt(bt, dv):hideFabButt(bt, dv)
+        }    
     // This value is aprox 97 at start
-    butoff = (element!=null && element.getBoundingClientRect().y<0)?false:true
+    // butoff = (element!=null && element.getBoundingClientRect().y<0)?false:true
   }
   
   showUp() {
     this.offbut = true
+
     const element = document.querySelector('#goUp');
     element?.scrollIntoView();
+    const bt = document.getElementById("fabbutt1");
+    const dv = document.getElementById("fabdiv1"); 
+    if(bt!=null && dv!=null){
+      bt.className="posfixed mdc-fab mdc-fab--exited"
+      dv.className="offbut"
+    }
   }
   
   subtitleH4: String[] = [    
@@ -216,3 +274,12 @@ function printTabls(bucket_tables: { nameTbl: string; tbl: string[]; }[], arr3Dr
     }
   }
 }
+function showFabButt(bt: HTMLElement, dv: HTMLElement) {
+  bt.className="posfixed mdc-fab"
+  dv.className=""
+}
+function hideFabButt(bt: HTMLElement, dv: HTMLElement) {
+  bt.className=bt.className + "mdc-fab--exited"
+  dv.className="offbut"
+}
+

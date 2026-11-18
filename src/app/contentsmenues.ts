@@ -7,7 +7,7 @@ export var tabTeacher = {tabname: "teachers",
                           {id:"60", name:"John Wood", cat:"XYZ", reg:"01/01/1905"},
                           {id:"88", name:"George Dan", cat:"", reg:""}]}
 
-export const contDB = {
+export const constDB = {
     title: "Database",
     hd1: "DB Fundamentals",
     hd2: "Design DB",
@@ -23,13 +23,13 @@ export const contDB = {
     topic_etl: "Pentaho BI",
 };  
 
-export var arrobtree = [{otopic: {topic: contDB.topicagre, route: '', bckgd: true}},
-                        {otopic: {topic: contDB.topicdman, route: 'dmani', bckgd: false}},
-                        {otopic: {topic: contDB.topicnqry, route: 'nesq', bckgd: false}},
-                        {otopic: {topic: contDB.topicarco, route: 'colari', bckgd: false}},
-                        {otopic: {topic: contDB.topicjoin, route: 'join', bckgd: false}},
-                        {otopic: {topic: contDB.topicsets, route: 'sets', bckgd: false}}]  
-export var tree_etl = [{otopic: {topic: contDB.topic_etl, route: 'etl', bckgd: true}},]  
+export var arrobtree = [{otopic: {topic: constDB.topicagre, route: '', bckgd: true}},
+                        {otopic: {topic: constDB.topicdman, route: 'dmani', bckgd: false}},
+                        {otopic: {topic: constDB.topicnqry, route: 'nesq', bckgd: false}},
+                        {otopic: {topic: constDB.topicarco, route: 'colari', bckgd: false}},
+                        {otopic: {topic: constDB.topicjoin, route: 'join', bckgd: false}},
+                        {otopic: {topic: constDB.topicsets, route: 'sets', bckgd: false}}]  
+export var tree_etl = [{otopic: {topic: constDB.topic_etl, route: 'etl', bckgd: true}},]  
                         
 export const contProg = {
   title: "programming",

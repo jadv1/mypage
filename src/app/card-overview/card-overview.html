@@ -1,39 +1,87 @@
 
-    <mat-card class="card" appearance="outlined" id="goUp" (wheel)="appearbutt($event)">
-        
-        <mat-card-header class="m-c-content">
-            <!-- <div mat-card-avatar class="card-header-image"></div> -->
-            <mat-card-title>
-                <mat-card-content id="headTitle">
-                    <h1 id="titleh1">Aggregation</h1>
-                </mat-card-content>
-            </mat-card-title>
-        </mat-card-header>        
-        <!-- <img class="card-image" mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-        <mat-card-content class="m-c-content">
-        @for (arr of arrSessions; track arr; let i = $index){            
-            <mat-card-subtitle>                                
-                @if (isH2(arr.desc)) {
-                    <h2>{{arr.desc}}</h2>
-                }
-                @else {
-                    <h3>{{arr.desc}}</h3>
-                }
-            </mat-card-subtitle>
+<mat-card class="card" appearance="outlined" id="goUp" (wheel)="appearbutt()">
+    
+    <mat-card-header class="m-c-content">
+        <!-- <div mat-card-avatar class="card-header-image"></div> -->
+        <mat-card-title>
+            <mat-card-content id="headTitle">
+                <!-- <div id="target">Touch me…</div> -->
+                <h1 id="titleh1">{{titleh1}}</h1>
+            </mat-card-content>
+        </mat-card-title>
+    </mat-card-header>        
+    <!-- <img class="card-image" mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content class="m-c-content">
+    @for (arr of arrSessions; track arr; let i = $index){            
+        <mat-card-subtitle>                                
+            @if (isH2(arr.desc)) {
+                <h2>{{arr.desc}}</h2>
+            }
+            @else {
+                <h3>{{arr.desc}}</h3>
+            }
+        </mat-card-subtitle>
 
-            @if (i==0) {            
-                <div>
-                    <p class="tab1 spacingAfter txtsizesubtitle">{{msgaggre}}</p>
+        @if (i==0) {            
+            <div>
+                <p class="tab1 spacingAfter txtsizesubtitle">{{msgaggre}}</p>
 
 <!-- ======================================= Tables ======================================= -->
+                <div>
+                    @for (cellsdt of arr3D; track cellsdt; let k = $index) {
+                        <div>
+                            <table>
+                                <caption>
+                                    {{bucket_tables[k].nameTbl | uppercase}}
+                                </caption>
+                                <thead>
+                                    @for (item of cellsdt; track item; let j = $index) {
+                                    <tr>
+                                            @for (element of item; track element; let i = $index) {
+                                                @if(j===0){
+                                                    <th>{{element  | uppercase}}</th>
+                                                }                                            
+                                            }
+                                        </tr>
+                                    }
+                                </thead>
+                                <tbody>
+                                    @for (item of cellsdt; track item; let j = $index) {
+                                    <tr>
+                                            @for (element of item; track element; let i = $index) {
+                                                @if(j!==0){
+                                                    <td>{{element}}</td>
+                                                }                                            
+                                            }                                         
+                                    </tr>
+                                    }                                        
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+<!-- ======================================= End Tables ======================================= -->
+
+            </div>            
+        }            
+        
+        @for (odescheader of arr.arrObjQueries; track odescheader; let j = $index) {
+
+            @if (isStrHaving(arr.desc)) {
+            <div>
+                <p class="tab1 spacingAfter txtsizesubtitle">{{msghaving[j]}}</p>                                       
+            </div>                 
+            }
+            <mat-card-subtitle>{{odescheader.headerquery}}</mat-card-subtitle>               
+                    
+            <app-aux-func class="sqlcell" [arrstr]="odescheader.arr"></app-aux-func>
+                
+            @if(odescheader.tbl!==null){
+                <div>
                     <div>
-                        @for (cellsdt of arr3D; track cellsdt; let k = $index) {
-                            <div>
-                                <table>
-                                    <caption>
-                                        {{bucket_tables[k].nameTbl | uppercase}}
-                                    </caption>
-                                    <thead>
+                        <table>                                   
+                            <thead>
+                                @for (cellsdt of odescheader.tbl; track cellsdt; let k = $index) {
                                         @for (item of cellsdt; track item; let j = $index) {
                                         <tr>
                                                 @for (element of item; track element; let i = $index) {
@@ -43,8 +91,10 @@
                                                 }
                                             </tr>
                                         }
-                                    </thead>
-                                    <tbody>
+                                }
+                            </thead>
+                            <tbody>
+                                @for (cellsdt of odescheader.tbl; track cellsdt; let k = $index) {
                                         @for (item of cellsdt; track item; let j = $index) {
                                         <tr>
                                                 @for (element of item; track element; let i = $index) {
@@ -53,85 +103,36 @@
                                                     }                                            
                                                 }                                         
                                         </tr>
-                                        }                                        
-                                    </tbody>
-                                </table>
+                                        }           
+                                }                             
+                            </tbody>
+                            </table>
                             </div>
-                        }
-                    </div>
-<!-- ======================================= End Tables ======================================= -->
-
-                </div>            
-            }            
-           
-            @for (odescheader of arr.arrObjQueries; track odescheader; let j = $index) {
-
-                 @if (isStrHaving(arr.desc)) {
-                <div>
-                    <p class="tab1 spacingAfter txtsizesubtitle">{{msghaving[j]}}</p>                                       
-                </div>                 
-                }
-                <mat-card-subtitle>{{odescheader.headerquery}}</mat-card-subtitle>               
                         
-                <app-aux-func class="sqlcell" [arrstr]="odescheader.arr"></app-aux-func>
-                    
-                @if(odescheader.tbl!==null){
-                    <div>
-                        <div>
-                            <table>                                   
-                                <thead>
-                                    @for (cellsdt of odescheader.tbl; track cellsdt; let k = $index) {
-                                            @for (item of cellsdt; track item; let j = $index) {
-                                            <tr>
-                                                    @for (element of item; track element; let i = $index) {
-                                                        @if(j===0){
-                                                            <th>{{element  | uppercase}}</th>
-                                                        }                                            
-                                                    }
-                                                </tr>
-                                            }
-                                    }
-                                </thead>
-                                <tbody>
-                                    @for (cellsdt of odescheader.tbl; track cellsdt; let k = $index) {
-                                            @for (item of cellsdt; track item; let j = $index) {
-                                            <tr>
-                                                    @for (element of item; track element; let i = $index) {
-                                                        @if(j!==0){
-                                                            <td>{{element}}</td>
-                                                        }                                            
-                                                    }                                         
-                                            </tr>
-                                            }           
-                                    }                             
-                                </tbody>
-                                </table>
-                                </div>
-                            
-                    </div>                    
-                }
-                
-
-                @if (i==1 && j==0) {
-                    <mat-card-content id="mcc_note">
-                        <div>
-                            <p>{{msgorderby}}</p>
-                        </div>
-                    </mat-card-content>                        
-                }
-                
+                </div>                    
             }
+            
+
+            @if (i==1 && j==0) {
+                <mat-card-content id="mcc_note">
+                    <div>
+                        <p>{{msgorderby}}</p>
+                    </div>
+                </mat-card-content>                        
+            }
+            
         }
+    }
     </mat-card-content>
-    <!-- <button type="button" (click)="scrollToTop()" [disabled]="scrollOffset() === 0">
-  Back to top
+<!-- <button type="button" (click)="scrollToTop()" [disabled]="scrollOffset() === 0">
+Back to top
 </button> -->
-    </mat-card>    
+</mat-card>    
     <!-- <div id="testdiv" (scroll)="onScroll($event)"></div> -->
      
     <!-- <div class="offbut"> -->
-    <div [class.offbut]="offbut">    
-        <button class="posfixed mdc-fab" [class.mdc-fab--exited]="getBut()" (click)="showUp()">
+    <div id="fabdiv1" [class.offbut]="offbut">        
+        <button id="fabbutt1" class="posfixed mdc-fab" mdc-fab--exited (click)="showUp()">
         <span class="mat-mdc-button-persistent-ripple mdc-fab__ripple"></span>
         <span class="mdc-button__label">
             <mat-icon class="matjadv mat-icon">arrow_upward</mat-icon>
