@@ -5,8 +5,6 @@ import { AuxFunc } from '../pages/aux-func/aux-func';
 import { MatIcon } from '@angular/material/icon';
 import { constDB } from '../contentsmenues';
 
-let butoff: boolean
-
 function overHandler(event: any) {}
 function downHandler(ev: any) {}
 
@@ -30,34 +28,30 @@ export class CardOverview implements OnInit, AfterViewInit  {
   arr3D= [[[]],[[]],[[]]];
   
   ngOnInit():void{
-    butoff = true    
-    this.offbut = true
+    
     this.printMainTables()
     this.printTablRes()    
     this.pointerMoveEv()
   }
 
   ngAfterViewInit(): void {    
-    this.showUp();
+    this.goTop();
   }
 
-  getBut(){
-    return butoff
-  }
 
   pointerMoveEv(){
     const el1 = document.getElementById("goUp"); 
     const bt = document.getElementById("fabbutt1");
-    const dv = document.getElementById("fabdiv1"); 
+    
     // layerY R:[0-2440]
     let yheight = 1000;
+
     if(el1!=null){
       el1.addEventListener("pointermove", (e) => { 
         e.preventDefault()
         
-        
-        if(bt!=null && dv!=null){
-          (e.layerY>yheight)?showFabButt(bt, dv):hideFabButt(bt, dv)
+        if(bt!=null){
+          (e.layerY>yheight)?showFabButt(bt):hideFabButt(bt)
         }
         // console.log("Pointer Move")
         // console.log("clientX")        
@@ -88,30 +82,23 @@ export class CardOverview implements OnInit, AfterViewInit  {
 
  
   appearbutt() {  
-    
-    this.offbut = false
     const el = document.querySelector('#titleh1');
     const bt = document.getElementById("fabbutt1");
-    const dv = document.getElementById("fabdiv1");      
-        if(bt!=null && dv!=null){
+          
+        if(bt!=null){
           // This value is aprox 97 at start
-          (el!=null && el.getBoundingClientRect().y<0)?showFabButt(bt, dv):hideFabButt(bt, dv)
+          (el!=null && el.getBoundingClientRect().y<0)?showFabButt(bt):hideFabButt(bt)
         }    
-    // This value is aprox 97 at start
-    // butoff = (element!=null && element.getBoundingClientRect().y<0)?false:true
+    
   }
   
-  showUp() {
-    this.offbut = true
-
-    const element = document.querySelector('#goUp');
-    element?.scrollIntoView();
+  goTop() {    
     const bt = document.getElementById("fabbutt1");
-    const dv = document.getElementById("fabdiv1"); 
-    if(bt!=null && dv!=null){
-      bt.className="posfixed mdc-fab mdc-fab--exited"
-      dv.className="offbut"
+    if(bt!=null){
+      bt.className="mdc-fab--exited"      
     }
+    const element = document.querySelector('#goUp');
+    element?.scrollIntoView();    
   }
   
   subtitleH4: String[] = [    
@@ -274,12 +261,11 @@ function printTabls(bucket_tables: { nameTbl: string; tbl: string[]; }[], arr3Dr
     }
   }
 }
-function showFabButt(bt: HTMLElement, dv: HTMLElement) {
+function showFabButt(bt: HTMLElement) {
   bt.className="posfixed mdc-fab"
-  dv.className=""
+  
 }
-function hideFabButt(bt: HTMLElement, dv: HTMLElement) {
-  bt.className=bt.className + "mdc-fab--exited"
-  dv.className="offbut"
+function hideFabButt(bt: HTMLElement) {
+  bt.className="mdc-fab--exited"
 }
 

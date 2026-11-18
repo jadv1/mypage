@@ -124,33 +124,15 @@
         }
     }
     </mat-card-content>
-<!-- <button type="button" (click)="scrollToTop()" [disabled]="scrollOffset() === 0">
-Back to top
-</button> -->
 </mat-card>    
-    <!-- <div id="testdiv" (scroll)="onScroll($event)"></div> -->
-     
-    <!-- <div class="offbut"> -->
-    <div id="fabdiv1" [class.offbut]="offbut">        
-        <button id="fabbutt1" class="posfixed mdc-fab" mdc-fab--exited (click)="showUp()">
-        <span class="mat-mdc-button-persistent-ripple mdc-fab__ripple"></span>
-        <span class="mdc-button__label">
-            <mat-icon class="matjadv mat-icon">arrow_upward</mat-icon>
-        </span>
-        <span class="mat-focus-indicator"></span>
-        <span class="mat-mdc-button-touch-target"></span>
-        <span class="mat-ripple mat-mdc-button-ripple"></span>
-        </button>
-    </div>
-     
-    <div class="offbut">
-        <button class="posfixed mdc-fab" (click)="showUp()">
-            <span class="mat-mdc-button-persistent-ripple mdc-fab__ripple"></span>
-            <span class="mdc-button__label">
-                <mat-icon class="matjadv mat-icon">arrow_upward</mat-icon>
-            </span>
-            <span class="mat-focus-indicator"></span>
-            <span class="mat-mdc-button-touch-target"></span>
-            <span class="mat-ripple mat-mdc-button-ripple"></span>
-        </button>        
-    </div>
+<button id="fabbutt1" class="posfixed mdc-fab offbut" mdc-fab--exited (click)="goTop()">
+    
+    <span class="mat-mdc-button-persistent-ripple mdc-fab__ripple"></span>
+    <span class="mdc-button__label">
+        <mat-icon class="matjadv mat-icon">arrow_upward</mat-icon>
+    </span>
+    <span class="mat-focus-indicator"></span>
+    <span class="mat-mdc-button-touch-target"></span>
+    <span class="mat-ripple mat-mdc-button-ripple"></span>                
+    
+</button>
