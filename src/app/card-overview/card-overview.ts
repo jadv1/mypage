@@ -44,13 +44,10 @@ export class CardOverview implements OnInit, AfterViewInit  {
         e.preventDefault()
         
         if(e.view!=null){
-           var screenArea = e.view?.outerWidth * e.view?.outerHeight / 1000           
+           var screenArea = e.view?.outerWidth * e.view?.outerHeight / 1000      
+           //Depending on the device, how soon the FAB will show     
            if(screenArea>1900){
-
-              yheight = 1100;
-              // console.log("screenArea "+screenArea)
-              // console.log("yheight "+yheight)
-              // console.log("e.layerY " +e.layerY)
+              yheight = 1100;              
             }
             else if(screenArea>900){              
               yheight = 700;
