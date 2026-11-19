@@ -127,14 +127,14 @@ mat-tab-header{
   background-color: var(--mat-sys-surface);
 }
 
-.gridR{  
+#gridR{  
   margin-right: 15em;   
 }
-.gridL{
+#gridL{
   width: 48em;  
 }
 
-.gridL, .gridR{
+#gridL, #gridR{
   // background-color: rgb(237, 235, 235);
   height: 100%;
 }
@@ -306,13 +306,13 @@ address{
   app-expansion-overview {
     width: 26.3em;    
   };
-  .gridR{
+  #gridR{
     width: 169em;
   };
-  .gridL{
+  #gridL{
     width: 47.5em
   };
-  .gridLx{      
+  #gridLx{      
     display: none !important;
   };
   .posfixed{
@@ -327,10 +327,10 @@ address{
   .gridMain {
     width: 85.5em;
   };
-  .gridL{
+  #gridL{
     width: 41em;
   };
-  .gridR{
+  #gridR{
     width: 154em;
     margin-right: 7em;
   };
@@ -346,14 +346,8 @@ address{
   mat-tab-header{
     width: 700px;  
   };
-  .gridR{
+  #gridR{
     width: 674px;
-  };  
-  .gridL{      
-    display: none !important
-  };  
-  .gridLx{      
-    display: block !important
   };
   div.gridMain{  
     height: 100%;
@@ -373,10 +367,7 @@ address{
   };
   .posfixed{
     right: 37px;    
-  }  
-  // .offbut{
-  //     display: block;
-  // }  
+  }    
 }
 
 // When a screen width is 460dp or less, the container of a default FAB (56dp) should transform into the mini size (40dp).
@@ -385,6 +376,15 @@ address{
     width: 40px;
     height: 40px;
   }  
+}
+
+@media screen and (max-width:950px){   
+  #gridL{      
+    display: none !important
+  };  
+  #gridLx{      
+    display: block !important
+  };
 }
 
 .btSubmenuDB{

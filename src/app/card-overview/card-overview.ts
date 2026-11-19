@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import {UpperCasePipe}  from '@angular/common'
 import { AuxFunc } from '../pages/aux-func/aux-func';
@@ -19,16 +19,9 @@ export class CardOverview implements OnInit, AfterViewInit  {
   titleh1 = constDB.topicagre
   arrmov: Number[] = [];
   
-  @ViewChild('goUp', {static: false}) 
-  contentPage!: ElementRef;
-  
-  @ViewChild('titleh1', {static: false}) 
-  contentPageh1!: ElementRef;
-
   arr3D= [[[]],[[]],[[]]];
   
-  ngOnInit():void{
-    
+  ngOnInit():void{    
     this.printMainTables()
     this.printTablRes()    
     this.pointerMoveEv()
@@ -44,12 +37,26 @@ export class CardOverview implements OnInit, AfterViewInit  {
     const bt = document.getElementById("fabbutt1");
     
     // layerY R:[0-2440]
-    let yheight = 1000;
+    let yheight = 500;    
 
     if(el1!=null){
       el1.addEventListener("pointermove", (e) => { 
         e.preventDefault()
         
+        if(e.view!=null){
+           var screenArea = e.view?.outerWidth * e.view?.outerHeight / 1000           
+           if(screenArea>1900){
+
+              yheight = 1100;
+              // console.log("screenArea "+screenArea)
+              // console.log("yheight "+yheight)
+              // console.log("e.layerY " +e.layerY)
+            }
+            else if(screenArea>900){              
+              yheight = 700;
+           }
+        }
+
         if(bt!=null){
           (e.layerY>yheight)?showFabButt(bt):hideFabButt(bt)
         }
@@ -63,18 +70,16 @@ export class CardOverview implements OnInit, AfterViewInit  {
         // console.log("movementX")
         // console.log(event.movementX)
         // console.log(event.movementY)
-        // console.log("offsetX")
-        // console.log(event.offsetX)
+        // console.log("offsetX")        
         // console.log(event.offsetY)
-        // console.log("pageX")
-        // console.log(event.pageX)
-        // console.log(event.pageY)
-        // console.log("screenX")
-        // console.log(event.screenX)
-        // console.log(event.screenY)
+        // console.log("pageX")        
+        // console.log(e.view?.outerWidth)
+        // console.log(e.view?.outerHeight)
+        // console.log("screenX")        
+        // console.log(e.screenY)
         // console.log("x")
-        // console.log(event.x)
-        // console.log(event.y)
+        // console.log(e.x)
+        // console.log(e.y)
         
       })
     }
